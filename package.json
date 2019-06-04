@@ -1,9 +1,10 @@
 {
   "scripts": {
     "start": "gulp",
-    "build": "gulp"
+    "build": "gulp build"
   },
   "devDependencies": {
+    "browser-sync": "^2.26.5",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0"
   }

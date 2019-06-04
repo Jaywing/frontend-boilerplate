@@ -1,4 +1,4 @@
-const { series, parallel } = require('gulp');
+const { watch, series, parallel } = require('gulp');
 
 function clean(cb) {
   // body omitted
@@ -20,33 +20,17 @@ function jsTranspile(cb) {
   cb();
 }
 
-function jsBundle(cb) {
-  // body omitted
-  cb();
-}
-
 function jsMinify(cb) {
   // body omitted
   cb();
 }
 
-function livereload(cb) {
-  // body omitted
-  cb();
-}
-
-const watch = series(
+exports.build = series(
   clean,
-  parallel(cssTranspile, jsTranspile),
-  parallel(cssMinify, jsBundle),
-  jsMinify
+  parallel(series(cssTranspile, cssMinify), series(jsTranspile, jsMinify))
 );
 
-const build = series(clean, parallel(cssTranspile, jsTranspile), jsBundle);
-
-// FIXME: start and build
-if (process.env.NODE_ENV === 'production') {
-  exports.default = build;
-} else {
-  exports.default = watch;
-}
+exports.default = function() {
+  watch('src/scss/*.scss', cssTranspile);
+  watch('src/js/*.js', jsTranspile);
+};
