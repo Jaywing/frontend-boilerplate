@@ -1,0 +1,4 @@
+node_modules
+
+# VS Code Local History extension
+.history
