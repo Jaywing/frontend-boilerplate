@@ -1,13 +1,19 @@
-const { watch, series, parallel } = require('gulp');
+const paths = require('../package.json').paths;
+
+const gulp = require('gulp');
 
 function clean(cb) {
   // body omitted
   cb();
 }
 
-function cssTranspile(cb) {
-  // body omitted
-  cb();
+function cssTranspile() {
+  const postcss = require('gulp-postcss');
+
+  return gulp
+    .src(paths.styles.src + '*.scss')
+    .pipe(postcss([require('tailwindcss'), require('autoprefixer')]))
+    .pipe(gulp.dest(paths.styles.dest));
 }
 
 function cssMinify(cb) {
@@ -25,12 +31,15 @@ function jsMinify(cb) {
   cb();
 }
 
-exports.build = series(
+exports.build = gulp.series(
   clean,
-  parallel(series(cssTranspile, cssMinify), series(jsTranspile, jsMinify))
+  gulp.parallel(
+    gulp.series(cssTranspile, cssMinify),
+    gulp.series(jsTranspile, jsMinify)
+  )
 );
 
 exports.default = function() {
-  watch('src/scss/*.scss', cssTranspile);
-  watch('src/js/*.js', jsTranspile);
+  gulp.watch(paths.styles.src, cssTranspile);
+  gulp.watch(paths.scripts.src, jsTranspile);
 };

@@ -1,11 +1,28 @@
 {
+  "main": "gulpfile.js",
+  "paths": {
+    "scripts": {
+      "src": "./src/js/",
+      "dest": "./build/js/"
+    },
+    "styles": {
+      "src": "./src/scss/",
+      "dest": "./build/css/",
+      "tailwindConfig": "./tailwind.js"
+    }
+  },
   "scripts": {
     "start": "gulp",
     "build": "gulp build"
   },
   "devDependencies": {
+    "autoprefixer": "^9.6.0",
     "browser-sync": "^2.26.5",
     "gulp": "^4.0.2",
-    "gulp-cli": "^2.2.0"
+    "gulp-cli": "^2.2.0",
+    "gulp-postcss": "^8.0.0"
+  },
+  "dependencies": {
+    "tailwindcss": "^1.0.3"
   }
 }
