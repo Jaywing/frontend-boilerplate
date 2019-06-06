@@ -9,6 +9,8 @@ function cssTranspile() {
   const cssnano = require('cssnano');
   const tailwindCss = require('tailwindcss');
 
+  // TODO: Add PostCSS config
+
   return gulp
     .src(paths.styles.src + '*.scss')
     .pipe(sourcemaps.init())

@@ -2,6 +2,7 @@ const paths = require('../package.json').paths;
 
 const gulp = require('gulp');
 
+// TASKS
 // const clean = require('./tasks/clean').clean;
 const cssTranspile = require('./tasks/cssTranspile').cssTranspile;
 // const cssMinify = require('./tasks/cssMinify').cssMinify;

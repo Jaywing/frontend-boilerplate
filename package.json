@@ -8,7 +8,7 @@
     "styles": {
       "src": "./src/scss/",
       "dest": "./build/css/",
-      "tailwindConfig": "./tailwind.js"
+      "tailwindConfig": "./tailwind.config.js"
     }
   },
   "scripts": {
