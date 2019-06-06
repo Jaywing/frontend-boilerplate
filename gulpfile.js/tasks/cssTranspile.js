@@ -1,12 +1,27 @@
-const paths = require('../../package.json').paths;
-const gulp = require('gulp');
-
 function cssTranspile() {
+  const gulp = require('gulp');
+  const paths = require('../../package.json').paths;
   const postcss = require('gulp-postcss');
+  const sourcemaps = require('gulp-sourcemaps');
+  const postcssImport = require('postcss-import');
+  const precss = require('precss');
+  const autoprefixer = require('autoprefixer');
+  const cssnano = require('cssnano');
+  const tailwindCss = require('tailwindcss');
 
   return gulp
     .src(paths.styles.src + '*.scss')
-    .pipe(postcss([require('tailwindcss'), require('autoprefixer')]))
+    .pipe(sourcemaps.init())
+    .pipe(
+      postcss([
+        postcssImport(),
+        precss(),
+        tailwindCss(),
+        autoprefixer(),
+        cssnano()
+      ])
+    )
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.styles.dest));
 }
 

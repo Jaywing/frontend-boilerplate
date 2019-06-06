@@ -835,7 +835,7 @@ module.exports = {
   */
 
   options: {
-    prefix: '',
+    prefix: 'u-',
     important: false,
     separator: ':'
   }

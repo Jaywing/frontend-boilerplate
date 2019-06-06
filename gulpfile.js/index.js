@@ -13,15 +13,6 @@ function clean(cb) {
   cb();
 }
 
-// function cssTranspile() {
-//   const postcss = require('gulp-postcss');
-
-//   return gulp
-//     .src(paths.styles.src + '*.scss')
-//     .pipe(postcss([require('tailwindcss'), require('autoprefixer')]))
-//     .pipe(gulp.dest(paths.styles.dest));
-// }
-
 function cssMinify(cb) {
   // body omitted
   cb();
