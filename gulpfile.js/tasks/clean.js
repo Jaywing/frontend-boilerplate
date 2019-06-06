@@ -1,6 +1,5 @@
-function clean(cb) {
-  // body omitted
-  cb();
+function clean() {
+  console.log('clean');
 }
 
 exports.clean = clean;

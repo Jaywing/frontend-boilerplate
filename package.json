@@ -20,7 +20,8 @@
     "browser-sync": "^2.26.5",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
-    "gulp-postcss": "^8.0.0"
+    "gulp-postcss": "^8.0.0",
+    "require-dir": "^1.2.0"
   },
   "dependencies": {
     "tailwindcss": "^1.0.3"
