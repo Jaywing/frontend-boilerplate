@@ -29,6 +29,16 @@ function jsMinify(cb) {
   cb();
 }
 
+function watch() {
+  gulp.watch(paths.styles.src, cssTranspile);
+  gulp.watch(paths.scripts.src, jsTranspile);
+}
+
+exports.cssTranspile = cssTranspile;
+exports.cssMinify = cssMinify;
+exports.jsTranspile = jsTranspile;
+exports.jsMinify = jsMinify;
+
 exports.build = gulp.series(
   clean,
   gulp.parallel(
@@ -37,7 +47,4 @@ exports.build = gulp.series(
   )
 );
 
-exports.default = function() {
-  gulp.watch(paths.styles.src, cssTranspile);
-  gulp.watch(paths.scripts.src, jsTranspile);
-};
+exports.default = watch;
