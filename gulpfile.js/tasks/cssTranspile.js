@@ -2,22 +2,28 @@ function cssTranspile() {
   const gulp = require('gulp');
   const paths = require('../../package.json').paths;
   const postcss = require('gulp-postcss');
+  const rename = require('gulp-rename');
   const sourcemaps = require('gulp-sourcemaps');
 
   return gulp
-    .src(paths.styles.src + '*.scss')
+    .src(paths.css.src + '!(_)*.scss')
     .pipe(sourcemaps.init())
     .pipe(
       postcss([
         require('postcss-import'),
-        require('postcss-nesting'),
-        require('postcss-custom-properties'),
+        require('precss'),
         require('tailwindcss'),
-        require('autoprefixer')
+        require('autoprefixer'),
+        require('cssnano')
       ])
     )
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(
+      rename(function(path) {
+        path.extname = '.css';
+      })
+    )
+    .pipe(sourcemaps.write('maps'))
+    .pipe(gulp.dest(paths.css.dest));
 }
 
 exports.cssTranspile = cssTranspile;

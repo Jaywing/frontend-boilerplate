@@ -1,50 +1,33 @@
 const paths = require('../package.json').paths;
-
 const gulp = require('gulp');
 
-// TASKS
-// const clean = require('./tasks/clean').clean;
+// INDIVIDUAL TASKS
+const clean = require('./tasks/clean').clean;
 const cssTranspile = require('./tasks/cssTranspile').cssTranspile;
-// const cssMinify = require('./tasks/cssMinify').cssMinify;
-// const jsTranspile = require('./tasks/jsTranspile').jsTranspile;
-// const jsMinify = require('./tasks/jsTranspile').jsMinify;
+const htmlTranspile = require('./tasks/htmlTranspile').htmlTranspile;
+const jsTranspile = require('./tasks/jsTranspile').jsTranspile;
 
-function clean(cb) {
-  // body omitted
-  cb();
-}
-
-function cssMinify(cb) {
-  // body omitted
-  cb();
-}
-
-function jsTranspile(cb) {
-  // body omitted
-  cb();
-}
-
-function jsMinify(cb) {
-  // body omitted
-  cb();
-}
-
-function watch() {
-  gulp.watch(paths.styles.src, cssTranspile);
-  gulp.watch(paths.scripts.src, jsTranspile);
-}
-
-exports.cssTranspile = cssTranspile;
-exports.cssMinify = cssMinify;
-exports.jsTranspile = jsTranspile;
-exports.jsMinify = jsMinify;
-
-exports.build = gulp.series(
+// BUILD TASKS
+const build = gulp.series(
   clean,
   gulp.parallel(
-    gulp.series(cssTranspile, cssMinify),
-    gulp.series(jsTranspile, jsMinify)
+    gulp.series(cssTranspile),
+    gulp.series(htmlTranspile),
+    gulp.series(jsTranspile)
   )
 );
 
+// WATCH TASKS
+const watch = () => {
+  gulp.watch(paths.css.src + '*.scss', cssTranspile);
+  gulp.watch(paths.html.src + '*.njk', htmlTranspile);
+  gulp.watch(paths.js.src + '*.js', jsTranspile);
+};
+
+// EXPORTED TASKS
+exports.clean = clean;
+exports.cssTranspile = cssTranspile;
+exports.htmlTranspile = htmlTranspile;
+exports.jsTranspile = jsTranspile;
+exports.build = build;
 exports.default = watch;

@@ -1,0 +1,17 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@import "1_settings/__settings.scss";
+
+@import "2_tools/__tools.scss";
+
+@import "3_generic/__generic.scss";
+
+@import "4_elements/__elements.scss";
+
+@import "5_layout/__layout.scss";
+
+@import "6_components/__components.scss";

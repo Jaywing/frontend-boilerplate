@@ -1,13 +1,18 @@
 {
   "main": "gulpfile.js",
   "paths": {
-    "scripts": {
-      "src": "./src/js/",
-      "dest": "./build/js/"
+    "build": "./build",
+    "css": {
+      "src": "./src/css/**/",
+      "dest": "./build/_assets/css/"
     },
-    "styles": {
-      "src": "./src/scss/",
-      "dest": "./build/css/"
+    "html": {
+      "src": "./src/html/**/",
+      "dest": "./build/"
+    },
+    "js": {
+      "src": "./src/js/**/",
+      "dest": "./build/_assets/js/"
     }
   },
   "scripts": {
@@ -16,12 +21,17 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.6.0",
+    "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-nunjucks": "^5.0.0",
     "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
-    "postcss-custom-properties": "^8.0.10",
+    "gulp-util": "^3.0.8",
     "postcss-import": "^12.0.1",
-    "postcss-nesting": "^7.0.0",
+    "postcss-scss": "^2.0.0",
+    "precss": "^4.0.0",
     "tailwindcss": "^1.0.3"
   }
 }
