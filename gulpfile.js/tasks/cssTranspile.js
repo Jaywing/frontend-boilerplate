@@ -9,13 +9,18 @@ function cssTranspile() {
     .src(paths.css.src + '!(_)*.scss')
     .pipe(sourcemaps.init())
     .pipe(
-      postcss([
-        require('postcss-import'),
-        require('precss'),
-        require('tailwindcss'),
-        require('autoprefixer'),
-        require('cssnano')
-      ])
+      postcss(
+        [
+          require('postcss-import'),
+          require('precss'),
+          require('tailwindcss'),
+          require('autoprefixer'),
+          require('cssnano')
+        ],
+        {
+          syntax: require('postcss-scss')
+        }
+      )
     )
     .pipe(
       rename(function(path) {
