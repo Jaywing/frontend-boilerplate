@@ -1,4 +1,4 @@
-function clean(cb) {
+function clean() {
   const gulp = require('gulp');
   const paths = require('../../package.json').paths;
   const clean = require('gulp-clean');
