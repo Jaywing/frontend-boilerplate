@@ -1,4 +1,4 @@
-function jsTranspile(cb) {
+function jsTranspile() {
   const gulp = require('gulp');
   const paths = require('../../package.json').paths;
   const sourcemaps = require('gulp-sourcemaps');
