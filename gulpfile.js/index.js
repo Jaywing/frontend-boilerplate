@@ -27,12 +27,15 @@ const watch = () => {
     done();
   }
 
-  gulp.watch(paths.css.src + '*.scss', cssTranspile);
+  gulp.watch(
+    paths.css.src + '*.scss',
+    gulp.series(cssTranspile, browserReload)
+  );
   gulp.watch(
     paths.html.src + '*.njk',
     gulp.series(htmlTranspile, browserReload)
   );
-  gulp.watch(paths.js.src + '*.js', jsTranspile);
+  gulp.watch(paths.js.src + '*.js', gulp.series(jsTranspile, browserReload));
 };
 
 // EXPORTED TASKS
