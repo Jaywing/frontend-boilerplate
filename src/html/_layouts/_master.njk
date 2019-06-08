@@ -1,48 +1,63 @@
+{% from "_macros/_seo.njk" import Seo %}
+{% from "_macros/_open-graph.njk" import OpenGraph %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title></title>
-    <meta name="description" content="">
+    {{ Seo({
+      "seoTitle": "Page title",
+      "seoDescription": "Page description"
+    }) }}
 
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    {{ OpenGraph({
+      "ogTitle": "Page title",
+      "ogDescription": "Page description",
+      "ogUrl": "",
+      "ogImageSrc": "dfdf",
+      "ogImageWidth": "1200",
+      "ogImageHeight": "630"
+    }) }}
 
     <link rel="stylesheet" type="text/css" href="/_assets/css/index.css">
   </head>
 
   <body class="l-page" id="top">
-    <div id="cookies-alert" class="c-cookies-alert">
-      <p>This site uses cookies to make sure you have the best experience.
-        <a href="#">Read our cookie policy</a>
-      </p>
-      <button id="close-cookies-alert" role="button">Close</button>
-    </div>
+    {% block cookie_alert %}
+      <div id="cookies-alert" class="c-cookies-alert">
+        <p>This site uses cookies to make sure you have the best experience.
+          <a href="#">Read our cookie policy</a>
+        </p>
+        <button id="close-cookies-alert" role="button">Close</button>
+      </div>
+    {% endblock %}
 
-    <div class="u-sr-only">
-      <a href="#content">Skip to Main Content</a>
-    </div>
+    {% block skip_link %}
+      <div class="u-sr-only">
+        <a href="#content">Skip to Main Content</a>
+      </div>
+    {% endblock %}
 
-    <header class="l-page__header c-header"></header>
+    <header class="l-page__header c-header">
+      {% block header %}{% endblock %}
+    </header>
 
     <main id="content">
-      <div class="l-container">
-        {% block main %}{% endblock %}
-      </div>
+      {% block main %}{% endblock %}
     </main>
 
     <footer class="l-page__footer c-footer">
-      <div class="l-container">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, aperiam?</p>
-      </div>
+      {% block footer %}
+        <div class="l-container">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, aperiam?</p>
+        </div>
+      {% endblock %}
     </footer>
 
-    <script src="/_assets/js/index.js"></script>
+    {% block scripts %}
+      <script src="/_assets/js/index.js"></script>
+    {% endblock %}
   </body>
 </html>
