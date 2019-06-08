@@ -1,0 +1,16 @@
+{% macro Seo(data) -%}
+
+  {%- if data.seoTitle -%}
+    <title>{{ data.seoTitle }}</title>
+  {%- endif -%}
+
+  {% if data.seoDescription -%}
+    <meta name="description" content="{{ data.seoDescription }}">
+  {%- endif -%}
+
+{%- endmacro %}
+
+{{ Seo({
+  "seoTitle": "Page title",
+  "seoDescription": "Page description"
+}) }}
