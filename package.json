@@ -19,7 +19,7 @@
   "homepage": "https://bitbucket.org/joe_diton/buildsystem#readme",
   "main": "gulpfile.js",
   "paths": {
-    "build": "./build",
+    "build": "./build/",
     "css": {
       "src": "./src/css/**/",
       "dest": "./build/_assets/css/"
@@ -51,6 +51,7 @@
     "gulp-clean": "^0.4.0",
     "gulp-nunjucks": "^5.0.0",
     "gulp-postcss": "^8.0.0",
+    "gulp-purgecss": "^1.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
