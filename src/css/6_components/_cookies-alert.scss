@@ -1,0 +1,14 @@
+.c-cookies-alert {
+  @apply rounded;
+  @apply bg-gray-700;
+  @apply text-white;
+  @apply p-4;
+  @apply mr-4;
+  @apply mb-4;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 100%;
+}

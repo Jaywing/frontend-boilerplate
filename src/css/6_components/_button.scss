@@ -1,0 +1,13 @@
+.c-button {
+  @apply bg-black;
+  @apply text-white;
+  @apply px-4;
+  @apply py-2;
+  @apply rounded;
+
+  border: none;
+
+  &:hover {
+    @apply bg-gray-700;
+  }
+}
