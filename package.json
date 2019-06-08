@@ -1,4 +1,21 @@
 {
+  "name": "front-end-build-pack",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/joe_diton/buildsystem.git"
+  },
+  "keywords": [
+    "gulp",
+    "tailwind",
+    "react",
+    "postcss",
+    "nunjucks"
+  ],
+  "author": "Joe Diton",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/joe_diton/buildsystem#readme",
   "main": "gulpfile.js",
   "paths": {
     "build": "./build",
