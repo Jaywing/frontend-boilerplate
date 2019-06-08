@@ -15,12 +15,19 @@
       "dest": "./build/_assets/js/"
     }
   },
+  "browserSync": {
+    "open": false,
+    "server": {
+      "baseDir": "./build"
+    }
+  },
   "scripts": {
     "start": "gulp",
     "build": "gulp build"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.0",
+    "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",

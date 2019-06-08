@@ -19,8 +19,19 @@ const build = gulp.series(
 
 // WATCH TASKS
 const watch = () => {
+  const server = require('browser-sync').create();
+  server.init(require('../package.json').browserSync);
+
+  function browserReload(done) {
+    server.reload();
+    done();
+  }
+
   gulp.watch(paths.css.src + '*.scss', cssTranspile);
-  gulp.watch(paths.html.src + '*.njk', htmlTranspile);
+  gulp.watch(
+    paths.html.src + '*.njk',
+    gulp.series(htmlTranspile, browserReload)
+  );
   gulp.watch(paths.js.src + '*.js', jsTranspile);
 };
 
