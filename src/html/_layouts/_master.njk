@@ -2,7 +2,7 @@
 {% from "_macros/_open-graph.njk" import OpenGraph %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="u-h-full">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,41 +16,47 @@
       "ogTitle": "Page title",
       "ogDescription": "Page description",
       "ogUrl": "",
-      "ogImageSrc": "dfdf",
+      "ogImageSrc": "",
       "ogImageWidth": "1200",
       "ogImageHeight": "630"
     }) }}
 
-    <link rel="stylesheet" type="text/css" href="/_assets/css/index.css">
+    {% block styles %}
+      <link rel="stylesheet" type="text/css" href="/_assets/css/index.css">
+    {% endblock %}
   </head>
 
-  <body class="l-page" id="top">
+  <body class="u-flex u-flex-col u-min-h-full" id="top">
     {% block cookie_alert %}
       <div id="cookies-alert" class="c-cookies-alert">
         <p>This site uses cookies to make sure you have the best experience.
           <a href="#">Read our cookie policy</a>
         </p>
-        <button id="close-cookies-alert" role="button">Close</button>
+        <button id="close-cookies-alert" class="c-button" role="button">Close</button>
       </div>
     {% endblock %}
 
     {% block skip_link %}
-      <div class="u-sr-only">
+      <div class="u-hidden">
         <a href="#content">Skip to Main Content</a>
       </div>
     {% endblock %}
 
-    <header class="l-page__header c-header">
-      {% block header %}{% endblock %}
+    <header class="u-bg-black u-text-white">
+      {% block header %}
+        <div class="u-container u-mx-auto u-p-4">
+          <a href="/">Logo</a>
+        </div>
+      {% endblock %}
     </header>
 
     <main id="content">
       {% block main %}{% endblock %}
     </main>
 
-    <footer class="l-page__footer c-footer">
+    <footer class="u-mt-auto u-bg-black u-text-white">
       {% block footer %}
-        <div class="l-container">
+        <div class="u-container u-mx-auto u-p-4">
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, aperiam?</p>
         </div>
       {% endblock %}
