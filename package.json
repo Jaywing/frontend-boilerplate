@@ -11,7 +11,8 @@
     "tailwind",
     "react",
     "postcss",
-    "nunjucks"
+    "nunjucks",
+    "webpack"
   ],
   "author": "Joe Diton",
   "license": "ISC",
