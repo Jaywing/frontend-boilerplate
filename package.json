@@ -19,24 +19,24 @@
   "homepage": "https://bitbucket.org/joe_diton/buildsystem#readme",
   "main": "gulpfile.js",
   "paths": {
-    "build": "./build/",
+    "build": "./_build/",
     "css": {
-      "src": "./src/css/**/",
-      "dest": "./build/_assets/css/"
+      "src": "./_src/css/**/",
+      "dest": "./_build/_assets/css/"
     },
     "html": {
-      "src": "./src/html/**/",
-      "dest": "./build/"
+      "src": "./_src/html/**/",
+      "dest": "./_build/"
     },
     "js": {
-      "src": "./src/js/**/",
-      "dest": "./build/_assets/js/"
+      "src": "./_src/js/**/",
+      "dest": "./_build/_assets/js/"
     }
   },
   "browserSync": {
     "open": false,
     "server": {
-      "baseDir": "./build"
+      "baseDir": "./_build"
     }
   },
   "scripts": {
