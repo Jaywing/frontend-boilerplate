@@ -10,47 +10,50 @@ function cssTranspile() {
   const tailwindcss = require('tailwindcss');
   const util = require('gulp-util');
 
-  return gulp
-    .src(paths.css.src + '!(_)*.scss')
-    .pipe(flags.maps ? sourcemaps.init() : util.noop())
-    .pipe(
-      postcss(
-        [
-          require('postcss-import'),
-          require('precss'),
-          tailwindcss('./gulpfile.js/config/tailwind.js'),
-          require('autoprefixer')
-        ],
-        {
-          syntax: require('postcss-scss')
-        }
+  return (
+    gulp
+      .src(paths.css.src + '!(_)*.scss')
+      .pipe(flags.maps ? sourcemaps.init() : util.noop())
+      .pipe(
+        postcss(
+          [
+            require('postcss-import'),
+            require('precss'),
+            tailwindcss('./gulpfile.js/config/tailwind.js'),
+            require('autoprefixer')
+          ],
+          {
+            syntax: require('postcss-scss')
+          }
+        )
       )
-    )
-    .pipe(flags.minify ? cssnano() : util.noop())
-    .pipe(
-      flags.purge
-        ? purgecss({
-            content: [paths.build + '**/*.html', paths.build + '**/*.js'],
-            extractors: [
-              {
-                extractor: class TailwindExtractor {
-                  static extract(content) {
-                    return content.match(/[A-Za-z0-9-_:/]+/g) || [];
-                  }
-                },
-                extensions: ['html', 'js']
-              }
-            ]
-          })
-        : util.noop()
-    )
-    .pipe(
-      rename(function(path) {
-        path.extname = '.css';
-      })
-    )
-    .pipe(flags.maps ? sourcemaps.write('maps') : util.noop())
-    .pipe(gulp.dest(paths.css.dest));
+      .pipe(flags.minify ? cssnano() : util.noop())
+      // FIXME: PurgeCSS error: Unexpected '/'. Escaping special characters with \ may help.
+      .pipe(
+        flags.purge
+          ? purgecss({
+              content: [paths.build + '**/*.html', paths.build + '**/*.js'],
+              extractors: [
+                {
+                  extractor: class TailwindExtractor {
+                    static extract(content) {
+                      return content.match(/[A-Za-z0-9-_:/]+/g) || [];
+                    }
+                  },
+                  extensions: ['html', 'js']
+                }
+              ]
+            })
+          : util.noop()
+      )
+      .pipe(
+        rename(function(path) {
+          path.extname = '.css';
+        })
+      )
+      .pipe(flags.maps ? sourcemaps.write('maps') : util.noop())
+      .pipe(gulp.dest(paths.css.dest))
+  );
 }
 
 exports.cssTranspile = cssTranspile;
