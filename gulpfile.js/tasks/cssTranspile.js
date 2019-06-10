@@ -5,6 +5,7 @@ function cssTranspile() {
   const purgecss = require('gulp-purgecss');
   const rename = require('gulp-rename');
   const sourcemaps = require('gulp-sourcemaps');
+  const tailwindcss = require('tailwindcss');
 
   return gulp
     .src(paths.css.src + '!(_)*.scss')
@@ -14,7 +15,7 @@ function cssTranspile() {
         [
           require('postcss-import'),
           require('precss'),
-          require('tailwindcss'),
+          tailwindcss('gulpfile.js/config/tailwind.js'),
           require('autoprefixer'),
           require('cssnano')
         ],
@@ -25,10 +26,14 @@ function cssTranspile() {
     )
     .pipe(
       purgecss({
-        content: [paths.build + '**/*.html'],
+        content: [paths.build + '**/*.html', paths.build + '**/*.js'],
         extractors: [
           {
-            extractor: TailwindExtractor,
+            extractor: class {
+              static extract(content) {
+                return content.match(/[A-z0-9-:\/]+/g) || [];
+              }
+            },
             extensions: ['html', 'js']
           }
         ]
@@ -41,12 +46,6 @@ function cssTranspile() {
     )
     .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest(paths.css.dest));
-}
-
-class TailwindExtractor {
-  static extract(content) {
-    return content.match(/[A-z0-9-:\/]+/g) || [];
-  }
 }
 
 exports.cssTranspile = cssTranspile;
