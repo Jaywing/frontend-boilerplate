@@ -40,7 +40,7 @@
     }
   },
   "scripts": {
-    "start": "gulp",
+    "start": "gulp --maps",
     "build": "gulp build"
   },
   "devDependencies": {
