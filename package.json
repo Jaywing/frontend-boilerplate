@@ -41,7 +41,7 @@
   },
   "scripts": {
     "start": "gulp --maps",
-    "build": "gulp build"
+    "build": "gulp build --minify"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.0",
