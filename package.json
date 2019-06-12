@@ -45,6 +45,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.6.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
@@ -58,6 +60,8 @@
     "postcss-import": "^12.0.1",
     "postcss-scss": "^2.0.0",
     "precss": "^4.0.0",
-    "tailwindcss": "^1.0.3"
+    "tailwindcss": "^1.0.3",
+    "webpack": "^4.33.0",
+    "webpack-dev-middleware": "^3.7.0"
   }
 }
