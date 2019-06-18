@@ -5,9 +5,9 @@ let config = {
   entry: './index.js',
   output: {
     filename: './index.js',
-    path: path.resolve(__dirname, '../_build/js')
+    path: path.resolve(__dirname, '../../_build/js')
   },
-  context: path.resolve(__dirname, '../_build/js')
+  context: path.resolve(__dirname, '../../_build/js')
 };
 
 function scripts() {
