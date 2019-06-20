@@ -10,7 +10,7 @@ function jsTranspile() {
   const util = require("gulp-util");
 
   return gulp
-    .src(paths.js.src + "*.js")
+    .src(paths.js.src + "**/*.js")
     .pipe(flags.maps ? sourcemaps.init() : util.noop())
     .pipe(eslint())
     .pipe(eslint.format())
