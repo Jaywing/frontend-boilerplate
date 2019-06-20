@@ -19,9 +19,10 @@ const build = gulp.series(
 
 // WATCH TASKS
 const watch = () => {
-  const server = require("browser-sync").create();
+  build();
 
-  gulp.series(build, server.init(require("../package.json").browserSync));
+  const server = require("browser-sync").create();
+  server.init(require("../package.json").browserSync);
 
   function browserReload(done) {
     server.reload();
