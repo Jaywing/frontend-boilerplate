@@ -17,7 +17,7 @@ function jsTranspile() {
     .pipe(eslint.failAfterError())
     .pipe(
       babel({
-        presets: ["@babel/env"]
+        presets: ["@babel/preset-env", "@babel/preset-react"]
       })
     )
     .pipe(concat("index.js"))
