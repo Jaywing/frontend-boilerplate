@@ -71,8 +71,6 @@
     "prettier": "^1.18.2",
     "prettier-eslint": "^9.0.0",
     "prettier-eslint-cli": "^5.0.0",
-    "tailwindcss": "^1.0.3",
-    "webpack": "^4.33.0",
-    "webpack-dev-middleware": "^3.7.0"
+    "tailwindcss": "^1.0.3"
   }
 }
