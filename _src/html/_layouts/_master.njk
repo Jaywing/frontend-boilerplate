@@ -1,5 +1,6 @@
-{% from "_macros/_seo.njk" import Seo %}
 {% from "_macros/_open-graph.njk" import OpenGraph %}
+{% from "_macros/_seo.njk" import Seo %}
+{% from "_macros/_twitter-card.njk" import TwitterCard %}
 
 <!DOCTYPE html>
 <html lang="en" class="u-h-full">
@@ -15,10 +16,19 @@
     {{ OpenGraph({
       "ogTitle": "Page title",
       "ogDescription": "Page description",
-      "ogUrl": "",
-      "ogImageSrc": "",
+      "ogUrl": "https://",
+      "ogImageSrc": "https://",
       "ogImageWidth": "1200",
       "ogImageHeight": "630"
+    }) }}
+
+    {{ TwitterCard({
+      "twitterCard": "",
+      "twitterSite": "@username",
+      "twitterTitle": "Page title",
+      "twitterDescription": "Page description",
+      "twitterImage": "https://",
+      "twitterImageAlt": ""
     }) }}
 
     {% block styles %}
