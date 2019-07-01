@@ -1,22 +1,23 @@
 {% macro TwitterCard(data) -%}
 
-  {# REQUIRED #}
+  {# REQUIRED: If an og:type, og:title and og:description exist in the markup but twitter:card is absent, then a summary card may be rendered. #}
   {%- if data.twitterCard -%}
     <meta name="twitter:card" content="{{ data.twitterCard }}">
   {% else %}
     <meta name="twitter:card" content="summary">
   {%- endif -%}
 
-  {# The Twitter @username the card should be attributed to #}
+  {# The Twitter @username the card should be attributed to. #}
   {%- if data.twitterSite -%}
     <meta name="twitter:site" content="{{ data.twitterSite }}">
   {%- endif -%}
 
-  {# REQUIRED #}
+  {# Defaults to og:title if present. #}
   {% if data.twitterTitle -%}
     <meta name="twitter:title" content="{{ data.twitterTitle }}">
   {%- endif -%}
 
+  {# Defaults to og:description if present. #}
   {% if data.twitterDescription -%}
     <meta name="twitter:description" content="{{ data.twitterDescription }}">
   {%- endif -%}
