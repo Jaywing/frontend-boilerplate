@@ -29,7 +29,7 @@
       "dest": "./_build/"
     },
     "js": {
-      "src": "./_src/js/",
+      "src": "./_src/js/**/",
       "dest": "./_build/_assets/js/"
     }
   },
