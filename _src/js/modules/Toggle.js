@@ -1,7 +1,6 @@
 function Toggle(el, options) {
   const optionsDefaults = {
-    activeClass: "is-active",
-    target: ""
+    activeClass: "is-active"
   };
 
   options = Object.assign(optionsDefaults, options);
@@ -17,7 +16,7 @@ function Toggle(el, options) {
       if (target) {
         target.classList.toggle(options.activeClass);
       } else {
-        console.error("Can't find target");
+        console.error("Can't find target element");
       }
     } else {
       el.classList.toggle(options.activeClass);
