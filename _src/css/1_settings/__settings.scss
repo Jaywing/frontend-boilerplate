@@ -1,0 +1,9 @@
+// CORE SETTINGS
+// These settings can be referenced in more specific settings
+@import "colors.scss";
+@import "fonts.scss";
+@import "spacing.scss";
+
+// MORE SPECIFIC SETTINGS
+@import "elements.scss";
+@import "layout.scss";

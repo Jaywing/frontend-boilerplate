@@ -1,0 +1,24 @@
+.l-container {
+  max-width: 100%;
+  width: $container-max-width;
+  margin: 0 auto;
+  padding-left: $spacer;
+  padding-right: $spacer;
+}
+
+@each $key, $value in $breakpoints {
+  @include breakpoint($key) {
+    @if map-has-key($container-gutters, $key) {
+      .l-container {
+        padding-left: map-get($container-gutters, $key);
+        padding-right: map-get($container-gutters, $key);
+      }
+    }
+
+    @if map-has-key($container-fixed-widths, $key) {
+      .l-container--fixed {
+        width: map-get($container-fixed-widths, $key);
+      }
+    }
+  }
+}

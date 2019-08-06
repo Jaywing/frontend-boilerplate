@@ -1,0 +1,28 @@
+// GRID
+$grid-columns: 12;
+$grid-rows: 2;
+$grid-gutters: $spacer;
+
+// BREAKPOINTS
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// CONTAINERS
+
+$container-max-width: 1140px;
+
+$container-fixed-widths: (
+  sm: 500px,
+  md: 700px,
+  lg: 940px,
+  xl: 1140px
+);
+
+$container-gutters: (
+  sm: $spacer * 2
+);

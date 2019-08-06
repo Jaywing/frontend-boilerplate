@@ -1,0 +1,32 @@
+// HTML
+$html-font-family: $font-primary;
+$html-line-height: 1.15;
+
+// BODY
+$body-bg-color: $color-light;
+$body-color: $color-dark;
+$body-font-family: $font-primary;
+$body-font-size: 16px;
+$body-font-weight: normal;
+$body-line-height: 1.5;
+
+// HEADINGS
+$headings-margin-top: 0;
+$headings-margin-bottom: $spacer;
+
+// PARAGRAPHS
+$paragraph-margin-top: 0;
+$paragraph-margin-bottom: $spacer;
+
+// LINKS
+$link-color: $color-dark;
+$link-hover-color: darken($color-dark, 10%);
+
+// LISTS
+$list-margin-top: 0;
+$list-margin-bottom: $spacer;
+
+// ADDRESS
+$address-margin-bottom: $spacer;
+
+$dt-font-weight: normal;

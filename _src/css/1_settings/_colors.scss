@@ -1,0 +1,44 @@
+// COLOURS
+$color-teal: #a3d9cf;
+$color-light: #fff;
+$color-dark: #222;
+
+// BRAND COLOUR DEFINITIONS
+$color-primary: $color-teal;
+$color-secondary: $color-dark;
+$color-tertiary: $color-light;
+
+// BRAND COLOURS MAP
+// We don't need to include primary as we use that for definitions.
+// This variable is used to loop though the rest of the colours.
+$brand-colors: (
+  secondary: (
+    main-color: $color-secondary,
+    contrast-color: $color-light
+  ),
+  tertiary: (
+    main-color: $color-tertiary,
+    contrast-color: $color-dark
+  )
+);
+
+// STATUS COLOUR DEFINITIONS
+$color-success: green;
+$color-warning: orange;
+$color-danger: red;
+
+// STATUS COLOURS MAP
+$status-colors: (
+  success: (
+    main-color: $color-success,
+    contrast-color: $color-light
+  ),
+  warning: (
+    main-color: $color-warning,
+    contrast-color: $color-light
+  ),
+  danger: (
+    main-color: $color-danger,
+    contrast-color: $color-dark
+  )
+);
