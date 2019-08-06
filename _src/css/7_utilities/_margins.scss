@@ -1,46 +1,29 @@
-// SETTINGS
-
-$margin-sides: 't', 'r', 'b', 'l' !default;
-$spacer: 1rem !default;
-$spacing: (
-  single: $spacer,
-  double: $spacer * 2,
-  triple: $spacer * 3
-) !default;
-
-// MIXINS
-
-@mixin margin($side, $name, $size, $breakpoint: '') {
-  $breakpoint-suffix: if($breakpoint == '', '', '\\@'+ $breakpoint);
-
-  .u-margin-#{$side}-#{$name + $breakpoint-suffix} {
-    margin-#{$side}: $size !important;
-  }
+.u-m-auto {
+  margin: auto;
 }
 
-// LOOP THROUGH MARGIN PROPERTIES AND RUN MIXINS FOR EACH
-
-@each $side in $margin-sides {
-  @include margin($side, auto, auto);
-  @each $spacing-key, $spacing-value in $spacing {
-    @include margin($side, $spacing-key + '-spacing', $spacing-value); //
-  }
+.u-mt-auto {
+  margin-top: auto;
 }
 
-// LOOP THROUGH BREAKPOINTS, THEN MARGIN PROPERTIES AND RUN MIXINS FOR EACH
+.u-mr-auto {
+  margin-right: auto;
+}
 
-@each $breakpoint-key, $breakpoint-value in $breakpoints {
-  @include breakpoint($breakpoint-key) {
-    @each $side in $margin-sides {
-      @include margin($side, auto, auto, $breakpoint-key);
-      @each $spacing-key, $spacing-value in $spacing {
-        @include margin(
-          $side,
-          $spacing-key + '-spacing',
-          $spacing-value,
-          $breakpoint-key
-        );
-      }
-    }
-  }
+.u-mb-auto {
+  margin-bottom: auto;
+}
+
+.u-ml-auto {
+  margin-left: auto;
+}
+
+.u-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.u-my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
