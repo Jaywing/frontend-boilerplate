@@ -1,4 +1,4 @@
-function Toggle(el, options) {
+function Toggler(el, options) {
   const optionsDefaults = {
     activeClass: "is-active"
   };
