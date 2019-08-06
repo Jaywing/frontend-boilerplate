@@ -36,26 +36,26 @@
     {% endblock %}
   </head>
 
-  <body class="c-page" id="top">
+  <body class="l-page" id="top">
     {% block cookie_alert %}
-      <div id="cookies-alert" class="c-cookies-alert is-active">
+      <div id="cookies-alert" class="c-cookies-alert">
         <p>This site uses cookies to make sure you have the best experience.
           <a href="#">Read our cookie policy</a>
         </p>
 
-        <button class="c-btn" role="button" data-js="Toggle" data-js-options='[{"target": "#cookies-alert"}]'>Close</button>
+        <button class="c-btn" role="button" data-js="Toggler" data-js-options='[{"target": "#cookies-alert"}]'>Close</button>
       </div>
     {% endblock %}
 
     {% block skip_link %}
-      <div class="u-hidden">
+      <div class="u-sr-only">
         <a href="#content">Skip to Main Content</a>
       </div>
     {% endblock %}
 
     <header class="c-header">
       {% block header %}
-        <div class="u-container u-flex">
+        <div class="l-container u-flex">
           <a href="/"><img src="//via.placeholder.com/100x30?text=Logo" alt="Logo"></a>
           <a href="/lab/" class="u-ml-auto">Lab</a>
         </div>
@@ -68,7 +68,7 @@
 
     <footer class="c-footer u-mt-auto">
       {% block footer %}
-        <div class="u-container">
+        <div class="l-container">
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, aperiam?</p>
         </div>
       {% endblock %}
