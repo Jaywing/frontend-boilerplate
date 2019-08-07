@@ -1,29 +1,15 @@
-// SETTINGS
-
-$text-align-values: 'left', 'center', 'right', 'justify' !default;
-
-// MIXINS
-
-@mixin text-align($text-align-value, $breakpoint: '') {
-  $breakpoint-suffix: if($breakpoint == '', '', '\\@'+ $breakpoint);
-
-  .u-text-#{$text-align-value + $breakpoint-suffix} {
-    text-align: #{$text-align-value} !important;
-  }
+.u-text-left {
+  text-align: left;
 }
 
-// LOOP THROUGH TEXT-ALIGN PROPERTY VALUES AND RUN MIXINS FOR EACH
-
-@each $text-align-value in $text-align-values {
-  @include text-align($text-align-value);
+.u-text-center {
+  text-align: center;
 }
 
-// LOOP THROUGH BREAKPOINTS, THEN TEXT-ALIGN PROPERTY VALUES AND RUN MIXINS FOR EACH
+.u-text-right {
+  text-align: right;
+}
 
-@each $breakpoint-key, $breakpoint-value in $breakpoints {
-  @include breakpoint($breakpoint-key) {
-    @each $text-align-value in $text-align-values {
-      @include text-align($text-align-value, $breakpoint-key);
-    }
-  }
+.u-text-justify {
+  text-align: justify;
 }
