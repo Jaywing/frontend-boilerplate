@@ -39,11 +39,13 @@
   <body class="l-page" id="top">
     {% block cookie_alert %}
       <div id="cookies-alert" class="c-cookies-alert">
-        <p>This site uses cookies to make sure you have the best experience.
-          <a href="#">Read our cookie policy</a>
-        </p>
+        <div class="c-cookies-alert__dialog">
+          <p>This site uses cookies to make sure you have the best experience.
+            <a href="#">Read our cookie policy</a>
+          </p>
 
-        <button class="c-btn" role="button" data-js="Toggler" data-js-options='[{"target": "#cookies-alert"}]'>Close</button>
+          <button class="c-btn" role="button" data-js="Toggler" data-js-options='[{"target": "#cookies-alert", "activeClass": "u-d-none"}]'>Close</button>
+        </div>
       </div>
     {% endblock %}
 
@@ -57,7 +59,6 @@
       {% block header %}
         <div class="l-container u-flex">
           <a href="/"><img src="//via.placeholder.com/100x30?text=Logo" alt="Logo"></a>
-          <a href="/lab/" class="u-ml-auto">Lab</a>
         </div>
       {% endblock %}
     </header>
