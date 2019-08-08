@@ -1,16 +1,7 @@
 // GRID
 $grid-columns: 12;
 $grid-rows: 2;
-$grid-gutters: $spacer;
-
-// BREAKPOINTS
-
-$breakpoints: (
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-);
+$grid-gutters: spacing(base);
 
 // CONTAINERS
 
@@ -24,5 +15,5 @@ $container-fixed-widths: (
 );
 
 $container-gutters: (
-  sm: $spacer * 2
+  sm: spacing(base) * 2
 );

@@ -1,17 +1,17 @@
 .c-cookies-alert {
-  bottom: -300px;
-  background-color: #000;
-  color: #fff;
-  display: none;
-  font-size: 0.8em;
-  padding: 20px;
+  padding: spacing(base);
+  color: gray(f);
+  font-size: fontSize(sm);
+  padding: spacing(base);
   position: fixed;
-  right: 20px;
-  transition: bottom 400ms ease-in-out;
-  width: 280px;
+  width: 320px;
+  max-width: 100%;
   z-index: 9000;
+  right: 0;
+  bottom: 0;
+}
 
-  &.show {
-    bottom: 20px;
-  }
+.c-cookies-alert__dialog {
+  background-color: gray(0);
+  padding: spacing(base);
 }

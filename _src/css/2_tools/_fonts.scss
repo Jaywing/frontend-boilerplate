@@ -1,0 +1,11 @@
+@function fontSize($size) {
+  $size: map-get($font-sizes, $size);
+
+  @return $size;
+}
+
+@function fontFamily($family-name) {
+  $family: map-get($font-families, $family-name);
+
+  @return inspect($family);
+}

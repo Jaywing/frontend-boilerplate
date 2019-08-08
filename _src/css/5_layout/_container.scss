@@ -2,8 +2,8 @@
   max-width: 100%;
   width: $container-max-width;
   margin: 0 auto;
-  padding-left: $spacer;
-  padding-right: $spacer;
+  padding-left: spacing(base);
+  padding-right: spacing(base);
 }
 
 @each $key, $value in $breakpoints {

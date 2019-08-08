@@ -1,29 +1,19 @@
-// SETTINGS
-
-$display-values: 'none', 'block', 'inline-block', 'flex' !default;
-
-// MIXINS
-
-@mixin display($display-value, $breakpoint: '') {
-  $breakpoint-suffix: if($breakpoint == '', '', '\\@'+ $breakpoint);
-
-  .u-d-#{$display-value + $breakpoint-suffix} {
-    display: #{$display-value} !important;
-  }
+.u-d-none {
+ display: none;
 }
 
-// LOOP THROUGH DISPLAY PROPERTY VALUES AND RUN MIXINS FOR EACH
-
-@each $display-value in $display-values {
-  @include display($display-value);
+.u-d-block {
+ display: block;
 }
 
-// LOOP THROUGH BREAKPOINTS, THEN DISPLAY PROPERTY VALUES AND RUN MIXINS FOR EACH
+.u-d-inline-block {
+ display: inline-block;
+}
 
-@each $breakpoint-key, $breakpoint-value in $breakpoints {
-  @include breakpoint($breakpoint-key) {
-    @each $display-value in $display-values {
-      @include display($display-value, $breakpoint-key);
-    }
-  }
+.u-d-flex {
+ display: flex;
+}
+
+.u-d-inline-flex {
+ display: inline-flex;
 }

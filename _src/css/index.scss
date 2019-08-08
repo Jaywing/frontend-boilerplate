@@ -1,13 +1,8 @@
-@import "1_settings/_settings.scss";
-
+@import "1_core/_core.scss";
 @import "2_tools/_tools.scss";
-
-@import "3_generic/_generic.scss";
-
+@import "3_settings/_settings.scss";
+@import "4_generic/_generic.scss";
 @import "4_elements/_elements.scss";
-
 @import "5_layout/_layout.scss";
-
 @import "6_components/_components.scss";
-
 @import "7_utilities/_utilities.scss";

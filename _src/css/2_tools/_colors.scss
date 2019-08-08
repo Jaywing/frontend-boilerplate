@@ -1,0 +1,19 @@
+@function gray($grey) {
+  $grey: map-get($grays, $grey);
+
+  @return $grey;
+}
+
+@function brand($color-name) {
+  $color-name: map-get($brand-colors, $color-name);
+  $main-color: map-get($color-name, main-color);
+
+  @return $main-color;
+}
+
+@function brandContrast($color-name) {
+  $color-name: map-get($brand-colors, $color-name);
+  $main-color: map-get($color-name, contrast-color);
+
+  @return $main-color;
+}

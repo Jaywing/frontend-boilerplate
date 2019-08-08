@@ -1,5 +1,5 @@
 .c-header {
-  background: #000; // TODO: Add setting
-  color: #fff; // TODO: Add setting
-  padding: 1rem 0; // TODO: Add setting
+  background: brand(primary);
+  color: brandContrast(primary);
+  padding: spacing(base) 0;
 }
