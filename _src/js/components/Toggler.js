@@ -1,9 +1,9 @@
 function Toggler(el, options) {
-  const optionsDefaults = {
+  const defaultOptions = {
     activeClass: "is-active"
   };
 
-  options = Object.assign(optionsDefaults, options);
+  options = Object.assign(defaultOptions, options);
 
   el.addEventListener("click", function() {
     toggle();
