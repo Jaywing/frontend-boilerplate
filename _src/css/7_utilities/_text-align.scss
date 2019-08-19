@@ -1,15 +1,21 @@
-.u-text-left {
-  text-align: left;
+$text-align-breakpoints: null !default;
+
+@mixin textAlignMxn($breakpoint: '') {
+  $breakpoint-suffix: if($breakpoint == '', '', '\\@' + $breakpoint);
+
+  .u-text-left#{$breakpoint-suffix} {
+    text-align: left;
+  }
+
+  .u-text-center#{$breakpoint-suffix} {
+    text-align: center;
+  }
 }
 
-.u-text-center {
-  text-align: center;
-}
+@include textAlignMxn();
 
-.u-text-right {
-  text-align: right;
-}
-
-.u-text-justify {
-  text-align: justify;
+@each $key in $text-align-breakpoints {
+  @include breakpoint($key) {
+    @include textAlignMxn($key);
+  }
 }
