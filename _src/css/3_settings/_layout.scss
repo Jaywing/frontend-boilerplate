@@ -1,21 +1,14 @@
 // HORIZONTAL GUTTER
 // This sets the size of the horizontal gutters for containers and grids
-$horizontal-gutter: spacing(sm);
+$column-spacing: spacing(sm);
 
 // HORIZONTAL GUTTERS FOR BREAKPOINTS
-$horizontal-gutters: (
+$column-breakpoint-spacings: (
   md: spacing(lg)
 );
 
 // GRID
 $grid-columns: 12;
-$grid-breakpoints: sm;
 
 // CONTAINERS
 $container-max-width: 1140px;
-// $container-fixed-widths: (
-//   sm: 500px,
-//   md: 700px,
-//   lg: 940px,
-//   xl: 1140px
-// );
