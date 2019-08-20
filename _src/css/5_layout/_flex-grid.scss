@@ -32,7 +32,7 @@
   $breakpoint-suffix: if($breakpoint == '', '', '\\@' + $breakpoint);
 
   @for $i from 1 through $grid-columns {
-    .col-span-#{$i + $breakpoint-suffix} {
+    .col-#{$i + $breakpoint-suffix} {
       max-width: #{(100/12 * $i) + '%'};
       flex: 0 0 #{(100/12 * $i) + '%'};
     }
