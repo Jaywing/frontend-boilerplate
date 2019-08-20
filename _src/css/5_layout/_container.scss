@@ -1,8 +1,18 @@
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+$column-spacing: 1rem !default;
+$column-breakpoint-spacings: () !default;
+$container-max-width: 1140px !default;
+
 .container,
 .container-fluid {
   max-width: 100%;
-  padding-left: $horizontal-gutter;
-  padding-right: $horizontal-gutter;
+  padding-left: $column-spacing;
+  padding-right: $column-spacing;
 }
 
 .container {
@@ -13,18 +23,12 @@
 
 @each $key, $value in $breakpoints {
   @include breakpoint($key) {
-    @if map-has-key($horizontal-gutters, $key) {
+    @if map-has-key($column-breakpoint-spacings, $key) {
       .container,
       .container-fluid {
-        padding-left: map-get($horizontal-gutters, $key);
-        padding-right: map-get($horizontal-gutters, $key);
+        padding-left: map-get($column-breakpoint-spacings, $key);
+        padding-right: map-get($column-breakpoint-spacings, $key);
       }
     }
-
-    // @if map-has-key($container-fixed-widths, $key) {
-    //   .container--fixed {
-    //     width: map-get($container-fixed-widths, $key);
-    //   }
-    // }
   }
 }
