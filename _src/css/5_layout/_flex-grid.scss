@@ -1,28 +1,38 @@
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+$column-spacing: 1rem !default;
+$column-breakpoint-spacings: () !default;
+$grid-columns: 12 !default;
+
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -($horizontal-gutter/2);
-  margin-right: -($horizontal-gutter/2);
+  margin-left: -($column-spacing/2);
+  margin-right: -($column-spacing/2);
 }
 
 .col {
-  padding-left: ($horizontal-gutter/2);
-  padding-right: ($horizontal-gutter/2);
+  padding-left: ($column-spacing/2);
+  padding-right: ($column-spacing/2);
   flex: 0 0 100%;
   max-width: 100%;
 }
 
-@each $key, $value in $horizontal-gutters {
-  @if map-has-key($horizontal-gutters, $key) {
+@each $key, $value in $column-breakpoint-spacings {
+  @if map-has-key($column-breakpoint-spacings, $key) {
     @include breakpoint($key) {
       .row {
-        margin-left: -(map-get($horizontal-gutters, $key)/2);
-        margin-right: -(map-get($horizontal-gutters, $key)/2);
+        margin-left: -(map-get($column-breakpoint-spacings, $key)/2);
+        margin-right: -(map-get($column-breakpoint-spacings, $key)/2);
       }
 
       .col {
-        padding-left: map-get($horizontal-gutters, $key)/2;
-        padding-right: map-get($horizontal-gutters, $key)/2;
+        padding-left: map-get($column-breakpoint-spacings, $key)/2;
+        padding-right: map-get($column-breakpoint-spacings, $key)/2;
       }
     }
   }
