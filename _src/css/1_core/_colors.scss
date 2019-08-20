@@ -3,11 +3,11 @@
 $brand-colors: (
   primary: (
     main-color: #06C,
-    contrast-color: gray(f)
+    contrast-color: #fff
   ),
   secondary: (
     main-color: orange,
-    contrast-color: gray(f)
+    contrast-color: #fff
   ),
 );
 
@@ -15,15 +15,15 @@ $brand-colors: (
 $status-colors: (
   success: (
     main-color: green,
-    contrast-color: gray(f)
+    contrast-color: #fff
   ),
   warning: (
     main-color: orange,
-    contrast-color: gray(f)
+    contrast-color: #fff
   ),
   danger: (
     main-color: red,
-    contrast-color: gray(f)
+    contrast-color: #fff
   )
 );
 

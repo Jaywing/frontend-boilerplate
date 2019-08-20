@@ -1,0 +1,6 @@
+@function flexCol($span) {
+  $singleColumnWidth: (100 / 12);
+	$columnsToSpan: ( $span * $singleColumnWidth );
+
+  @return #{ $columnsToSpan + '%' };
+}

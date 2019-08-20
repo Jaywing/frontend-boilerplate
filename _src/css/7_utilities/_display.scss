@@ -1,32 +1,34 @@
-$display-breakpoints: null !default;
-
 @mixin displayMxn($breakpoint: '') {
   $breakpoint-suffix: if($breakpoint == '', '', '\\@' + $breakpoint);
 
-  .u-d-none#{$breakpoint-suffix} {
+  .d-none#{$breakpoint-suffix} {
    display: none;
   }
 
-  .u-d-block#{$breakpoint-suffix} {
+  .d-block#{$breakpoint-suffix} {
    display: block;
   }
 
-  .u-d-inline-block#{$breakpoint-suffix} {
+  .d-inline-block#{$breakpoint-suffix} {
    display: inline-block;
   }
 
-  .u-d-flex#{$breakpoint-suffix} {
+  .d-flex#{$breakpoint-suffix} {
    display: flex;
   }
 
-  .u-d-inline-flex#{$breakpoint-suffix} {
+  .d-inline-flex#{$breakpoint-suffix} {
    display: inline-flex;
+  }
+
+  .d-grid#{$breakpoint-suffix} {
+   display: grid;
   }
 }
 
 @include displayMxn();
 
-@each $key in $display-breakpoints {
+@each $key, $value in $breakpoints {
   @include breakpoint($key) {
     @include displayMxn($key);
   }

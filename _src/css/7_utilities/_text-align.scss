@@ -1,20 +1,22 @@
-$text-align-breakpoints: null !default;
-
 @mixin textAlignMxn($breakpoint: '') {
   $breakpoint-suffix: if($breakpoint == '', '', '\\@' + $breakpoint);
 
-  .u-text-left#{$breakpoint-suffix} {
+  .text-left#{$breakpoint-suffix} {
     text-align: left;
   }
 
-  .u-text-center#{$breakpoint-suffix} {
+  .text-center#{$breakpoint-suffix} {
     text-align: center;
+  }
+
+  .text-right#{$breakpoint-suffix} {
+    text-align: right;
   }
 }
 
 @include textAlignMxn();
 
-@each $key in $text-align-breakpoints {
+@each $key, $value in $breakpoints {
   @include breakpoint($key) {
     @include textAlignMxn($key);
   }

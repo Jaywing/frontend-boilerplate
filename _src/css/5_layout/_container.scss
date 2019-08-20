@@ -1,24 +1,30 @@
-.l-container {
+.container,
+.container-fluid {
   max-width: 100%;
+  padding-left: $horizontal-gutter;
+  padding-right: $horizontal-gutter;
+}
+
+.container {
   width: $container-max-width;
-  margin: 0 auto;
-  padding-left: spacing(base);
-  padding-right: spacing(base);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @each $key, $value in $breakpoints {
   @include breakpoint($key) {
-    @if map-has-key($container-gutters, $key) {
-      .l-container {
-        padding-left: map-get($container-gutters, $key);
-        padding-right: map-get($container-gutters, $key);
+    @if map-has-key($horizontal-gutters, $key) {
+      .container,
+      .container-fluid {
+        padding-left: map-get($horizontal-gutters, $key);
+        padding-right: map-get($horizontal-gutters, $key);
       }
     }
 
-    @if map-has-key($container-fixed-widths, $key) {
-      .l-container--fixed {
-        width: map-get($container-fixed-widths, $key);
-      }
-    }
+    // @if map-has-key($container-fixed-widths, $key) {
+    //   .container--fixed {
+    //     width: map-get($container-fixed-widths, $key);
+    //   }
+    // }
   }
 }

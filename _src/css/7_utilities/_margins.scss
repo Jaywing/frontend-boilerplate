@@ -1,34 +1,32 @@
-$margin-breakpoints: null !default;
-
 @mixin marginMxn($breakpoint: '') {
   $breakpoint-suffix: if($breakpoint == '', '', '\\@' + $breakpoint);
 
-  .u-m-auto#{$breakpoint-suffix} {
+  .m-auto#{$breakpoint-suffix} {
     margin: auto;
   }
 
-  .u-mt-auto#{$breakpoint-suffix} {
+  .mt-auto#{$breakpoint-suffix} {
     margin-top: auto;
   }
 
-  .u-mr-auto#{$breakpoint-suffix} {
+  .mr-auto#{$breakpoint-suffix} {
     margin-right: auto;
   }
 
-  .u-mb-auto#{$breakpoint-suffix} {
+  .mb-auto#{$breakpoint-suffix} {
     margin-bottom: auto;
   }
 
-  .u-ml-auto#{$breakpoint-suffix} {
+  .ml-auto#{$breakpoint-suffix} {
     margin-left: auto;
   }
 
-  .u-mx-auto#{$breakpoint-suffix} {
+  .mx-auto#{$breakpoint-suffix} {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .u-my-auto#{$breakpoint-suffix} {
+  .my-auto#{$breakpoint-suffix} {
     margin-top: auto;
     margin-bottom: auto;
   }
@@ -36,7 +34,7 @@ $margin-breakpoints: null !default;
 
 @include marginMxn();
 
-@each $key in $margin-breakpoints {
+@each $key, $value in $breakpoints {
   @include breakpoint($key) {
     @include marginMxn($key);
   }

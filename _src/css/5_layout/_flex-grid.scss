@@ -1,0 +1,48 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -($horizontal-gutter/2);
+  margin-right: -($horizontal-gutter/2);
+}
+
+.col {
+  padding-left: ($horizontal-gutter/2);
+  padding-right: ($horizontal-gutter/2);
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@each $key, $value in $horizontal-gutters {
+  @if map-has-key($horizontal-gutters, $key) {
+    @include breakpoint($key) {
+      .row {
+        margin-left: -(map-get($horizontal-gutters, $key)/2);
+        margin-right: -(map-get($horizontal-gutters, $key)/2);
+      }
+
+      .col {
+        padding-left: map-get($horizontal-gutters, $key)/2;
+        padding-right: map-get($horizontal-gutters, $key)/2;
+      }
+    }
+  }
+}
+
+@mixin flexColMxn($breakpoint: '') {
+  $breakpoint-suffix: if($breakpoint == '', '', '\\@' + $breakpoint);
+
+  @for $i from 1 through $grid-columns {
+    .col-span-#{$i + $breakpoint-suffix} {
+      max-width: #{(100/12 * $i) + '%'};
+      flex: 0 0 #{(100/12 * $i) + '%'};
+    }
+  }
+}
+
+@include flexColMxn();
+
+@each $key, $value in $breakpoints {
+  @include breakpoint($key) {
+    @include flexColMxn($key);
+  }
+}
