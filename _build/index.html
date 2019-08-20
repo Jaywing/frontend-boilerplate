@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" class="u-h-full">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,43 +22,56 @@
     
   </head>
 
-  <body class="l-page" id="top">
+  <body class="page" id="top">
     
-      <div id="cookies-alert" class="c-cookies-alert">
-        <div class="c-cookies-alert__dialog">
+      <div id="cookies-alert" class="cookies-alert">
+        <div class="cookies-alert__dialog">
           <p>This site uses cookies to make sure you have the best experience.
             <a href="#">Read our cookie policy</a>
           </p>
 
-          <button class="c-btn" role="button" data-js="Toggler" data-js-options='[{"target": "#cookies-alert", "activeClass": "u-d-none"}]'>Close</button>
+          <button class="btn" role="button" data-js="Toggler" data-js-options='[{"target": "#cookies-alert", "activeClass": "d-none"}]'>Close</button>
         </div>
       </div>
     
 
     
-      <div class="u-sr-only">
+      <div class="sr-only">
         <a href="#content">Skip to Main Content</a>
       </div>
     
 
-    <header class="c-header">
+    <header class="header">
       
-        <div class="l-container u-flex">
-          <a href="/"><img src="//via.placeholder.com/100x30?text=Logo" alt="Logo"></a>
+        <div class="container">
+          <div class="navbar">
+            <a href="/">
+              <img src="//via.placeholder.com/100x30?text=Logo" alt="Logo">
+            </a>
+          </div>
         </div>
       
     </header>
 
     <main id="content">
-      <div class="u-container u-mx-auto u-p-4">
-    
+      <div class="container">
+    <h1>Home</h1>
   </div>
     </main>
 
-    <footer class="c-footer u-mt-auto">
+    <footer class="footer mt-auto">
       
-        <div class="l-container">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, aperiam?</p>
+        <div class="container">
+          <div class="row">
+            <div class="col col-span-9@md">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, aperiam?</p>
+            </div>
+            <div class="col col-span-3@md text-right@md">
+              <p>
+                <a href="/library">Library</a>
+              </p>
+            </div>
+          </div>
         </div>
       
     </footer>
