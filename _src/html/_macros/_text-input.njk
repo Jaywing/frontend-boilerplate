@@ -62,35 +62,35 @@
     {% set maxlength = '' %}
   {% endif %}
 
-  <label class="c-form-label c-form-label--block" for="{{ data.id }}">{{ data.label | safe }}
+  <label class="form-label form-label--block" for="{{ data.id }}">{{ data.label | safe }}
     {% if data.required -%}
-      <span class="c-form-required"></span>
+      <span class="form-required"></span>
     {%- endif %}
 
     {% if data.tooltip %}
-      <div class="c-tooltip-icon" data-module="Toggle" data-options='[{"target": "#tooltip-{{ data.name }}", "disablePageScroll": true}]'></div>
+      <div class="tooltip-icon" data-module="Toggle" data-options='[{"target": "#tooltip-{{ data.name }}", "disablePageScroll": true}]'></div>
 
-      <div class="c-tooltip {{ data.modifiers }}" id="tooltip-{{ data.field_name }}">
-        <div class="c-tooltip__close" data-module="Toggle" data-options='[{"target": "#tooltip-{{ data.name }}"}]'>Close</div>
+      <div class="tooltip {{ data.modifiers }}" id="tooltip-{{ data.field_name }}">
+        <div class="tooltip__close" data-module="Toggle" data-options='[{"target": "#tooltip-{{ data.name }}"}]'>Close</div>
 
-        <div class="c-tooltip__body">
+        <div class="tooltip__body">
           {{ data.tooltip|safe }}
         </div>
       </div>
     {% endif %}
 
-    <span class="c-form-message" data-field-name="{{ data.name }}"></span>
+    <span class="form-message" data-field-name="{{ data.name }}"></span>
   </label>
 
   {% if data.type == "textarea" %}
-    <textarea class="c-form-control {{ classes }}" name="{{ data.name }}" id="{{ data.id }}" data-module="Validate" {{min|safe}} {{max| safe}} {{ pattern|safe }} {{ maxlength|safe }} {{ validation_message|safe }} {{ disabled|safe }} {{ required|safe }} {{ readonly|safe }}></textarea>
+    <textarea class="form-control {{ classes }}" name="{{ data.name }}" id="{{ data.id }}" data-module="Validate" {{min|safe}} {{max| safe}} {{ pattern|safe }} {{ maxlength|safe }} {{ validation_message|safe }} {{ disabled|safe }} {{ required|safe }} {{ readonly|safe }}></textarea>
   {% else %}
-    <input class="c-form-control {{ classes }}" type="{{ type }}" name="{{ data.name }}" id="{{ data.id }}" data-module="Validate" {{min|safe}} {{max| safe}} {{ pattern|safe }} {{ maxlength|safe }} {{ validation_message|safe }} {{ disabled|safe }} {{ required|safe }} {{ readonly|safe }}>
+    <input class="form-control {{ classes }}" type="{{ type }}" name="{{ data.name }}" id="{{ data.id }}" data-module="Validate" {{min|safe}} {{max| safe}} {{ pattern|safe }} {{ maxlength|safe }} {{ validation_message|safe }} {{ disabled|safe }} {{ required|safe }} {{ readonly|safe }}>
   {% endif %}
 
 {%- endmacro %}
 
-<div class="c-form-group">
+<div class="form-group">
   {{ TextInput({
     "label": "Default (Primary)",
     "name": "text-input_name",
