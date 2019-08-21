@@ -3,17 +3,3 @@
   flex-direction: column;
   min-height: 100%;
 }
-
-.page--fixed-header {
-  .page {
-    padding: 72px 0 0;
-  }
-
-  .page__header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 72px;
-  }
-}
