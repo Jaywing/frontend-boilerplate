@@ -1,0 +1,37 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  grid-gap: $column-spacing;
+}
+
+.cell {
+  grid-column: span $grid-columns;
+}
+
+@each $key, $value in $column-breakpoint-spacings {
+  @if map-has-key($column-breakpoint-spacings, $key) {
+    @include breakpoint($key) {
+      .grid {
+        grid-gap: map-get($column-breakpoint-spacings, $key);
+      }
+    }
+  }
+}
+
+@mixin gridColMxn($breakpoint: '') {
+  $breakpoint-suffix: if($breakpoint == '', '', '\\@' + $breakpoint);
+
+  @for $i from 1 through $grid-columns {
+    .cell-#{$i + $breakpoint-suffix} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@include gridColMxn();
+
+@each $key, $value in $breakpoints {
+  @include breakpoint($key) {
+    @include gridColMxn($key);
+  }
+}
