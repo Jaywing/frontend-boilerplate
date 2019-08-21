@@ -1,0 +1,48 @@
+{% extends "_layouts/_master.njk" %}
+
+{% block main -%}
+
+  <div class="container">
+    <div class="row">
+      <div class="col col-9@lg ml-auto@lg">
+        <ul class="nav-tree">
+          <li>
+            <a href="#">HTML</a>
+          </li>
+          <li>
+            <a href="#">JS</a>
+          </li>
+          <li>
+            <a href="#">CSS</a>
+          </li>
+          <li>
+            <a href="#">Nunjucks</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-3@lg">
+        {% block sideBar %}
+          <ul class="nav-tree">
+            <li>
+              <a href="#">Layout</a>
+            </li>
+            <li>
+              <a href="#">Components</a>
+            </li>
+            <li>
+              <a href="#">Utilities</a>
+            </li>
+          </ul>
+        {% endblock %}
+      </div>
+
+      <div class="col col-9@lg">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+
+{%- endblock %}
