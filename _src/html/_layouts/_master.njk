@@ -37,7 +37,7 @@
   </head>
 
   <body class="page" id="top">
-    {% block cookie_alert %}
+    {% block cookiesAlert %}
       <div id="cookies-alert" class="cookies-alert">
         <div class="cookies-alert__dialog">
           <p>This site uses cookies to make sure you have the best experience.
@@ -49,10 +49,10 @@
       </div>
     {% endblock %}
 
-    {% block skip_link %}
-      <div class="sr-only">
+    {% block skipNav %}
+      <nav class="sr-only">
         <a href="#content">Skip to Main Content</a>
-      </div>
+      </nav>
     {% endblock %}
 
     <header class="header">
