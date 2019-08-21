@@ -3,8 +3,8 @@
 {% block main -%}
 
   <div class="container">
-    <div class="row">
-      <div class="col col-9@lg ml-auto@lg">
+    <div class="grid">
+      <div class="cell cell-9@lg ml-auto@lg">
         <ul class="nav-tree">
           <li>
             <a href="#">HTML</a>
@@ -22,8 +22,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col col-3@lg">
+    <div class="grid">
+      <div class="cell cell-3@lg">
         {% block sideBar %}
           <ul class="nav-tree">
             <li>
@@ -39,7 +39,7 @@
         {% endblock %}
       </div>
 
-      <div class="col col-9@lg">
+      <div class="cell cell-9@lg">
         {% block content %}{% endblock %}
       </div>
     </div>
