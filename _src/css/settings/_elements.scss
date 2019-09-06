@@ -1,0 +1,18 @@
+// BODYY
+
+$body-bg:                   $white;
+$body-color:                $gray-900;
+
+// LINKS
+
+$link-color:                              inherit;
+$link-decoration:                         underline;
+$link-hover-color:                        inherit;
+$link-hover-decoration:                   none;
+
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15%;
+
+// PARAGRAPHS
+
+$paragraph-margin-bottom:   1rem;
