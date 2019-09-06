@@ -1,9 +1,9 @@
 function cssTranspile() {
+  const autoprefixer = require("gulp-autoprefixer");
   const cssnano = require("gulp-cssnano");
   const flags = require("../config/flags");
   const gulp = require("gulp");
   const paths = require("../../package.json").paths;
-  // const postcss = require("gulp-postcss");
   const purgecss = require("gulp-purgecss");
   const rename = require("gulp-rename");
   const sass = require("gulp-sass");
@@ -14,6 +14,12 @@ function cssTranspile() {
     .src(paths.css.src + "!(_)*.scss")
     .pipe(flags.maps ? sourcemaps.init() : util.noop())
     .pipe(sass().on("error", sass.logError))
+    .pipe(
+      autoprefixer({
+        cascade: false,
+        remove: false
+      })
+    )
     .pipe(flags.minify ? cssnano() : util.noop())
     .pipe(
       flags.purge
