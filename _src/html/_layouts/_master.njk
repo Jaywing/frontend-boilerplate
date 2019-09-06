@@ -39,12 +39,14 @@
   <body class="d-flex flex-column" id="top" style="min-height:100%">
     {% block cookiesAlert %}
       <div id="cookies-alert" class="cookies-alert">
-        <div class="cookies-alert__dialog">
-          <p>This site uses cookies to make sure you have the best experience.
-            <a href="#">Read our cookie policy</a>
-          </p>
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text">This site uses cookies to make sure you have the best experience.
+              <a href="#">Read our cookie policy</a>
+            </p>
 
-          <button class="btn" role="button" data-js="Toggler" data-js-options='[{"target": "#cookies-alert", "activeClass": "d-none"}]'>Close</button>
+            <button class="btn btn-primary" role="button" data-js="Toggler" data-js-options='[{"target": "#cookies-alert", "activeClass": "d-none"}]'>Close</button>
+          </div>
         </div>
       </div>
     {% endblock %}
@@ -90,7 +92,7 @@
               </ul>
               <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
               </form>
             </div>
           </div>
