@@ -75,8 +75,7 @@
     "prettier-eslint": "^9.0.0",
     "prettier-eslint-cli": "^5.0.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "tailwindcss": "^1.0.3"
+    "react-dom": "^16.8.6"
   },
   "dependencies": {
     "gulp-sass": "^4.0.2"
