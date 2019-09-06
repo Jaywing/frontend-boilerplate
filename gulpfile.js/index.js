@@ -10,10 +10,9 @@ const jsTranspile = require("./tasks/jsTranspile").jsTranspile;
 // BUILD TASKS
 const build = gulp.series(
   clean,
-  gulp.parallel(
-    gulp.series(cssTranspile),
-    gulp.series(htmlTranspile),
-    gulp.series(jsTranspile)
+  gulp.series(
+    htmlTranspile,
+    gulp.parallel(gulp.series(cssTranspile), gulp.series(jsTranspile))
   )
 );
 
