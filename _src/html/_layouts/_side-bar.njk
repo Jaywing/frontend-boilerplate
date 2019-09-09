@@ -3,43 +3,41 @@
 {% block main -%}
 
   <div class="container">
-    <div class="grid">
-      <div class="cell cell-9@lg ml-auto@lg">
-        <ul class="nav-tree">
-          <li>
-            <a href="#">HTML</a>
-          </li>
-          <li>
-            <a href="#">JS</a>
-          </li>
-          <li>
-            <a href="#">CSS</a>
-          </li>
-          <li>
-            <a href="#">Nunjucks</a>
-          </li>
-        </ul>
-      </div>
+    <div class="mt-5 mb-4">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">HTML</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">JS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">CSS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Nunjucks</a>
+        </li>
+      </ul>
     </div>
 
     <div class="grid">
-      <div class="cell cell-3@lg">
+      <div class="cell cell-lg-3">
         {% block sideBar %}
-          <ul class="nav-tree">
-            <li>
-              <a href="#">Layout</a>
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Layout</a>
             </li>
-            <li>
-              <a href="#">Components</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Components</a>
             </li>
-            <li>
-              <a href="#">Utilities</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Utilities</a>
             </li>
           </ul>
         {% endblock %}
       </div>
 
-      <div class="cell cell-9@lg">
+      <div class="cell cell-lg-9">
         {% block content %}{% endblock %}
       </div>
     </div>
