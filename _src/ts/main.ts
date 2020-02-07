@@ -1,3 +1,3 @@
 import writeText from "./modules/writeText";
 
-writeText("Hello Joe");
+writeText("Hello world");
