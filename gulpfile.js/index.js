@@ -33,7 +33,7 @@ const watch = () => {
     gulp.series(cssTranspile, browserReload)
   );
 
-  gulp.watch(paths.js.src + "*.js", gulp.series(jsTranspile, browserReload));
+  gulp.watch(paths.js.src + "*.ts", gulp.series(jsTranspile, browserReload));
 
   gulp.watch(
     paths.html.src + "*.njk",
