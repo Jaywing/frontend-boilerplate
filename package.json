@@ -8,9 +8,6 @@
   },
   "keywords": [
     "gulp",
-    "tailwind",
-    "react",
-    "postcss",
     "nunjucks",
     "webpack"
   ],
@@ -21,7 +18,7 @@
   "paths": {
     "build": "./_build/",
     "css": {
-      "src": "./_src/css/**/",
+      "src": "./_src/scss/**/",
       "dest": "./_build/_assets/css/"
     },
     "html": {
@@ -29,8 +26,8 @@
       "dest": "./_build/"
     },
     "js": {
-      "src": "./_src/js/**/",
-      "dest": "./_build/_assets/js/"
+      "src": "./_src/ts/**/",
+      "dest": "./_build/_assets/"
     }
   },
   "browserslist": "> 2%",
@@ -45,42 +42,30 @@
     "build": "gulp build --minify"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.6.1",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.2",
-    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.26.7",
     "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
-    "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
-    "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",
     "gulp-eslint": "^5.0.0",
     "gulp-nunjucks": "^5.0.0",
-    "gulp-postcss": "^8.0.0",
     "gulp-purgecss": "^1.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
-    "postcss-import": "^12.0.1",
-    "postcss-scss": "^2.0.0",
-    "precss": "^4.0.0",
     "prettier": "^1.18.2",
     "prettier-eslint": "^9.0.0",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "bootstrap": "^4.3.1"
   }
 }
