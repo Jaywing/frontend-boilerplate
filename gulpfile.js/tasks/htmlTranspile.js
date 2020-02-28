@@ -12,7 +12,7 @@ function htmlTranspile() {
         path.extname = '.html';
       })
     )
-    .pipe(gulp.dest(paths.html.dest));
+    .pipe(gulp.dest(paths.html.static_dest));
 }
 
 exports.htmlTranspile = htmlTranspile;
