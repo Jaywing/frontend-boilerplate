@@ -23,9 +23,9 @@ function jsTranspile() {
       extensions: ['.tsx', '.ts']
     },
     output: {
-      path: path.resolve(__dirname, '_static/_assets'),
+      path: path.resolve(__dirname, '_static/assets'),
       filename: 'js/[name].js',
-      publicPath: '/_assets/'
+      publicPath: '/assets/'
     }
   };
 

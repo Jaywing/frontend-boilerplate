@@ -20,7 +20,7 @@
     "proxy_address": "",
     "css": {
       "src": "./_src/scss/**/",
-      "static_dest": "./_static/_assets/css/",
+      "static_dest": "./_static/assets/css/",
       "proxy_dest": ""
     },
     "html": {
@@ -29,7 +29,7 @@
     },
     "js": {
       "src": "./_src/ts/**/",
-      "static_dest": "./_static/_assets/",
+      "static_dest": "./_static/assets/",
       "proxy_dest": ""
     }
   },
