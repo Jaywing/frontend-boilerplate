@@ -17,7 +17,7 @@
   "main": "gulpfile.js",
   "paths": {
     "static_dir": "./_static/",
-    "proxy_address": "costcutter-local.jywng.co/",
+    "proxy_address": "https://costcutter-local.jywng.co/",
     "css": {
       "src": "./_src/scss/**/",
       "static_dest": "./_static/assets/css/",
