@@ -25,8 +25,8 @@ function cssTranspile() {
       flags.purge
         ? purgecss({
             content: [
-              paths.static_folder + '**/*.html',
-              paths.static_folder + '**/*.js'
+              paths.static_dir + '**/*.html',
+              paths.static_dir + '**/*.js'
             ]
           })
         : util.noop()
