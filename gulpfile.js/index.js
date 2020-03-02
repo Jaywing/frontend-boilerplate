@@ -1,11 +1,12 @@
-const paths = require("../package.json").paths;
-const gulp = require("gulp");
+const paths = require('../package.json').paths;
+const flags = require('./config/flags');
+const gulp = require('gulp');
 
 // INDIVIDUAL TASKS
-const clean = require("./tasks/clean").clean;
-const cssTranspile = require("./tasks/cssTranspile").cssTranspile;
-const htmlTranspile = require("./tasks/htmlTranspile").htmlTranspile;
-const jsTranspile = require("./tasks/jsTranspile").jsTranspile;
+const clean = require('./tasks/clean').clean;
+const cssTranspile = require('./tasks/cssTranspile').cssTranspile;
+const htmlTranspile = require('./tasks/htmlTranspile').htmlTranspile;
+const jsTranspile = require('./tasks/jsTranspile').jsTranspile;
 
 // BUILD TASKS
 const build = gulp.series(
@@ -20,8 +21,18 @@ const build = gulp.series(
 const watch = () => {
   build();
 
-  const server = require("browser-sync").create();
-  server.init(require("../package.json").browserSync);
+  const browserSyncOptions = require('../package.json').browserSync;
+
+  if (flags.static) {
+    browserSyncOptions.server = {
+      baseDir: paths.static_dir
+    };
+  } else {
+    browserSyncOptions.proxy = paths.proxy_address;
+  }
+
+  const server = require('browser-sync').create();
+  server.init(browserSyncOptions);
 
   function browserReload(done) {
     server.reload();
@@ -29,14 +40,14 @@ const watch = () => {
   }
 
   gulp.watch(
-    paths.css.src + "*.scss",
+    paths.css.src + '*.scss',
     gulp.series(cssTranspile, browserReload)
   );
 
-  gulp.watch(paths.js.src + "*.ts", gulp.series(jsTranspile, browserReload));
+  gulp.watch(paths.js.src + '*.ts', gulp.series(jsTranspile, browserReload));
 
   gulp.watch(
-    paths.html.src + "*.njk",
+    paths.html.src + '*.njk',
     gulp.series(htmlTranspile, browserReload)
   );
 };
