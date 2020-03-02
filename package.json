@@ -16,8 +16,8 @@
   "homepage": "https://bitbucket.org/joe_diton/buildsystem#readme",
   "main": "gulpfile.js",
   "paths": {
-    "static_folder": "./_static/",
-    "proxy_address": "",
+    "static_dir": "./_static/",
+    "proxy_address": "costcutter-local.jywng.co/",
     "css": {
       "src": "./_src/scss/**/",
       "static_dest": "./_static/assets/css/",
@@ -35,14 +35,11 @@
   },
   "browserslist": "> 2%",
   "browserSync": {
-    "open": false,
-    "server": {
-      "baseDir": "./_static"
-    }
+    "open": false
   },
   "scripts": {
     "start": "gulp --maps",
-    "build": "gulp build --minify"
+    "build": "gulp build --minify --maps"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
