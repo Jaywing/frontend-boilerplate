@@ -32,7 +32,7 @@ function jsTranspile() {
   return gulp
     .src(paths.js.src + '*.ts')
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest(paths.js.static_dest));
+    .pipe(gulp.dest(flags.static ? paths.js.static_dest : paths.js.proxy_dest));
 }
 
 exports.jsTranspile = jsTranspile;
