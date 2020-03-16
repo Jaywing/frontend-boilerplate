@@ -1,15 +1,16 @@
 {
-  "name": "front-end-build-pack",
-  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "name": "frontend-boilerplate",
+  "description": "",
   "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/joe_diton/buildsystem.git"
   },
   "keywords": [
-    "gulp",
+    "gulp 4",
     "nunjucks",
-    "webpack"
+    "webpack",
+    "typescript"
   ],
   "author": "Joe Diton",
   "license": "ISC",
@@ -21,16 +22,28 @@
     "css": {
       "src": "./_src/scss/**/",
       "static_dest": "./_static/assets/css/",
-      "proxy_dest": ""
+      "proxy_dest": "./Umbraco/assets/css/"
+    },
+    "fonts": {
+      "src": [
+        "./_src/fonts/**/*.+(ttf|otf|woff|woff2)"
+      ],
+      "static_dest": "./_static/assets/fonts/",
+      "proxy_dest": "./Umbraco/assets/fonts/"
     },
     "html": {
       "src": "./_src/html/**/",
       "static_dest": "./_static/"
     },
+    "images": {
+      "src": "./_src/images/**/*.+(png|jpg|jpeg|gif|svg)",
+      "static_dest": "./_static/assets/images/",
+      "proxy_dest": "./Umbraco/assets/images/"
+    },
     "js": {
       "src": "./_src/ts/**/",
       "static_dest": "./_static/assets/",
-      "proxy_dest": ""
+      "proxy_dest": "./Umbraco/assets/"
     }
   },
   "browserslist": "> 2%",
@@ -39,7 +52,7 @@
   },
   "scripts": {
     "start": "gulp --maps",
-    "build": "gulp build --minify --maps"
+    "build": "gulp build --minify"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
@@ -51,6 +64,7 @@
     "gulp-clean": "^0.4.0",
     "gulp-cssnano": "^2.1.3",
     "gulp-eslint": "^5.0.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-nunjucks": "^5.0.0",
     "gulp-purgecss": "^1.2.0",
     "gulp-rename": "^1.4.0",
