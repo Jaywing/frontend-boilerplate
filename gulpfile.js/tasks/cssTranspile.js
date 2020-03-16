@@ -37,7 +37,9 @@ function cssTranspile() {
       })
     )
     .pipe(flags.maps ? sourcemaps.write('maps') : util.noop())
-    .pipe(gulp.dest(paths.css.static_dest));
+    .pipe(
+      gulp.dest(flags.static ? paths.css.static_dest : paths.css.proxy_dest)
+    );
 }
 
 exports.cssTranspile = cssTranspile;
