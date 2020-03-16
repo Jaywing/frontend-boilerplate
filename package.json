@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/joe_diton/buildsystem.git"
+    "url": "git@github.com:Jaywing/frontend-boilerplate.git"
   },
   "keywords": [
     "gulp 4",
@@ -12,9 +12,9 @@
     "webpack",
     "typescript"
   ],
-  "author": "Joe Diton",
+  "author": "joe.diton@jaywing.com",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/joe_diton/buildsystem#readme",
+  "homepage": "https://github.com/Jaywing/frontend-boilerplate",
   "main": "gulpfile.js",
   "paths": {
     "static_dir": "./_static/",
