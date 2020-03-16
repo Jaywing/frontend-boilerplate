@@ -1,7 +1,7 @@
 node_modules
 yarn-error.log
 
-_build
+_static
 
 # VS Code Local History extension
 .history

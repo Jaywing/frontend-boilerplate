@@ -1,86 +1,85 @@
 {
-  "name": "front-end-build-pack",
-  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "name": "frontend-boilerplate",
+  "description": "",
   "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/joe_diton/buildsystem.git"
   },
   "keywords": [
-    "gulp",
-    "tailwind",
-    "react",
-    "postcss",
+    "gulp 4",
     "nunjucks",
-    "webpack"
+    "webpack",
+    "typescript"
   ],
   "author": "Joe Diton",
   "license": "ISC",
   "homepage": "https://bitbucket.org/joe_diton/buildsystem#readme",
   "main": "gulpfile.js",
   "paths": {
-    "build": "./_build/",
+    "static_dir": "./_static/",
+    "proxy_address": "https://costcutter-local.jywng.co/",
     "css": {
-      "src": "./_src/css/**/",
-      "dest": "./_build/_assets/css/"
+      "src": "./_src/scss/**/",
+      "static_dest": "./_static/assets/css/",
+      "proxy_dest": "./Umbraco/assets/css/"
+    },
+    "fonts": {
+      "src": [
+        "./_src/fonts/**/*.+(ttf|otf|woff|woff2)"
+      ],
+      "static_dest": "./_static/assets/fonts/",
+      "proxy_dest": "./Umbraco/assets/fonts/"
     },
     "html": {
       "src": "./_src/html/**/",
-      "dest": "./_build/"
+      "static_dest": "./_static/"
+    },
+    "images": {
+      "src": "./_src/images/**/*.+(png|jpg|jpeg|gif|svg)",
+      "static_dest": "./_static/assets/images/",
+      "proxy_dest": "./Umbraco/assets/images/"
     },
     "js": {
-      "src": "./_src/js/**/",
-      "dest": "./_build/_assets/js/"
+      "src": "./_src/ts/**/",
+      "static_dest": "./_static/assets/",
+      "proxy_dest": "./Umbraco/assets/"
     }
   },
   "browserslist": "> 2%",
   "browserSync": {
-    "open": false,
-    "server": {
-      "baseDir": "./_build"
-    }
+    "open": false
   },
   "scripts": {
     "start": "gulp --maps",
     "build": "gulp build --minify"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.6.1",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.2",
-    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.26.7",
     "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
-    "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
-    "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",
     "gulp-eslint": "^5.0.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-nunjucks": "^5.0.0",
-    "gulp-postcss": "^8.0.0",
     "gulp-purgecss": "^1.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
-    "postcss-import": "^12.0.1",
-    "postcss-scss": "^2.0.0",
-    "precss": "^4.0.0",
     "prettier": "^1.18.2",
     "prettier-eslint": "^9.0.0",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "bootstrap": "^4.3.1"
   }
 }

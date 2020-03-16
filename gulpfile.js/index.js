@@ -1,27 +1,38 @@
-const paths = require("../package.json").paths;
-const gulp = require("gulp");
+const flags = require('./config/flags');
+const gulp = require('gulp');
+const paths = require('../package.json').paths;
 
 // INDIVIDUAL TASKS
-const clean = require("./tasks/clean").clean;
-const cssTranspile = require("./tasks/cssTranspile").cssTranspile;
-const htmlTranspile = require("./tasks/htmlTranspile").htmlTranspile;
-const jsTranspile = require("./tasks/jsTranspile").jsTranspile;
+const clean = require('./tasks/clean').clean;
+const cssTranspile = require('./tasks/cssTranspile').cssTranspile;
+const fontTransfer = require('./tasks/fontTransfer').fontTransfer;
+const htmlTranspile = require('./tasks/htmlTranspile').htmlTranspile;
+const imageTransfer = require('./tasks/imageTransfer').imageTransfer;
+const jsTranspile = require('./tasks/jsTranspile').jsTranspile;
 
 // BUILD TASKS
 const build = gulp.series(
   clean,
-  gulp.series(
-    htmlTranspile,
-    gulp.parallel(gulp.series(cssTranspile), gulp.series(jsTranspile))
-  )
+  htmlTranspile,
+  gulp.parallel(cssTranspile, fontTransfer, imageTransfer, jsTranspile)
 );
 
 // WATCH TASKS
 const watch = () => {
   build();
 
-  const server = require("browser-sync").create();
-  server.init(require("../package.json").browserSync);
+  const browserSyncOptions = require('../package.json').browserSync;
+
+  if (flags.static) {
+    browserSyncOptions.server = {
+      baseDir: paths.static_dir
+    };
+  } else {
+    browserSyncOptions.proxy = paths.proxy_address;
+  }
+
+  const server = require('browser-sync').create();
+  server.init(browserSyncOptions);
 
   function browserReload(done) {
     server.reload();
@@ -29,22 +40,29 @@ const watch = () => {
   }
 
   gulp.watch(
-    paths.css.src + "*.scss",
+    paths.css.src + '*.scss',
     gulp.series(cssTranspile, browserReload)
   );
 
-  gulp.watch(paths.js.src + "*.js", gulp.series(jsTranspile, browserReload));
+  gulp.watch(paths.fonts.src, gulp.series(fontTransfer, browserReload));
 
   gulp.watch(
-    paths.html.src + "*.njk",
+    paths.html.src + '*.njk',
     gulp.series(htmlTranspile, browserReload)
   );
+
+  gulp.watch(paths.images.src, gulp.series(imageTransfer, browserReload));
+
+  gulp.watch(paths.js.src + '*.ts', gulp.series(jsTranspile, browserReload));
 };
 
 // EXPORTED TASKS
 exports.clean = clean;
 exports.cssTranspile = cssTranspile;
+exports.fontTransfer = fontTransfer;
 exports.htmlTranspile = htmlTranspile;
+exports.imageTransfer = imageTransfer;
 exports.jsTranspile = jsTranspile;
+
 exports.build = build;
 exports.default = watch;
