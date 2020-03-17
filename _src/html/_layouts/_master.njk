@@ -38,14 +38,14 @@
 
   <body class="d-flex flex-column" id="top" style="min-height:100%">
     {% block cookiesAlert %}
-      <div id="cookies-alert" class="cookies-alert">
+      <div class="cookies-alert" data-js="CookieAlert">
         <div class="card">
           <div class="card-body">
             <p class="card-text">This site uses cookies to make sure you have the best experience.
               <a href="#">Read our cookie policy</a>
             </p>
 
-            <button class="btn btn-primary" role="button" data-js="Toggler" data-js-options='[{"target": "#cookies-alert", "activeClass": "d-none"}]'>Close</button>
+            <button class="btn btn-primary js-close" role="button">Close</button>
           </div>
         </div>
       </div>
