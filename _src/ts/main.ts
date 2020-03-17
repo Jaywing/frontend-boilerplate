@@ -1,5 +1,5 @@
 // data-js modules
-import dataJsModule from './modules/extends/dataJsModule';
+import dataJsModule from './modules/extendables/dataJsModule';
 
 const dataJsElements = document.querySelectorAll('[data-js]');
 
