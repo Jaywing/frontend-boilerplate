@@ -51,7 +51,7 @@
     "open": false
   },
   "scripts": {
-    "start": "gulp --maps",
+    "start": "gulp --maps --max-old-space-size=8192",
     "build": "gulp build --minify"
   },
   "devDependencies": {
