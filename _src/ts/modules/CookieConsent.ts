@@ -2,8 +2,8 @@ import dataJsModule from './extendables/dataJsModule';
 import getCookie from './helpers/getCookie';
 import setCookie from './helpers/setCookie';
 
-export default class CookieAlert extends dataJsModule {
-  closeButton: HTMLButtonElement;
+export default class CookieConsent extends dataJsModule {
+  acceptButton: HTMLElement;
 
   init() {
     this.show();
@@ -17,10 +17,11 @@ export default class CookieAlert extends dataJsModule {
   }
 
   hide() {
-    this.closeButton = this.el.querySelector('.js-close');
+    this.acceptButton = this.el.querySelector('.js-accept');
 
-    if (this.closeButton) {
-      this.closeButton.addEventListener('click', () => {
+    if (this.acceptButton) {
+      this.acceptButton.addEventListener('click', e => {
+        e.preventDefault();
         this.el.classList.remove('is-visible');
         setCookie('cookies_policy', 'accepted', 365);
       });
