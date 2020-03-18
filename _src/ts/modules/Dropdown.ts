@@ -1,23 +1,23 @@
 import dataJsModule from './extendables/dataJsModule';
 
 export default class Dropdown extends dataJsModule {
-  parent: HTMLLinkElement;
-  children: HTMLDivElement;
+  toggler: HTMLElement;
+  dropdown: HTMLElement;
 
   init() {
-    this.clickParent();
+    this.clickToggler();
     this.clickWindow();
   }
 
-  clickParent() {
-    this.parent = this.el.querySelector('.js-parent');
-    this.children = this.el.querySelector('.js-children');
+  clickToggler() {
+    this.toggler = this.el.querySelector('.js-toggler');
+    this.dropdown = this.el.querySelector('.js-dropdown');
 
-    if (this.parent && this.children) {
-      this.parent.addEventListener('click', e => {
+    if (this.toggler && this.dropdown) {
+      this.toggler.addEventListener('click', e => {
         e.preventDefault();
 
-        if (this.parent.classList.contains('show')) {
+        if (this.toggler.classList.contains('show')) {
           this.collapse();
         } else {
           this.expand();
@@ -35,14 +35,14 @@ export default class Dropdown extends dataJsModule {
   }
 
   collapse() {
-    this.parent.setAttribute('aria-expanded', 'false');
-    this.parent.classList.remove('show');
-    this.children.classList.remove('show');
+    this.toggler.setAttribute('aria-expanded', 'false');
+    this.toggler.classList.remove('show');
+    this.dropdown.classList.remove('show');
   }
 
   expand() {
-    this.parent.setAttribute('aria-expanded', 'true');
-    this.parent.classList.add('show');
-    this.children.classList.add('show');
+    this.toggler.setAttribute('aria-expanded', 'true');
+    this.toggler.classList.add('show');
+    this.dropdown.classList.add('show');
   }
 }
