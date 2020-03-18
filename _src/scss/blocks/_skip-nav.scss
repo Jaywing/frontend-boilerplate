@@ -1,0 +1,17 @@
+.skip-nav {
+  @extend .sr-only;
+
+  &:focus-within {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 0;
+    clip: auto;
+    padding: 5px;
+
+    a {
+      padding: 3px;
+      margin-right: 10px;
+    }
+  }
+}
