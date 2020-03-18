@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./_static/",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "esnext",
