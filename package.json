@@ -58,7 +58,7 @@
   "scripts": {
     "start": "gulp --maps --max-old-space-size=8192",
     "build": "gulp build --minify --purge",
-    "prettier": "prettier --write \"./**/*.{scss,ts,tsx,js,jsx,json}\""
+    "prettier": "prettier --write \"./_src/**/*.{scss,ts,tsx,js,jsx,json}\""
   },
   "devDependencies": {
     "autoprefixer": "^9.7.6",
