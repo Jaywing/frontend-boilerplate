@@ -25,7 +25,7 @@ export default class CookieConsent extends dataJsModule {
     this.closeButton = this.el.querySelector(".js-close");
 
     if (this.closeButton) {
-      this.closeButton.addEventListener("click", e => {
+      this.closeButton.addEventListener("click", (e) => {
         e.preventDefault();
         animateOut(this.el, "fade-out", 400);
       });
@@ -36,7 +36,7 @@ export default class CookieConsent extends dataJsModule {
     this.acceptButton = this.el.querySelector(".js-accept");
 
     if (this.acceptButton) {
-      this.acceptButton.addEventListener("click", e => {
+      this.acceptButton.addEventListener("click", (e) => {
         e.preventDefault();
         setCookie("cookies_policy", "accepted", 365);
         animateOut(this.el, "fade-out", 400);

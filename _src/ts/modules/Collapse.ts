@@ -14,7 +14,7 @@ export default class Collapse extends dataJsModule {
     this.target = document.querySelector(this.options.target);
 
     if (this.target) {
-      this.el.addEventListener("click", e => {
+      this.el.addEventListener("click", (e) => {
         e.preventDefault();
 
         if (this.el.classList.contains("collapsed")) {

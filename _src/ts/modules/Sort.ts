@@ -14,7 +14,7 @@ export default class Sort extends dataJsModule {
     this.form = document.querySelector("#" + this.options.targetFormID);
 
     if (this.form) {
-      this.el.addEventListener("change", e => {
+      this.el.addEventListener("change", (e) => {
         this.form.submit();
       });
     }

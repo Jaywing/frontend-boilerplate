@@ -15,7 +15,7 @@ for (let i = 0; i < dataJsElements.length; i++) {
   const el = dataJsElements[i];
 
   const dataJsValue = el.getAttribute("data-js");
-  const dataJsModules: any = dataJsValue.split(" ").map(function(item) {
+  const dataJsModules: any = dataJsValue.split(" ").map(function (item) {
     return item.trim();
   });
 
@@ -27,7 +27,7 @@ for (let i = 0; i < dataJsElements.length; i++) {
   }
 
   for (let name = 0; name < dataJsModules.length; name++) {
-    import(`./modules/${dataJsModules[name]}`).then(Module => {
+    import(`./modules/${dataJsModules[name]}`).then((Module) => {
       const module: dataJsModule = new Module.default(el, options[name]);
       module.init();
     });

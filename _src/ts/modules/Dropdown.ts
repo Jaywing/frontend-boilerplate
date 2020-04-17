@@ -17,7 +17,7 @@ export default class Dropdown extends dataJsModule {
   }
 
   clickToggler() {
-    this.toggler.addEventListener("click", e => {
+    this.toggler.addEventListener("click", (e) => {
       e.preventDefault();
 
       if (this.dropdown.style.display === "block") {
