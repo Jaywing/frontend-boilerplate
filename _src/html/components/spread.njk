@@ -3,11 +3,23 @@
 {% block main -%}
 
   {{ Spread({
-    "title": "Spread<br><small class=\"text-muted\">Image right (default)</small>"
+    "title": "Spread<br><small class=\"text-muted\">Full Width / Image Left (default)</small>"
   }) }}
+
   {{ Spread({
-    "modifiers": "spread--img-left",
-    "title": "Spread<br><small class=\"text-muted\">Image left</small>"
+    "imageRight": true,
+    "title": "Spread<br><small class=\"text-muted\">Full Width / Image Right</small>"
+  }) }}
+
+  {{ Spread({
+    "container": true,
+    "title": "Spread<br><small class=\"text-muted\">In Container / Image Left</small>"
+  }) }}
+
+  {{ Spread({
+    "imageRight": true,
+    "container": true,
+    "title": "Spread<br><small class=\"text-muted\">In Container / Image Right</small>"
   }) }}
 
 {%- endblock %}
