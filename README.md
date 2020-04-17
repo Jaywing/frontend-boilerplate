@@ -1,29 +1,31 @@
-# README #
+# README
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### How do I get set up?
 
-### What is this repository for? ###
+#### Install node 12.16.0, use NVM: https://github.com/coreybutler/nvm-windows
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+nvm install 12.16.0
 
-### How do I get set up? ###
+#### Activate node 12.16.0
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+nvm use 12.16.0
 
-### Contribution guidelines ###
+#### Install node modules
 
-* Writing tests
-* Code review
-* Other guidelines
+yarn
 
-### Who do I talk to? ###
+#### Run local server for PROXY and watch for changes
 
-* Repo owner or admin
-* Other community or team contact
+yarn start
+
+#### Run local server for STATIC HTML and watch for changes
+
+yarn start --static
+
+#### Build production assets
+
+yarn build
+
+#### Build static HTML pages and proudction assets
+
+yarn build --static

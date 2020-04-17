@@ -1,0 +1,11 @@
+@include media-breakpoint-down(md) {
+  .navbar {
+    padding-left: 0;
+    padding-right: 0;
+
+    > .container {
+      padding-left: $spacer;
+      padding-right: $spacer;
+    }
+  }
+}

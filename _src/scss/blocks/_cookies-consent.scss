@@ -1,14 +1,50 @@
 .cookies-consent {
-  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: ($spacer * 3) $spacer;
   position: fixed;
-  width: 320px;
-  max-width: 100%;
-  z-index: 9000;
+  z-index: 10000;
+  top: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   display: none;
+  align-items: center;
+  overflow-y: auto;
+}
 
-  &.is-visible {
-    display: block;
+.cookies-consent__dialog {
+  background-color: $white;
+  width: 600px;
+  max-width: 100%;
+  margin: auto;
+  padding: $spacer;
+  border-radius: $border-radius-lg;
+  position: relative;
+}
+
+.cookies-consent__close {
+  position: absolute;
+  top: $spacer;
+  right: $spacer;
+  color: $primary;
+  border: solid 3px $secondary;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cookies-consent__body {
+  margin: 0 0 $spacer;
+}
+
+@include media-breakpoint-up(sm) {
+  .cookies-consent__dialog {
+    padding: ($spacer * 3);
   }
 }

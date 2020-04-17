@@ -1,5 +1,67 @@
 .footer {
-  background: $black;
+  background: $dark;
   color: $white;
-  padding: 1rem 0 0;
+  padding: ($spacer * 2) 0 $spacer;
+  font-size: 0.8rem;
+
+  a {
+    color: $white;
+  }
+}
+
+.footer__logo {
+  margin: 0 0 $spacer;
+}
+
+.footer__links {
+  margin-bottom: ($spacer * 2);
+
+  ul {
+    margin: 0;
+  }
+
+  a {
+    padding: ($spacer * 0.2) 0;
+    display: inline-block;
+  }
+}
+
+.footer__heading {
+  color: $white;
+  font-size: ($spacer * 0.9);
+  margin-bottom: $spacer;
+}
+
+.footer__social {
+  display: inline-flex;
+  margin-bottom: ($spacer * 2);
+
+  li {
+    margin-left: ($spacer * 1.5);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  a {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    font-size: 26px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+
+    .fab {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
 }

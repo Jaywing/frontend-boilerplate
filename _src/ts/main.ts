@@ -1,13 +1,21 @@
-// data-js modules
-import dataJsModule from './modules/extendables/dataJsModule';
+import Promise from "es6-promise";
+import dataJsModule from "./modules/extendables/dataJsModule";
 
-const dataJsElements = document.querySelectorAll('[data-js]');
+// Polyfills
+
+if (!window.Promise) {
+  window.Promise = Promise;
+}
+
+// data-js modules
+
+const dataJsElements = document.querySelectorAll("[data-js]");
 
 for (let i = 0; i < dataJsElements.length; i++) {
   const el = dataJsElements[i];
 
-  const dataJsValue = el.getAttribute('data-js');
-  const dataJsModules: any = dataJsValue.split(' ').map(function(item) {
+  const dataJsValue = el.getAttribute("data-js");
+  const dataJsModules: any = dataJsValue.split(" ").map(function(item) {
     return item.trim();
   });
 

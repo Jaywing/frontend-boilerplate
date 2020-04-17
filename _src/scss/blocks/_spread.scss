@@ -1,0 +1,138 @@
+.spread__text {
+  .container {
+    padding: ($spacer * 2) $spacer;
+
+    :last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
+.spread__img {
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+}
+
+.spread__img-caption {
+  position: absolute;
+  bottom: $spacer;
+  left: $spacer;
+  color: $white;
+  margin-bottom: 0;
+}
+
+@include media-breakpoint-up(sm) {
+  .spread__text {
+    .container {
+      padding: ($spacer * 2) $spacer;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .spread {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .spread__text {
+    flex: 0 0 50%;
+    max-width: 50%;
+    align-self: center;
+
+    .container {
+      flex: 0 0 (map-get($container-max-widths, md) / 2);
+      max-width: (map-get($container-max-widths, md) / 2);
+      margin-right: 0;
+      padding: ($spacer * 2) ($spacer * 3) ($spacer * 2) $spacer;
+    }
+  }
+
+  .spread__img {
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: flex;
+
+    picture {
+      flex: 0 0 100%;
+      max-width: 100%;
+      display: flex;
+    }
+
+    img {
+      flex: 0 0 100%;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: 100% 100%;
+    }
+  }
+
+  .spread--img-left {
+    .spread__text {
+      order: 2;
+
+      .container {
+        margin-right: auto;
+        margin-left: 0;
+        padding: ($spacer * 2) $spacer ($spacer * 2) ($spacer * 3);
+      }
+    }
+
+    .spread__img {
+      order: 1;
+    }
+
+    .spread__img-caption {
+      right: $spacer;
+      left: auto;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .spread__text {
+    .container {
+      flex: 0 0 (map-get($container-max-widths, lg) / 2);
+      max-width: (map-get($container-max-widths, lg) / 2);
+      padding: ($spacer * 3) ($spacer * 3) ($spacer * 3) $spacer;
+    }
+  }
+
+  .spread--img-left {
+    .spread__text {
+      .container {
+        padding: ($spacer * 3) $spacer ($spacer * 3) ($spacer * 3);
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .spread__text {
+    .container {
+      flex: 0 0 (map-get($container-max-widths, xl) / 2);
+      max-width: (map-get($container-max-widths, xl) / 2);
+      padding: ($spacer * 3) ($spacer * 5) ($spacer * 3) $spacer;
+    }
+  }
+
+  .spread--img-left {
+    .spread__text {
+      .container {
+        padding: ($spacer * 3) $spacer ($spacer * 3) ($spacer * 5);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1921px) {
+  .spread__text,
+  .spread__img {
+    flex: 0 0 940px;
+    max-width: 940px;
+  }
+}

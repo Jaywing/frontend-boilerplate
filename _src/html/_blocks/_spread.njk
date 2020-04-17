@@ -1,0 +1,31 @@
+{% macro Spread(options) -%}
+
+  <div class="spread{{ ' ' + options.modifiers if options.modifiers else '' }}">
+    <div class="spread__text">
+      <div class="container">
+        <h2 class="h1">{{ options.title|safe if options.title else 'Spread' }}</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus soluta, doloribus ad maiores explicabo accusamus autem deleniti accusantium tenetur odio fugiat non illum dolorem quisquam possimus nemo atque, eaque enim.</p>
+        <p>Fuga dolorum a nulla reiciendis, recusandae expedita soluta, aliquid sit laboriosam modi incidunt, nostrum ipsum voluptatem impedit at necessitatibus rem consequuntur. Aperiam consequuntur rem recusandae error, labore laboriosam facilis aut!</p>
+        <p>
+          <a href="#" class="btn btn-primary">Find out more</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="spread__img">
+      <picture>
+        <source media="(min-width: 768px)" srcset="https://picsum.photos/id/770/960"/>
+        <source srcset="https://picsum.photos/id/770/768/500"/>
+        <img src="https://picsum.photos/id/770/960" alt=""/>
+      </picture>
+
+      <p class="spread__img-caption">Caption</p>
+    </div>
+  </div>
+
+{%- endmacro %}
+
+{{ Spread({
+  "modifiers": "",
+  "title": ""
+}) }}

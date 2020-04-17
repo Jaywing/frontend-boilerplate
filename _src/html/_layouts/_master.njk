@@ -1,6 +1,8 @@
+{# Import Macros #}
 {% from "_macros/_open-graph.njk" import OpenGraph %}
 {% from "_macros/_seo.njk" import Seo %}
 {% from "_macros/_twitter-card.njk" import TwitterCard %}
+{% from "_blocks/_spread.njk" import Spread %}
 
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -38,87 +40,24 @@
 
   <body class="d-flex flex-column" id="top" style="min-height:100%">
     {% block cookieConsent %}
-      <div class="cookies-consent" role="dialog" data-js="CookieConsent">
-        <div class="card">
-          <div class="card-body">
-            <p class="card-text">This site uses cookies to make sure you have the best experience.
-              <a href="#">Read our cookie policy</a>
-            </p>
-
-            <button class="btn btn-primary js-accept" type="button">Close</button>
-          </div>
-        </div>
-      </div>
+      {% include "_blocks/_cookie-consent.njk" %}
     {% endblock %}
 
     {% block skipNav %}
-      <nav class="skip-nav">
-        <a href="#content">Skip to Main Content</a>
-        <a href="#footer">Skip to Footer</a>
-      </nav>
+      {% include "_blocks/_skip-nav.njk" %}
     {% endblock %}
 
-    <header class="header">
-      {% block header %}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container">
-            <a class="navbar-brand" href="/">Navbar</a>
-
-            <button class="navbar-toggler collapsed" type="button" data-js="Collapse" data-js-options='[{"target": "#mainNav"}]' aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-              <span class="sr-only">Toggle navigation</span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="mainNav">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home
-                    <span class="sr-only">(current)</span>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-
-                <li class="nav-item dropdown" data-js="Dropdown">
-                  <a class="nav-link dropdown-toggle js-toggler" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                  </a>
-
-                  <div class="dropdown-menu js-dropdown" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-              </ul>
-
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-              </form>
-            </div>
-          </div>
-        </nav>
-      {% endblock %}
-    </header>
+    {% block header %}
+      {% include "_blocks/_header.njk" %}
+    {% endblock %}
 
     <main id="content">
       {% block main %}{% endblock %}
     </main>
 
-    <footer class="footer mt-auto" id="footer">
-      {% block footer %}
-        <div class="container">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, aperiam?</p>
-        </div>
-      {% endblock %}
-    </footer>
+    {% block footer %}
+      {% include "_blocks/_footer.njk" %}
+    {% endblock %}
 
     {% block scripts %}
       <script src="/assets/js/main.js"></script>

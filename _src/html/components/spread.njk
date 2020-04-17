@@ -1,0 +1,13 @@
+{% extends "_layouts/_master.njk" %}
+
+{% block main -%}
+
+  {{ Spread({
+    "title": "Spread<br><small class=\"text-muted\">Image right (default)</small>"
+  }) }}
+  {{ Spread({
+    "modifiers": "spread--img-left",
+    "title": "Spread<br><small class=\"text-muted\">Image left</small>"
+  }) }}
+
+{%- endblock %}

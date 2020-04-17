@@ -1,12 +1,10 @@
-import dataJsModule from './extendables/dataJsModule';
-
-interface ICollapseOptions {
-  target: string;
-}
+import dataJsModule from "./extendables/dataJsModule";
 
 export default class Collapse extends dataJsModule {
+  options: {
+    target: string;
+  };
   target: HTMLElement;
-  options: ICollapseOptions;
 
   init() {
     this.clickToggler();
@@ -14,13 +12,12 @@ export default class Collapse extends dataJsModule {
 
   clickToggler() {
     this.target = document.querySelector(this.options.target);
-    console.log(this.target);
 
     if (this.target) {
-      this.el.addEventListener('click', e => {
+      this.el.addEventListener("click", e => {
         e.preventDefault();
 
-        if (this.el.classList.contains('collapsed')) {
+        if (this.el.classList.contains("collapsed")) {
           this.expand();
         } else {
           this.collapse();
@@ -30,14 +27,14 @@ export default class Collapse extends dataJsModule {
   }
 
   collapse() {
-    this.el.classList.add('collapsed');
-    this.el.setAttribute('aria-expanded', 'false');
-    this.target.classList.remove('show');
+    this.el.classList.add("collapsed");
+    this.el.setAttribute("aria-expanded", "false");
+    this.target.classList.remove("show");
   }
 
   expand() {
-    this.el.classList.remove('collapsed');
-    this.el.setAttribute('aria-expanded', 'true');
-    this.target.classList.add('show');
+    this.el.classList.remove("collapsed");
+    this.el.setAttribute("aria-expanded", "true");
+    this.target.classList.add("show");
   }
 }

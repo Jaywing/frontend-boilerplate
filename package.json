@@ -18,7 +18,7 @@
   "main": "gulpfile.js",
   "paths": {
     "static_dir": "./_static/",
-    "proxy_address": "https://costcutter-local.jywng.co/",
+    "proxy_address": "https://",
     "css": {
       "src": "./_src/scss/**/",
       "static_dest": "./_static/assets/css/",
@@ -26,14 +26,16 @@
     },
     "fonts": {
       "src": [
-        "./_src/fonts/**/*.+(ttf|otf|woff|woff2)"
+        "./_src/webfonts/**/*.+(ttf|otf|woff|woff2|eot|svg)",
+        "./node_modules/@fortawesome/fontawesome-free/webfonts/*.+(ttf|otf|woff|woff2|eot|svg)"
       ],
-      "static_dest": "./_static/assets/fonts/",
-      "proxy_dest": "./Umbraco/assets/fonts/"
+      "static_dest": "./_static/assets/webfonts/",
+      "proxy_dest": "./Umbraco/assets/webfonts/"
     },
     "html": {
-      "src": "./_src/html/**/",
-      "static_dest": "./_static/"
+      "static_src": "./_src/html/**/",
+      "static_dest": "./_static/",
+      "proxy_watch": "./Umbraco/**/*.cshtml"
     },
     "images": {
       "src": "./_src/images/**/*.+(png|jpg|jpeg|gif|svg)",
@@ -46,40 +48,49 @@
       "proxy_dest": "./Umbraco/assets/"
     }
   },
+  "prettier": {
+    "tabWidth": 2
+  },
   "browserslist": "> 2%",
   "browserSync": {
     "open": false
   },
   "scripts": {
     "start": "gulp --maps --max-old-space-size=8192",
-    "build": "gulp build --minify"
+    "build": "gulp build --minify --purge",
+    "prettier": "prettier --write \"./**/*.{scss,ts,tsx,js,jsx,json}\""
   },
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.7.6",
     "browser-sync": "^2.26.7",
-    "eslint-config-prettier": "^5.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.0",
     "gulp-clean": "^0.4.0",
-    "gulp-cssnano": "^2.1.3",
     "gulp-eslint": "^5.0.0",
+    "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-nunjucks": "^5.0.0",
+    "gulp-postcss": "^8.0.0",
     "gulp-purgecss": "^1.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
-    "prettier": "^1.18.2",
-    "prettier-eslint": "^9.0.0",
-    "prettier-eslint-cli": "^5.0.0",
+    "prettier": "^2.0.2",
+    "purgecss": "^2.1.2",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-twbs-bootstrap": "^2.0.1",
+    "stylelint-prettier": "^1.1.2",
     "ts-loader": "^6.2.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.3.0",
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "bootstrap": "^4.3.1",
+    "es6-promise": "^4.2.8"
   }
 }

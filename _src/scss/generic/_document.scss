@@ -1,0 +1,9 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    display: block;
+  }
+}

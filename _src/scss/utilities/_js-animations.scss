@@ -1,0 +1,29 @@
+.fade-in {
+  animation-name: fadeIn;
+  animation-fill-mode: both;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.fade-out {
+  animation-name: fadeOut;
+  animation-fill-mode: both;
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+}

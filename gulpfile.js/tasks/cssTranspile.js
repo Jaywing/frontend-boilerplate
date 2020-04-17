@@ -1,42 +1,46 @@
 function cssTranspile() {
-  const autoprefixer = require('gulp-autoprefixer');
-  const cssnano = require('gulp-cssnano');
-  const flags = require('../config/flags');
-  const gulp = require('gulp');
-  const paths = require('../../package.json').paths;
-  const purgecss = require('gulp-purgecss');
-  const rename = require('gulp-rename');
-  const sass = require('gulp-sass');
-  const sourcemaps = require('gulp-sourcemaps');
-  const util = require('gulp-util');
+  const autoprefixer = require("autoprefixer");
+  const cssnano = require("cssnano");
+  const flags = require("../config/flags");
+  const gulp = require("gulp");
+  const gulpif = require("gulp-if");
+  const paths = require("../../package.json").paths;
+  const postcss = require("gulp-postcss");
+  const purgecss = require("gulp-purgecss");
+  const purgewhitelist = require("../../_src/scss/whitelist.json");
+  const sass = require("gulp-sass");
+  const sourcemaps = require("gulp-sourcemaps");
+
+  const postcssplugins = [autoprefixer()];
+
+  if (flags.minify) {
+    postcssplugins.push(
+      cssnano({
+        preset: ["default", { discardComments: { removeAll: true } }],
+      })
+    );
+  }
 
   return gulp
-    .src(paths.css.src + '!(_)*.scss')
-    .pipe(flags.maps ? sourcemaps.init() : util.noop())
-    .pipe(sass().on('error', sass.logError))
+    .src(paths.css.src + "!(_)*.scss")
+    .pipe(gulpif(flags.maps, sourcemaps.init()))
+    .pipe(sass().on("error", sass.logError))
+    .pipe(postcss(postcssplugins))
     .pipe(
-      autoprefixer({
-        cascade: false,
-        remove: false
-      })
+      gulpif(
+        flags.purge,
+        purgecss({
+          content: [
+            flags.static
+              ? paths.html.static_src + "*.njk"
+              : paths.html.proxy_watch,
+            paths.js.src + "*.ts",
+          ],
+          whitelist: purgewhitelist,
+        })
+      )
     )
-    .pipe(flags.minify ? cssnano() : util.noop())
-    .pipe(
-      flags.purge
-        ? purgecss({
-            content: [
-              paths.static_dir + '**/*.html',
-              paths.static_dir + '**/*.js'
-            ]
-          })
-        : util.noop()
-    )
-    .pipe(
-      rename(function(path) {
-        path.extname = '.css';
-      })
-    )
-    .pipe(flags.maps ? sourcemaps.write('maps') : util.noop())
+    .pipe(gulpif(flags.maps, sourcemaps.write("maps")))
     .pipe(
       gulp.dest(flags.static ? paths.css.static_dest : paths.css.proxy_dest)
     );
