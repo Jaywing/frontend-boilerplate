@@ -8,8 +8,8 @@
   grid-column: span $grid-columns;
 }
 
-@mixin gridColMxn($breakpoint: '') {
-  $breakpoint: if($breakpoint == '', '', $breakpoint + '-');
+@mixin gridColMxn($breakpoint: "") {
+  $breakpoint: if($breakpoint == "", "", $breakpoint + "-");
 
   @for $i from 1 through $grid-columns {
     .cell-#{$breakpoint + $i} {
