@@ -9,27 +9,27 @@ export default class Collapse extends dataJsModule {
   target: HTMLElement;
 
   init() {
-    this.clickWindow();
-  }
-
-  clickWindow() {
     this.target = document.querySelector(this.options.target);
 
     if (this.target) {
-      window.addEventListener("click", (e: any) => {
-        if (e.target === this.el || this.el.contains(e.target)) {
-          if (this.el.getAttribute("aria-expanded") === "false") {
-            this.expand();
-          } else {
-            this.collapse();
-          }
-        } else if (!this.target.contains(e.target)) {
-          if (this.el.getAttribute("aria-expanded") === "true") {
-            this.collapse();
-          }
-        }
-      });
+      this.clickWindow();
     }
+  }
+
+  clickWindow() {
+    window.addEventListener("click", (e: any) => {
+      if (e.target === this.el || this.el.contains(e.target)) {
+        if (this.el.getAttribute("aria-expanded") === "false") {
+          this.expand();
+        } else {
+          this.collapse();
+        }
+      } else if (!this.target.contains(e.target)) {
+        if (this.el.getAttribute("aria-expanded") === "true") {
+          this.collapse();
+        }
+      }
+    });
   }
 
   collapse() {
