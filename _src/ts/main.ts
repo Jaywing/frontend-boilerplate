@@ -1,11 +1,16 @@
 import Promise from "es6-promise";
 import dataJsModule from "./modules/extendables/dataJsModule";
+import LazyLoad from "./modules/LazyLoad";
 
 // Polyfills
 
 if (!window.Promise) {
   window.Promise = Promise;
 }
+
+// Run LazyLoad module
+const lazyLoad = new LazyLoad();
+lazyLoad.init();
 
 // data-js modules
 

@@ -6,10 +6,10 @@
 
   <div class="spread{{ imageRight }}{{ container }}">
     <div class="spread__img">
-      <picture>
-        <source media="(min-width: 768px)" srcset="https://picsum.photos/id/770/960"/>
-        <source srcset="https://picsum.photos/id/770/768/500"/>
-        <img src="https://picsum.photos/id/770/960" alt=""/>
+      <picture class="js-lazy">
+        <source media="(min-width: 768px)" data-srcset="https://picsum.photos/id/770/960"/>
+        <source data-srcset="https://picsum.photos/id/770/768/500"/>
+        <img data-src="https://picsum.photos/id/770/960" alt=""/>
       </picture>
 
       <p class="spread__img-caption">Caption</p>
