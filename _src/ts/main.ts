@@ -1,11 +1,26 @@
+// Import Node Modules
+import "intersection-observer";
 import Promise from "es6-promise";
+
+// Import Project Modules
 import dataJsModule from "./modules/extendables/dataJsModule";
 import LazyLoad from "./modules/LazyLoad";
 
-// Polyfills
+// POLYFILLS
 
+// Promise polyfill
 if (!window.Promise) {
   window.Promise = Promise;
+}
+
+// forEach polyfill
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = function (callback, thisArg) {
+    thisArg = thisArg || window;
+    for (var i = 0; i < this.length; i++) {
+      callback.call(thisArg, this[i], i, this);
+    }
+  };
 }
 
 // Run LazyLoad module
