@@ -9,17 +9,27 @@
       <picture class="js-lazy">
         <source media="(min-width: 768px)" data-srcset="https://picsum.photos/id/770/960"/>
         <source data-srcset="https://picsum.photos/id/770/768/500"/>
-        <img data-src="https://picsum.photos/id/770/960" alt=""/>
+        <img data-src="https://picsum.photos/id/770/960" alt="" width="960" height="960"/>
       </picture>
 
-      <p class="spread__img-caption">Caption</p>
+      {% if options.img_caption %}
+        <p class="spread__img-caption">{{ options.img_caption }}</p>
+      {% endif %}
     </div>
 
     <div class="spread__text">
       <div class="container">
-        <h2 class="h1">{{ options.title|safe if options.title else 'Spread' }}</h2>
-        <p>Sit ullam, qui, commodi ad voluptatibus, corporis accusantium ex nostrum quam maxime earum nam necessitatibus neque repellat soluta non atque amet totam recusandae. Quasi, quaerat itaque saepe temporibus, aspernatur fuga, officia a vero libero nihil officiis.</p>
-        <a href="#" class="btn btn-primary">Find out more</a>
+        {% if options.title %}
+          <h2 class="h1">{{ options.title|safe }}</h2>
+        {% endif %}
+
+        {% if options.body_text %}
+          {{ options.body_text|safe }}
+        {% endif %}
+
+        {% if options.cta.href and options.cta.label %}
+          <a href="{{ options.cta.href }}" class="btn btn-primary">{{ options.cta.label }}</a>
+        {% endif %}
       </p>
     </div>
   </div>
@@ -28,7 +38,13 @@
 {%- endmacro %}
 
 {{ Spread({
-  "imageRight": "",
+  "imageRight": false,
   "container": false,
-  "title": ""
+  "title": "",
+  "body_text": "",
+  "cta": {
+    "href": "",
+    "label": ""
+  },
+  "img_caption": ""
 }) }}

@@ -3,23 +3,51 @@
 {% block main -%}
 
   {{ Spread({
-    "title": "Spread<br><small class=\"text-muted\">Full Width / Image Left (default)</small>"
+    "imageRight": false,
+    "container": false,
+    "title": "Spread<br><small class=\"text-muted\">Full Width / Image Left (default)</small>",
+    "body_text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id facilis quasi vitae tempore illum recusandae placeat perferendis possimus impedit eligendi autem magni repudiandae, molestiae ea veritatis necessitatibus libero voluptatum aliquid laudantium! Ex accusamus sed ratione unde minus similique. Beatae totam numquam et, provident necessitatibus ratione quam quia corporis impedit doloremque.</p>",
+    "cta": {
+      "href": "#",
+      "label": "Find out more"
+    },
+    "img_caption": "Caption"
   }) }}
 
   {{ Spread({
     "imageRight": true,
-    "title": "Spread<br><small class=\"text-muted\">Full Width / Image Right</small>"
+    "container": false,
+    "title": "Spread<br><small class=\"text-muted\">Full Width / Image Right</small>",
+    "body_text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id facilis quasi vitae tempore illum recusandae placeat perferendis possimus impedit eligendi autem magni repudiandae, molestiae ea veritatis necessitatibus libero voluptatum aliquid laudantium! Ex accusamus sed ratione unde minus similique. Beatae totam numquam et, provident necessitatibus ratione quam quia corporis impedit doloremque.</p>",
+    "cta": {
+      "href": "#",
+      "label": "Find out more"
+    },
+    "img_caption": "Caption"
   }) }}
 
   {{ Spread({
+    "imageRight": false,
     "container": true,
-    "title": "Spread<br><small class=\"text-muted\">In Container / Image Left</small>"
+    "title": "Spread<br><small class=\"text-muted\">In Container / Image Left</small>",
+    "body_text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id facilis quasi vitae tempore illum recusandae placeat perferendis possimus impedit eligendi autem magni repudiandae, molestiae ea veritatis necessitatibus libero voluptatum aliquid laudantium! Ex accusamus sed ratione unde minus similique. Beatae totam numquam et, provident necessitatibus ratione quam quia corporis impedit doloremque.</p>",
+    "cta": {
+      "href": "#",
+      "label": "Find out more"
+    },
+    "img_caption": "Caption"
   }) }}
 
   {{ Spread({
     "imageRight": true,
     "container": true,
-    "title": "Spread<br><small class=\"text-muted\">In Container / Image Right</small>"
+    "title": "Spread<br><small class=\"text-muted\">In Container / Image Right</small>",
+    "body_text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id facilis quasi vitae tempore illum recusandae placeat perferendis possimus impedit eligendi autem magni repudiandae, molestiae ea veritatis necessitatibus libero voluptatum aliquid laudantium! Ex accusamus sed ratione unde minus similique. Beatae totam numquam et, provident necessitatibus ratione quam quia corporis impedit doloremque.</p>",
+    "cta": {
+      "href": "#",
+      "label": "Find out more"
+    },
+    "img_caption": "Caption"
   }) }}
 
 {%- endblock %}
