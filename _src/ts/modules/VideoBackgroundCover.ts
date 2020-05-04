@@ -15,38 +15,30 @@ export default class VideoBackgroundCover extends dataJsModule {
   init() {
     this.windowResize();
     this.windowOrientationChange();
-    this.getDimensions();
+    this.positionVideo();
   }
 
   windowResize() {
     window.addEventListener("resize", () => {
-      this.getDimensions();
+      this.positionVideo();
     });
   }
 
   windowOrientationChange() {
     window.addEventListener("orientationchange", () => {
-      this.getDimensions();
+      this.positionVideo();
     });
   }
 
-  getDimensions() {
+  positionVideo() {
     this.video.width = this.el.offsetWidth;
     this.video.height = this.el.offsetHeight;
     this.container.width = (<HTMLElement>this.el.parentNode).offsetWidth;
     this.container.height = (<HTMLElement>this.el.parentNode).offsetHeight;
 
-    this.calculateRatios();
-  }
-
-  calculateRatios() {
     this.video.ratio = this.video.width / this.video.height;
     this.container.ratio = this.container.width / this.container.height;
 
-    this.resizeAndPositionVideo();
-  }
-
-  resizeAndPositionVideo() {
     if (this.container.ratio > this.video.ratio) {
       const videoMarginTop = Math.ceil(
         (this.video.height - this.container.height) / 2
