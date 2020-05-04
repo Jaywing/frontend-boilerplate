@@ -9,13 +9,17 @@ function jsTranspile() {
   const webpackConfig = {
     mode: flags.minify ? "production" : "development",
     entry: { main: "./_src/ts/main.ts" },
-    devtool: flags.maps ? "source-map" : "none",
+    devtool: flags.maps ? "inline-source-map" : "none",
     module: {
       rules: [
         {
           test: /\.tsx?$/,
-          use: "ts-loader",
+          loader: "ts-loader",
           exclude: /node_modules/,
+          options: {
+            transpileOnly: true,
+            experimentalWatchApi: true,
+          },
         },
       ],
     },
