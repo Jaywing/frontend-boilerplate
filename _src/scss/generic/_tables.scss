@@ -1,0 +1,16 @@
+table {
+  @extend .table;
+
+  tr {
+    &:first-child {
+      td {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.table-overflow {
+  overflow-x: auto;
+  width: 100%;
+}
