@@ -1,3 +1,14 @@
 img {
   @extend .img-fluid;
 }
+
+// Image container for object-fit js fallback
+.img-object-fit {
+  background: center center no-repeat;
+  background-size: cover;
+  position: relative;
+
+  img {
+    display: none;
+  }
+}
