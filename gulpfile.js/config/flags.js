@@ -5,4 +5,5 @@ module.exports = {
   minify: !!util.env.minify,
   maps: !!util.env.maps,
   purge: !!util.env.purge,
+  tsErrors: !!util.env.tsErrors,
 };
