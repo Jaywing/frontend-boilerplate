@@ -51,7 +51,10 @@
   "prettier": {
     "tabWidth": 2
   },
-  "browserslist": "> 2%",
+  "browserslist": [
+    "> 1%",
+    "IE >= 11"
+  ],
   "browserSync": {
     "open": false
   },
