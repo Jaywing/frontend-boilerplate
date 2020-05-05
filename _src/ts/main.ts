@@ -1,13 +1,14 @@
 // Import Node Modules
 import "intersection-observer";
+import Promise from "es6-promise";
 
-// Import Project Modules
 import dataJsModule from "./modules/extendables/dataJsModule";
 import LazyLoad from "./modules/LazyLoad";
 
-// Includes
-import "./includes/promise";
-import "./includes/tableOverflow";
+// Promise fallback
+if (!window.Promise) {
+  window.Promise = Promise;
+}
 
 // Run LazyLoad module
 const lazyLoad = new LazyLoad();
@@ -20,9 +21,11 @@ for (let i = 0; i < dataJsElements.length; i++) {
   const el = dataJsElements[i];
 
   const dataJsValue = el.getAttribute("data-js");
-  const dataJsModules: any = dataJsValue.split(" ").map(function (item) {
-    return item.trim();
-  });
+  const dataJsModules: Array<string> = dataJsValue
+    .split(" ")
+    .map(function (item) {
+      return item.trim();
+    });
 
   let options = [{}];
   const dataOptions = el.getAttribute(`data-js-options`);
