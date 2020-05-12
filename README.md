@@ -2,9 +2,9 @@
 
 ### How do I get set up?
 
-#### Install node 12.16.0, use NVM: https://github.com/coreybutler/nvm-windows
+#### Install node 12.16.3, use NVM: https://github.com/coreybutler/nvm-windows
 
-nvm install 12.16.0
+nvm install 12.16.3
 
 #### Activate node 12.16.0
 
