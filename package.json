@@ -69,13 +69,13 @@
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
-    "gulp-eslint": "^5.0.0",
+    "gulp-eslint": "^6.0.0",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-nunjucks": "^5.0.0",
     "gulp-postcss": "^8.0.0",
-    "gulp-purgecss": "^1.2.0",
-    "gulp-rename": "^1.4.0",
+    "gulp-purgecss": "^2.2.0",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
@@ -84,7 +84,7 @@
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-twbs-bootstrap": "^2.0.1",
     "stylelint-prettier": "^1.1.2",
-    "ts-loader": "^6.2.1",
+    "ts-loader": "^7.0.4",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
     "typescript": "^3.7.5",
@@ -93,8 +93,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "4.5",
     "es6-promise": "^4.2.8",
-    "intersection-observer": "^0.9.0"
+    "intersection-observer": "^0.10.0"
   }
 }
