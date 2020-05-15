@@ -17,7 +17,7 @@ export default class Collapse extends dataJsModule {
       this.el.addEventListener("click", (e) => {
         e.preventDefault();
 
-        if (this.el.classList.contains("collapsed")) {
+        if (this.el.getAttribute("aria-expanded") === "false") {
           this.expand();
         } else {
           this.collapse();
@@ -27,13 +27,11 @@ export default class Collapse extends dataJsModule {
   }
 
   collapse() {
-    this.el.classList.add("collapsed");
     this.el.setAttribute("aria-expanded", "false");
     this.target.classList.remove("show");
   }
 
   expand() {
-    this.el.classList.remove("collapsed");
     this.el.setAttribute("aria-expanded", "true");
     this.target.classList.add("show");
   }
