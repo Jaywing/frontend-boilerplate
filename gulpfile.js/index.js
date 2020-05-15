@@ -13,15 +13,15 @@ const jsTranspile = require("./tasks/jsTranspile").jsTranspile;
 // BUILD TASKS
 let build;
 
-if (flags.static) {
+if (flags.proxy) {
   build = gulp.series(
     clean,
-    htmlTranspile,
     gulp.parallel(cssTranspile, fontTransfer, imageTransfer, jsTranspile)
   );
 } else {
   build = gulp.series(
     clean,
+    htmlTranspile,
     gulp.parallel(cssTranspile, fontTransfer, imageTransfer, jsTranspile)
   );
 }
@@ -32,12 +32,12 @@ const watch = () => {
 
   const browserSyncOptions = require("../package.json").browserSync;
 
-  if (flags.static) {
+  if (flags.proxy) {
+    browserSyncOptions.proxy = paths.proxy_address;
+  } else {
     browserSyncOptions.server = {
       baseDir: paths.static_dir,
     };
-  } else {
-    browserSyncOptions.proxy = paths.proxy_address;
   }
 
   const server = require("browser-sync").create();
@@ -55,13 +55,13 @@ const watch = () => {
 
   gulp.watch(paths.fonts.src, gulp.series(fontTransfer, browserReload));
 
-  if (flags.static) {
+  if (flags.proxy) {
+    gulp.watch(paths.html.proxy_watch, browserReload);
+  } else {
     gulp.watch(
       paths.html.static_src + "*.njk",
       gulp.series(htmlTranspile, browserReload)
     );
-  } else {
-    gulp.watch(paths.html.proxy_watch, browserReload);
   }
 
   gulp.watch(paths.images.src, gulp.series(imageTransfer, browserReload));

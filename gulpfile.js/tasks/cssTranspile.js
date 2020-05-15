@@ -31,9 +31,9 @@ function cssTranspile() {
         flags.purge,
         purgecss({
           content: [
-            flags.static
-              ? paths.html.static_src + "*.njk"
-              : paths.html.proxy_watch,
+            flags.proxy
+              ? paths.html.proxy_watch
+              : paths.html.static_src + "*.njk",
             paths.js.src + "*.ts",
           ],
           whitelist: purgewhitelist,
@@ -42,7 +42,7 @@ function cssTranspile() {
     )
     .pipe(gulpif(flags.maps, sourcemaps.write("maps")))
     .pipe(
-      gulp.dest(flags.static ? paths.css.static_dest : paths.css.proxy_dest)
+      gulp.dest(flags.proxy ? paths.css.proxy_dest : paths.css.static_dest)
     );
 }
 

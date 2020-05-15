@@ -6,7 +6,7 @@ function fontTransfer() {
   return gulp
     .src(paths.fonts.src)
     .pipe(
-      gulp.dest(flags.static ? paths.fonts.static_dest : paths.fonts.proxy_dest)
+      gulp.dest(flags.proxy ? paths.fonts.proxy_dest : paths.fonts.static_dest)
     );
 }
 
