@@ -38,12 +38,15 @@ export default class Dropdown extends dataJsModule {
 
   collapse() {
     this.toggler.setAttribute("aria-expanded", "false");
-    animateOut(this.dropdown, "fade-out", 300);
+    animateOut(this.dropdown, "fade-out", 300, () => {
+      this.dropdown.style.display = "";
+    });
   }
 
   expand() {
     this.toggler.setAttribute("aria-expanded", "true");
-    this.dropdown.style.display = "block";
-    animateIn(this.dropdown, "fade-in", 300);
+    animateIn(this.dropdown, "fade-in", 300, () => {
+      this.dropdown.style.display = "block";
+    });
   }
 }

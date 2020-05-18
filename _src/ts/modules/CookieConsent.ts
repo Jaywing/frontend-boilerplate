@@ -16,8 +16,9 @@ export default class CookieConsent extends dataJsModule {
 
   show() {
     if (!getCookie("cookies_policy")) {
-      this.el.style.display = "block";
-      animateIn(this.el, "fade-in", 400);
+      animateIn(this.el, "fade-in", 400, () => {
+        this.el.style.display = "block";
+      });
     }
   }
 
@@ -27,7 +28,9 @@ export default class CookieConsent extends dataJsModule {
     if (this.closeButton) {
       this.closeButton.addEventListener("click", (e) => {
         e.preventDefault();
-        animateOut(this.el, "fade-out", 400);
+        animateOut(this.el, "fade-out", 400, () => {
+          this.el.style.display = "";
+        });
       });
     }
   }
@@ -39,7 +42,9 @@ export default class CookieConsent extends dataJsModule {
       this.acceptButton.addEventListener("click", (e) => {
         e.preventDefault();
         setCookie("cookies_policy", "accepted", 365);
-        animateOut(this.el, "fade-out", 400);
+        animateOut(this.el, "fade-out", 400, () => {
+          this.el.style.display = "";
+        });
       });
     }
   }

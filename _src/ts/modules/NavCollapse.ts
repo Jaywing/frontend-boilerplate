@@ -35,15 +35,18 @@ export default class Collapse extends dataJsModule {
   collapse() {
     this.el.classList.add("collapsed");
     this.el.setAttribute("aria-expanded", "false");
-    animateOut(this.target, "fade-out", 300);
+    animateOut(this.target, "fade-out", 300, () => {
+      this.target.style.display = "";
+    });
     document.documentElement.classList.remove("navbar-active");
   }
 
   expand() {
     this.el.classList.remove("collapsed");
     this.el.setAttribute("aria-expanded", "true");
-    this.target.style.display = "block";
-    animateIn(this.target, "fade-in", 300);
+    animateIn(this.target, "fade-in", 300, () => {
+      this.target.style.display = "block";
+    });
     document.documentElement.classList.add("navbar-active");
   }
 }
