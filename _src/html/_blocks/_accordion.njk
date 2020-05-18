@@ -11,8 +11,8 @@
           </button>
         </div>
 
-        {% set firstItem = "show" if loop.index === 1 and options.expandFirstItem %}
-        <div id="collapse{{ loop.index }}" class='js-accordion-body collapse {{ firstItem }}' aria-labelledby="heading{{ loop.index }}" data-parent="#{{ options.accordionId }}">
+        {% set firstItem = " show" if loop.index === 1 and options.expandFirstItem %}
+        <div id="collapse{{ loop.index }}" class='js-accordion-body collapse{{ firstItem }}' aria-labelledby="heading{{ loop.index }}" data-parent="#{{ options.accordionId }}">
           <div class="card-body">
             {{ i.body }}
           </div>
@@ -28,15 +28,63 @@
   "expandFirstItem": true,
   "items": [
     {
-      "header": "1: Lorem ipsum dolor sit amet.",
+      "header": "Lorem ipsum dolor sit amet.",
       "body": "Lorem ipsum dolor sit amet."
     },
     {
-      "header": "2: Lorem ipsum dolor sit amet.",
+      "header": "Lorem ipsum dolor sit amet.",
       "body": "Lorem ipsum dolor sit amet."
     },
     {
-      "header": "3: Lorem ipsum dolor sit amet.",
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
+      "body": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "header": "Lorem ipsum dolor sit amet.",
       "body": "Lorem ipsum dolor sit amet."
     }
   ]
