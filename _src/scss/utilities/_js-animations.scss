@@ -27,3 +27,33 @@
     }
   }
 }
+
+.slide-expand {
+  animation-name: slideExpand;
+  animation-fill-mode: both;
+
+  @keyframes slideExpand {
+    from {
+      max-height: 0;
+    }
+
+    to {
+      max-height: 2000px;
+    }
+  }
+}
+
+.slide-collapse {
+  animation-name: slideCollapse;
+  animation-fill-mode: both;
+
+  @keyframes slideCollapse {
+    from {
+      max-height: 2000px;
+    }
+
+    to {
+      max-height: 0;
+    }
+  }
+}
