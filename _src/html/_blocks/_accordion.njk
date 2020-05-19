@@ -2,17 +2,18 @@
 
   <div class="accordion" id="{{ options.accordionId }}" data-js="Accordion">
     {% for i in options.items %}
-      {% set ariaExpanded = "true" if loop.index === 1 and options.expandFirstItem else 
-        "false" %}
-      <div class="card js-accordion-item">
+      {% set firstItemActiveClass = " js-accordion-item-active" if loop.index === 1 and options.expandFirstItem %}
+      <div class="card js-accordion-item{{ firstItemActiveClass }}">
+        {% set ariaExpanded = "true" if loop.index === 1 and options.expandFirstItem else 
+          "false" %}
         <div class="card-header" id="heading{{ loop.index }}">
           <button class="btn btn-link btn-block text-left js-accordion-header" type="button" aria-expanded="{{ ariaExpanded }}" aria-controls="collapse{{ loop.index }}">
             {{ i.header }}
           </button>
         </div>
 
-        {% set firstItem = " show" if loop.index === 1 and options.expandFirstItem %}
-        <div id="collapse{{ loop.index }}" class='js-accordion-body collapse{{ firstItem }}' aria-labelledby="heading{{ loop.index }}" data-parent="#{{ options.accordionId }}">
+        {% set firstItemBodyActiveClass = " show" if loop.index === 1 and options.expandFirstItem %}
+        <div id="collapse{{ loop.index }}" class='js-accordion-body collapse{{ firstItemBodyActiveClass }}' aria-labelledby="heading{{ loop.index }}" data-parent="#{{ options.accordionId }}">
           <div class="card-body">
             {{ i.body }}
           </div>

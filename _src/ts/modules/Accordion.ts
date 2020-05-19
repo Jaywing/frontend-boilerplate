@@ -1,6 +1,6 @@
 import dataJsModule from "./extendables/dataJsModule";
-import animateOut from "./helpers/animateOut";
-import animateIn from "./helpers/animateIn";
+import slideDown from "./helpers/slideDown";
+import slideUp from "./helpers/slideUp";
 
 export default class Accordion extends dataJsModule {
   items: NodeListOf<HTMLElement>;
@@ -13,18 +13,29 @@ export default class Accordion extends dataJsModule {
         const header: HTMLElement = item.querySelector(".js-accordion-header");
         const body: HTMLElement = item.querySelector(".js-accordion-body");
 
+        let bodyHeight: number;
+
+        if (body.classList.contains("show")) {
+          bodyHeight = body.offsetHeight;
+        } else {
+          body.classList.add("show");
+          bodyHeight = body.offsetHeight;
+          body.classList.remove("show");
+        }
+
         if (header && body) {
           header.addEventListener("click", (e) => {
             e.preventDefault();
 
-            if (header.getAttribute("aria-expanded") === "false") {
-              this.closeAll(item);
+            if (!item.classList.contains("js-accordion-item-active")) {
+              this.close();
 
+              item.classList.add("js-accordion-item-active");
               header.setAttribute("aria-expanded", "true");
-              // animateIn(body, "slide-expand", 400, () => {});
               body.classList.add("show");
+              slideDown(body, bodyHeight);
             } else {
-              this.closeAll();
+              this.close();
             }
           });
         }
@@ -32,36 +43,25 @@ export default class Accordion extends dataJsModule {
     }
   }
 
-  closeAll(itemToExclude?: HTMLElement) {
-    let allHeaders: Array<HTMLElement> = Array.from(
-      this.el.querySelectorAll(".js-accordion-header")
-    );
+  close() {
+    const allItems = this.el.querySelectorAll(".js-accordion-item");
 
-    let allBodies: Array<HTMLElement> = Array.from(
-      this.el.querySelectorAll(".js-accordion-body")
-    );
+    if (allItems.length) {
+      allItems.forEach((item: HTMLElement) => {
+        item.classList.remove("js-accordion-item-active");
 
-    if (itemToExclude) {
-      allHeaders = allHeaders.filter(
-        (i: HTMLElement) =>
-          i !== itemToExclude.querySelector(".js-accordion-header")
-      );
-      allBodies = allBodies.filter(
-        (i: HTMLElement) =>
-          i !== itemToExclude.querySelector(".js-accordion-body")
-      );
-    }
+        const header: HTMLElement = item.querySelector(".js-accordion-header");
+        const body: HTMLElement = item.querySelector(".js-accordion-body");
 
-    if (allHeaders.length) {
-      allHeaders.forEach((header: HTMLElement) => {
-        header.setAttribute("aria-expanded", "false");
-      });
-    }
+        if (header) {
+          header.setAttribute("aria-expanded", "false");
+        }
 
-    if (allBodies.length) {
-      allBodies.forEach((body: HTMLElement) => {
-        body.classList.remove("show");
-        // animateOut(body, "slide-collapse", 400, () => {});
+        if (body) {
+          slideUp(body, body.offsetHeight, function () {
+            body.classList.remove("show");
+          });
+        }
       });
     }
   }
