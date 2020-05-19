@@ -1,5 +1,9 @@
 {% macro Accordion(options) -%}
 
+  {% if options.title %}
+    <h2 class="mb-2">{{ options.title }}</h2>
+  {% endif %}
+
   <div class="accordion" id="{{ options.accordionId }}" data-js="Accordion">
     {% for i in options.items %}
       {% set firstItemActiveClass = " js-accordion-item-active" if loop.index === 1 and options.expandFirstItem %}
@@ -25,6 +29,7 @@
 {%- endmacro %}
 
 {{ Accordion({
+  "title": "Accordion",
   "accordionId": "accordionExample",
   "expandFirstItem": true,
   "items": [
