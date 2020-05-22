@@ -1,0 +1,35 @@
+{% macro Hero(options) -%}
+
+  {% set container = " container" if options.container else 
+    "" %}
+
+  <div class="hero{{ container }}">
+    <div class="hero__video"></div>
+
+    <div class="hero__img">
+      <picture class="js-lazy">
+        <source media="(min-width: 1200px)" data-srcset="https://picsum.photos/id/770/1920/600"/>
+        <source media="(min-width: 768px)" data-srcset="https://picsum.photos/id/770/1200/600"/>
+        <source data-srcset="https://picsum.photos/id/770/768"/>
+        <img data-src="https://picsum.photos/id/770/1920/600" alt="" width="1920" height="600"/>
+      </picture>
+    </div>
+
+    <div class="hero__overlay">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-6">
+            <h1>Hero</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iusto eaque ab. Laudantium numquam autem obcaecati quam. Nam, repellat sunt.</p>
+            <a href="#" class="btn btn-primary">Find out more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{%- endmacro %}
+
+{{ Hero({
+  "container": false
+}) }}

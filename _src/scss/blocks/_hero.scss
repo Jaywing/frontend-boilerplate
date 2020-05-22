@@ -1,0 +1,22 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__overlay {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: $white;
+  text-align: center;
+  text-shadow: 0 0 $spacer $black;
+
+  > div {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
