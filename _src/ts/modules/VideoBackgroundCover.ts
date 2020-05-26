@@ -2,14 +2,14 @@ import dataJsModule from "./extendables/dataJsModule";
 
 export default class VideoBackgroundCover extends dataJsModule {
   video: {
-    width: number;
-    height: number;
-    ratio: number;
+    width?: number;
+    height?: number;
+    ratio?: number;
   };
   container: {
-    width: number;
-    height: number;
-    ratio: number;
+    width?: number;
+    height?: number;
+    ratio?: number;
   };
 
   init() {
@@ -31,10 +31,14 @@ export default class VideoBackgroundCover extends dataJsModule {
   }
 
   positionVideo() {
-    this.video.width = this.el.offsetWidth;
-    this.video.height = this.el.offsetHeight;
-    this.container.width = (<HTMLElement>this.el.parentNode).offsetWidth;
-    this.container.height = (<HTMLElement>this.el.parentNode).offsetHeight;
+    this.video = {
+      width: this.el.offsetWidth,
+      height: this.el.offsetHeight,
+    };
+    this.container = {
+      width: (<HTMLElement>this.el.parentNode).offsetWidth,
+      height: (<HTMLElement>this.el.parentNode).offsetHeight,
+    };
 
     this.video.ratio = this.video.width / this.video.height;
     this.container.ratio = this.container.width / this.container.height;
