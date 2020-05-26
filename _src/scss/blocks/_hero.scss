@@ -3,6 +3,28 @@
   overflow: hidden;
 }
 
+.hero__video {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  display: block;
+
+  &::before {
+    display: block;
+    content: "";
+    padding-top: 100%;
+  }
+}
+
+.hero__video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .hero__overlay {
   display: flex;
   flex-direction: column;
@@ -18,5 +40,21 @@
   > div {
     margin-top: auto;
     margin-bottom: auto;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .hero__video {
+    &::before {
+      padding-top: #{(600 / 1200 * 100) + "%"};
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .hero__video {
+    &::before {
+      padding-top: #{(700 / 1920 * 100) + "%"};
+    }
   }
 }

@@ -4,32 +4,70 @@
     "" %}
 
   <div class="hero{{ container }}">
-    <div class="hero__video"></div>
+    {% if options.html5Video or options.vimeoId %}
 
-    <div class="hero__img">
-      <picture class="js-lazy">
-        <source media="(min-width: 1200px)" data-srcset="https://picsum.photos/id/770/1920/600"/>
-        <source media="(min-width: 768px)" data-srcset="https://picsum.photos/id/770/1200/600"/>
-        <source data-srcset="https://picsum.photos/id/770/768"/>
-        <img data-src="https://picsum.photos/id/770/1920/600" alt="" width="1920" height="600"/>
-      </picture>
-    </div>
+      <div class="hero__video">
+        <div class="hero__video-container">
+          <div class="embed-responsive embed-responsive-16by9" data-js="VideoBackgroundCover">
+            {% if options.vimeoId %}
+              <iframe data-src="https://player.vimeo.com/video/{{ options.vimeoId }}?autoplay=1&loop=1&title=0&byline=0&portrait=0" class="embed-responsive-item js-lazy" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="allowfullscreen"></iframe>
+            {% elif options.html5Video %}
+              <video width="640" height="360" autoplay="autoplay" loop="loop" muted="muted" class="embed-responsive-item js-lazy">
+                <source data-src="{{ options.html5Video }}" type="video/mp4">
+              </video>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    {% elif options.image %}
+
+      <div class="hero__img">
+        <picture class="js-lazy">
+          <source media="(min-width: 1200px)" data-srcset="{{ options.image.lg }}"/>
+          <source media="(min-width: 768px)" data-srcset="{{ options.image.md }}"/>
+          <source data-srcset="{{ options.image.xs }}"/>
+          <img data-src="{{ options.image.lg }}" alt="" width="1920" height="700"/>
+        </picture>
+      </div>
+
+    {% endif %}
 
     <div class="hero__overlay">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6">
-            <h1>Hero</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iusto eaque ab. Laudantium numquam autem obcaecati quam. Nam, repellat sunt.</p>
-            <a href="#" class="btn btn-primary">Find out more</a>
+            {% if options.title %}
+              <h1>{{ options.title }}</h1>
+            {% endif %}
+
+            {% if options.body %}
+              <p>{{ options.body }}</p>
+            {% endif %}
+
+            {% if options.cta.link and options.cta.label %}
+              <a href="{{ options.cta.link }}" class="btn btn-primary">{{ options.cta.label }}</a>
+            {% endif %}
           </div>
         </div>
       </div>
     </div>
   </div>
-
 {%- endmacro %}
 
 {{ Hero({
-  "container": false
+  "container": false,
+  "image": {
+    "xs": "https://picsum.photos/id/770/768",
+    "md": "https://picsum.photos/id/770/1200/600",
+    "lg": "https://picsum.photos/id/770/1920/700"
+  },
+  "html5Video": "",
+  "vimeoId": "130679467",
+  "title": "Hero",
+  "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut libero numquam sapiente dolores voluptates praesentium saepe dicta exercitationem pariatur ipsum!",
+  "cta": {
+    "link": "#",
+    "label": "Find out more"
+  }
 }) }}
