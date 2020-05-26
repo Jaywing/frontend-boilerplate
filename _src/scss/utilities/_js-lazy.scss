@@ -1,0 +1,8 @@
+.js-lazy {
+  opacity: 0;
+  transition: opacity ease-in-out 600ms;
+
+  &.js-lazy-loaded {
+    opacity: 1;
+  }
+}
