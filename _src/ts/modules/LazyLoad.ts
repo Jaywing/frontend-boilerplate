@@ -18,6 +18,8 @@ export default class LazyLoad {
             this.loadImage(entry.target);
           } else if (entry.target instanceof HTMLVideoElement) {
             this.loadVideo(entry.target);
+          } else if (entry.target instanceof HTMLIFrameElement) {
+            this.loadIframe(entry.target);
           } else if (
             typeof entry.target.tagName === "string" &&
             entry.target.tagName === "PICTURE"
@@ -42,8 +44,23 @@ export default class LazyLoad {
       image.srcset = image.dataset.srcset;
     }
 
+    image.onload = () => {
+      image.classList.add("js-lazy-loaded");
+    };
+
     this.observer.unobserve(image);
-    image.classList.remove("js-lazy");
+  }
+
+  loadIframe(iframe: HTMLIFrameElement) {
+    if (iframe.dataset.src) {
+      iframe.src = iframe.dataset.src;
+    }
+
+    iframe.onload = () => {
+      iframe.classList.add("js-lazy-loaded");
+    };
+
+    this.observer.unobserve(iframe);
   }
 
   loadPicture(picture: Element) {
@@ -68,8 +85,11 @@ export default class LazyLoad {
       img.srcset = img.dataset.srcset;
     }
 
+    img.onload = () => {
+      picture.classList.add("js-lazy-loaded");
+    };
+
     this.observer.unobserve(picture);
-    picture.classList.remove("js-lazy");
   }
 
   loadVideo(video: HTMLVideoElement) {
@@ -83,7 +103,11 @@ export default class LazyLoad {
     }
 
     video.load();
+
+    video.oncanplay = () => {
+      video.classList.add("js-lazy-loaded");
+    };
+
     this.observer.unobserve(video);
-    video.classList.remove("js-lazy");
   }
 }
