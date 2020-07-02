@@ -76,6 +76,7 @@
     "gulp-postcss": "^8.0.0",
     "gulp-purgecss": "^2.2.0",
     "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",

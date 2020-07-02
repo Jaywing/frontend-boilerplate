@@ -4,6 +4,7 @@ const paths = require("../package.json").paths;
 
 // INDIVIDUAL TASKS
 const clean = require("./tasks/clean").clean;
+const cacheBuster = require("./tasks/cacheBuster").cacheBuster;
 const cssTranspile = require("./tasks/cssTranspile").cssTranspile;
 const fontTransfer = require("./tasks/fontTransfer").fontTransfer;
 const htmlTranspile = require("./tasks/htmlTranspile").htmlTranspile;
@@ -22,7 +23,13 @@ if (flags.proxy) {
   build = gulp.series(
     clean,
     htmlTranspile,
-    gulp.parallel(cssTranspile, fontTransfer, imageTransfer, jsTranspile)
+    gulp.parallel(
+      cssTranspile,
+      fontTransfer,
+      imageTransfer,
+      jsTranspile,
+      cacheBuster
+    )
   );
 }
 
