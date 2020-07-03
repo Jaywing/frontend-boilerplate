@@ -1,9 +1,13 @@
-{# Import Macros #}
-{% from "_macros/_open-graph.njk" import OpenGraph %}
-{% from "_macros/_seo.njk" import Seo %}
-{% from "_macros/_twitter-card.njk" import TwitterCard %}
-{% from "_blocks/_hero.njk" import Hero %}
-{% from "_blocks/_spread.njk" import Spread %}
+{# Import Head Macros #}
+{%- from "_macros/_open-graph.njk" import OpenGraph -%}
+{%- from "_macros/_seo.njk" import Seo -%}
+{%- from "_macros/_twitter-card.njk" import TwitterCard -%}
+
+{# Import Block Macros #}
+{%- from "_macros/blocks/_accordion.njk" import Accordion -%}
+{%- from "_macros/blocks/_card-deck.njk" import CardDeck -%}
+{%- from "_macros/blocks/_hero.njk" import Hero -%}
+{%- from "_macros/blocks/_spread.njk" import Spread -%}
 
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -41,15 +45,15 @@
 
   <body class="d-flex flex-column" id="top" style="min-height:100%">
     {% block cookieConsent %}
-      {% include "_blocks/_cookie-consent.njk" %}
+      {% include "_includes/_cookie-consent.njk" %}
     {% endblock %}
 
     {% block skipNav %}
-      {% include "_blocks/_skip-nav.njk" %}
+      {% include "_includes/_skip-nav.njk" %}
     {% endblock %}
 
     {% block header %}
-      {% include "_blocks/_header.njk" %}
+      {% include "_includes/_header.njk" %}
     {% endblock %}
 
     <main id="content">
@@ -57,7 +61,7 @@
     </main>
 
     {% block footer %}
-      {% include "_blocks/_footer.njk" %}
+      {% include "_includes/_footer.njk" %}
     {% endblock %}
 
     {% block scripts %}

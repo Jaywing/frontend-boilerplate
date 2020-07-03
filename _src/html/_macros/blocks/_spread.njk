@@ -6,10 +6,10 @@
 
   <div class="spread{{ imageRight }}{{ container }}">
     <div class="spread__img">
-      <picture class="js-lazy">
+      <picture>
         <source media="(min-width: 768px)" data-srcset="https://picsum.photos/id/770/960"/>
         <source data-srcset="https://picsum.photos/id/770/768/500"/>
-        <img data-src="https://picsum.photos/id/770/960" alt="" width="960" height="960"/>
+        <img data-src="https://picsum.photos/id/770/960" alt="" width="960" height="960" class="js-lazy"/>
       </picture>
 
       {% if options.img_caption %}

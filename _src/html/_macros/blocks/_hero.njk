@@ -23,11 +23,11 @@
     {% elif options.image %}
 
       <div class="hero__img">
-        <picture class="js-lazy">
+        <picture>
           <source media="(min-width: 1200px)" data-srcset="{{ options.image.lg }}"/>
           <source media="(min-width: 768px)" data-srcset="{{ options.image.md }}"/>
           <source data-srcset="{{ options.image.xs }}"/>
-          <img data-src="{{ options.image.lg }}" alt="" width="1920" height="700"/>
+          <img data-src="{{ options.image.lg }}" alt="" width="1920" height="700" class="js-lazy"/>
         </picture>
       </div>
 
