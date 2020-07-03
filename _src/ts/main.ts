@@ -1,18 +1,19 @@
 // Import Node Modules
 import "intersection-observer";
 import Promise from "es6-promise";
+import LazyLoad from "vanilla-lazyload";
 
 import dataJsModule from "./modules/extendables/dataJsModule";
-import LazyLoad from "./modules/LazyLoad";
 
 // Promise fallback
 if (!window.Promise) {
   window.Promise = Promise;
 }
 
-// Run LazyLoad module
-const lazyLoad = new LazyLoad();
-lazyLoad.init();
+// Run LazyLoad
+const lazyload = new LazyLoad({
+  elements_selector: ".js-lazy",
+});
 
 // data-js modules
 const dataJsElements = document.querySelectorAll("[data-js]");
