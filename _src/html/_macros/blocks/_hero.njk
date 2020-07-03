@@ -7,7 +7,7 @@
     {% if options.html5Video or options.vimeoId %}
 
       <div class="hero__video">
-        <div class="hero__video-container">
+        <div class="hero__video-container loader">
           <div class="embed-responsive embed-responsive-16by9" data-js="VideoBackgroundCover">
             {% if options.vimeoId %}
               <iframe data-src="https://player.vimeo.com/video/{{ options.vimeoId }}?autoplay=1&loop=1&title=0&byline=0&portrait=0" class="embed-responsive-item js-lazy" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="allowfullscreen"></iframe>
