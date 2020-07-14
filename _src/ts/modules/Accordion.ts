@@ -43,7 +43,7 @@ export default class Accordion extends dataJsModule {
     }
   }
 
-  close() {
+  private close() {
     const allItems = this.el.querySelectorAll(".js-accordion-item");
 
     if (allItems.length) {

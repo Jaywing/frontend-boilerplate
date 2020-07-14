@@ -14,7 +14,7 @@ export default class CookieConsent extends dataJsModule {
     this.close();
   }
 
-  show() {
+  private show() {
     if (!getCookie("cookies_policy")) {
       animateIn(this.el, "fade-in", 400, () => {
         this.el.style.display = "block";
@@ -22,7 +22,7 @@ export default class CookieConsent extends dataJsModule {
     }
   }
 
-  close() {
+  private close() {
     this.closeButton = this.el.querySelector(".js-close");
 
     if (this.closeButton) {
@@ -35,7 +35,7 @@ export default class CookieConsent extends dataJsModule {
     }
   }
 
-  accept() {
+  private accept() {
     this.acceptButton = this.el.querySelector(".js-accept");
 
     if (this.acceptButton) {

@@ -18,19 +18,19 @@ export default class VideoBackgroundCover extends dataJsModule {
     this.positionVideo();
   }
 
-  windowResize() {
+  private windowResize() {
     window.addEventListener("resize", () => {
       this.positionVideo();
     });
   }
 
-  windowOrientationChange() {
+  private windowOrientationChange() {
     window.addEventListener("orientationchange", () => {
       this.positionVideo();
     });
   }
 
-  positionVideo() {
+  private positionVideo() {
     this.video = {
       width: this.el.offsetWidth,
       height: this.el.offsetHeight,

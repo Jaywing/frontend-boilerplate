@@ -10,7 +10,7 @@ export default class Collapse extends dataJsModule {
     this.clickToggler();
   }
 
-  clickToggler() {
+  private clickToggler() {
     this.target = document.querySelector(this.options.target);
 
     if (this.target) {
@@ -26,12 +26,12 @@ export default class Collapse extends dataJsModule {
     }
   }
 
-  collapse() {
+  private collapse() {
     this.el.setAttribute("aria-expanded", "false");
     this.target.classList.remove("show");
   }
 
-  expand() {
+  private expand() {
     this.el.setAttribute("aria-expanded", "true");
     this.target.classList.add("show");
   }

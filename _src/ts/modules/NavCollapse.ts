@@ -16,7 +16,7 @@ export default class Collapse extends dataJsModule {
     }
   }
 
-  clickWindow() {
+  private clickWindow() {
     window.addEventListener("click", (e: any) => {
       if (e.target === this.el || this.el.contains(e.target)) {
         if (this.el.getAttribute("aria-expanded") === "false") {
@@ -32,7 +32,7 @@ export default class Collapse extends dataJsModule {
     });
   }
 
-  collapse() {
+  private collapse() {
     this.el.classList.add("collapsed");
     this.el.setAttribute("aria-expanded", "false");
     animateOut(this.target, "fade-out", 300, () => {
@@ -41,7 +41,7 @@ export default class Collapse extends dataJsModule {
     document.documentElement.classList.remove("navbar-active");
   }
 
-  expand() {
+  private expand() {
     this.el.classList.remove("collapsed");
     this.el.setAttribute("aria-expanded", "true");
     animateIn(this.target, "fade-in", 300, () => {

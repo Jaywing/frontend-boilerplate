@@ -16,7 +16,7 @@ export default class Dropdown extends dataJsModule {
     }
   }
 
-  clickToggler() {
+  private clickToggler() {
     this.toggler.addEventListener("click", (e) => {
       e.preventDefault();
 
@@ -28,7 +28,7 @@ export default class Dropdown extends dataJsModule {
     });
   }
 
-  clickWindow() {
+  private clickWindow() {
     window.addEventListener("click", (e: any) => {
       if (!this.el.contains(e.target)) {
         this.collapse();
@@ -36,14 +36,14 @@ export default class Dropdown extends dataJsModule {
     });
   }
 
-  collapse() {
+  private collapse() {
     this.toggler.setAttribute("aria-expanded", "false");
     animateOut(this.dropdown, "fade-out", 300, () => {
       this.dropdown.style.display = "";
     });
   }
 
-  expand() {
+  private expand() {
     this.toggler.setAttribute("aria-expanded", "true");
     animateIn(this.dropdown, "fade-in", 300, () => {
       this.dropdown.style.display = "block";

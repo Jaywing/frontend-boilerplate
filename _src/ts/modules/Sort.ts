@@ -10,7 +10,7 @@ export default class Sort extends dataJsModule {
     this.onChange();
   }
 
-  onChange() {
+  private onChange() {
     this.form = document.querySelector("#" + this.options.targetFormID);
 
     if (this.form) {
