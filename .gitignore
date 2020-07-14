@@ -6,6 +6,7 @@ report.*.json
 
 ## Static build folder
 _static
+static
 
 ### VisualStudioCode ###
 .vscode/*
