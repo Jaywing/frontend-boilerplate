@@ -7,6 +7,7 @@ export default function animateIn(
   if (displayFunction) {
     displayFunction();
   }
+
   element.style.animationDuration = `${animationDuration}ms`;
   element.classList.add(animateClass);
 
