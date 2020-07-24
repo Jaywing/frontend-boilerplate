@@ -1,33 +1,33 @@
-{% macro Hero(options) -%}
+{% macro Hero(data) -%}
 
-  {% set container = " container" if options.container else 
+  {% set container = " container" if data.container else 
     "" %}
 
   <div class="hero{{ container }}">
-    {% if options.html5Video or options.vimeoId %}
+    {% if data.html5Video or data.vimeoId %}
 
       <div class="hero__video">
         <div class="hero__video-container loader">
           <div class="embed-responsive embed-responsive-16by9" data-js="VideoBackgroundCover">
-            {% if options.vimeoId %}
-              <iframe data-src="https://player.vimeo.com/video/{{ options.vimeoId }}?autoplay=1&loop=1&title=0&byline=0&portrait=0" class="embed-responsive-item js-lazy" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="allowfullscreen"></iframe>
-            {% elif options.html5Video %}
+            {% if data.vimeoId %}
+              <iframe data-src="https://player.vimeo.com/video/{{ data.vimeoId }}?autoplay=1&loop=1&title=0&byline=0&portrait=0" class="embed-responsive-item js-lazy" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="allowfullscreen"></iframe>
+            {% elif data.html5Video %}
               <video width="640" height="360" autoplay="autoplay" loop="loop" muted="muted" class="embed-responsive-item js-lazy">
-                <source data-src="{{ options.html5Video }}" type="video/mp4">
+                <source data-src="{{ data.html5Video }}" type="video/mp4">
               </video>
             {% endif %}
           </div>
         </div>
       </div>
 
-    {% elif options.image %}
+    {% elif data.image %}
 
       <div class="hero__img">
         <picture>
-          <source media="(min-width: 1200px)" data-srcset="{{ options.image.lg }}"/>
-          <source media="(min-width: 768px)" data-srcset="{{ options.image.md }}"/>
-          <source data-srcset="{{ options.image.xs }}"/>
-          <img data-src="{{ options.image.lg }}" alt="" width="1920" height="700" class="js-lazy"/>
+          <source media="(min-width: 1200px)" data-srcset="{{ data.image.lg }}"/>
+          <source media="(min-width: 768px)" data-srcset="{{ data.image.md }}"/>
+          <source data-srcset="{{ data.image.xs }}"/>
+          <img data-src="{{ data.image.lg }}" alt="" width="1920" height="700" class="js-lazy"/>
         </picture>
       </div>
 
@@ -37,16 +37,16 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6">
-            {% if options.title %}
-              <h1>{{ options.title }}</h1>
+            {% if data.title %}
+              <h1>{{ data.title }}</h1>
             {% endif %}
 
-            {% if options.body %}
-              <p>{{ options.body }}</p>
+            {% if data.body %}
+              <p>{{ data.body }}</p>
             {% endif %}
 
-            {% if options.cta.link and options.cta.label %}
-              <a href="{{ options.cta.link }}" class="btn btn-primary">{{ options.cta.label }}</a>
+            {% if data.cta.link and data.cta.label %}
+              <a href="{{ data.cta.link }}" class="btn btn-primary">{{ data.cta.label }}</a>
             {% endif %}
           </div>
         </div>

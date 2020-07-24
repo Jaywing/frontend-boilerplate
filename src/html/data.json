@@ -1,3 +1,32 @@
 {
-  "name": "hi"
+  "navbar": {
+    "menuItems": [
+      {
+        "label": "Typography",
+        "href": "/typography.html"
+      },
+      {
+        "label": "Blocks",
+        "href": "#",
+        "children": [
+          {
+            "label": "Accordion",
+            "href": "/blocks/accordion.html"
+          },
+          {
+            "label": "Card Deck",
+            "href": "/blocks/card-deck.html"
+          },
+          {
+            "label": "Hero",
+            "href": "/blocks/hero.html"
+          },
+          {
+            "label": "Spread",
+            "href": "/blocks/spread.html"
+          }
+        ]
+      }
+    ]
+  }
 }

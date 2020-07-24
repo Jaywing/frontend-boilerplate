@@ -1,7 +1,7 @@
-{% macro Spread(options) -%}
+{% macro Spread(data) -%}
 
-  {% set imageRight = " spread--img-right" if options.imageRight else "" %}
-  {% set container = " container" if options.container else 
+  {% set imageRight = " spread--img-right" if data.imageRight else "" %}
+  {% set container = " container" if data.container else 
     "" %}
 
   <div class="spread{{ imageRight }}{{ container }}">
@@ -12,23 +12,23 @@
         <img data-src="https://picsum.photos/id/770/960" alt="" width="960" height="960" class="js-lazy"/>
       </picture>
 
-      {% if options.img_caption %}
-        <p class="spread__img-caption">{{ options.img_caption }}</p>
+      {% if data.img_caption %}
+        <p class="spread__img-caption">{{ data.img_caption }}</p>
       {% endif %}
     </div>
 
     <div class="spread__text">
       <div class="container">
-        {% if options.title %}
-          <h2 class="h1">{{ options.title|safe }}</h2>
+        {% if data.title %}
+          <h2 class="h1">{{ data.title|safe }}</h2>
         {% endif %}
 
-        {% if options.body_text %}
-          {{ options.body_text|safe }}
+        {% if data.body_text %}
+          {{ data.body_text|safe }}
         {% endif %}
 
-        {% if options.cta.href and options.cta.label %}
-          <a href="{{ options.cta.href }}" class="btn btn-primary">{{ options.cta.label }}</a>
+        {% if data.cta.href and data.cta.label %}
+          <a href="{{ data.cta.href }}" class="btn btn-primary">{{ data.cta.label }}</a>
         {% endif %}
       </p>
     </div>

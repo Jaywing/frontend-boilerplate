@@ -1,11 +1,11 @@
-{% macro CardDeck(options) -%}
+{% macro CardDeck(data) -%}
 
-  {% if options.title %}
-    <h2 class="mb-2">{{ options.title }}</h2>
+  {% if data.title %}
+    <h2 class="mb-2">{{ data.title }}</h2>
   {% endif %}
 
   <div class="row">
-    {% for i in options.cards %}
+    {% for i in data.cards %}
       <div class="col-md-3">
         <div class="card h-100">
           {% if i.img %}

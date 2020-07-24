@@ -7,6 +7,7 @@
 {%- from "_macros/blocks/_accordion.njk" import Accordion -%}
 {%- from "_macros/blocks/_card-deck.njk" import CardDeck -%}
 {%- from "_macros/blocks/_hero.njk" import Hero -%}
+{%- from "_macros/blocks/_navbar.njk" import Navbar -%}
 {%- from "_macros/blocks/_spread.njk" import Spread -%}
 
 <!DOCTYPE html>
@@ -46,15 +47,15 @@
 
   <body class="d-flex flex-column" id="top" style="min-height:100%">
     {% block cookieConsent %}
-      {% include "_includes/_cookie-consent.njk" %}
+      {% include "_macros/blocks/_cookie-consent.njk" %}
     {% endblock %}
 
     {% block skipNav %}
-      {% include "_includes/_skip-nav.njk" %}
+      {% include "_macros/blocks/_skip-nav.njk" %}
     {% endblock %}
 
     {% block header %}
-      {% include "_includes/_header.njk" %}
+      {{ Navbar(navbar) }}
     {% endblock %}
 
     <main id="content">
@@ -62,7 +63,7 @@
     </main>
 
     {% block footer %}
-      {% include "_includes/_footer.njk" %}
+      {% include "_macros/blocks/_footer.njk" %}
     {% endblock %}
 
     {% block scripts %}
