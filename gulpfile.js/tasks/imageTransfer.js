@@ -17,9 +17,7 @@ function imageTransfer() {
       ])
     )
     .pipe(
-      gulp.dest(
-        flags.proxy ? paths.images.proxy_dest : paths.images.static_dest
-      )
+      gulp.dest(flags.proxy ? paths.images.proxyDest : paths.images.staticDest)
     );
 }
 

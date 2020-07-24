@@ -8,13 +8,13 @@ function cacheBuster() {
   const cbtString = new Date().getTime();
 
   return gulp
-    .src(paths.html.static_dest + "**/*.html")
+    .src(paths.html.staticDest + "**/*.html")
     .pipe(
       replace(/cbt=\d+/g, function () {
         return "cbt=" + cbtString;
       })
     )
-    .pipe(gulp.dest(paths.html.static_dest));
+    .pipe(gulp.dest(paths.html.staticDest));
 }
 
 exports.cacheBuster = cacheBuster;

@@ -5,14 +5,14 @@ function htmlTranspile() {
   const rename = require("gulp-rename");
 
   return gulp
-    .src(paths.html.static_src + "!(_)*.njk")
+    .src(paths.html.staticSrc + "!(_)*.njk")
     .pipe(nunjucks.compile())
     .pipe(
       rename(function (path) {
         path.extname = ".html";
       })
     )
-    .pipe(gulp.dest(paths.html.static_dest));
+    .pipe(gulp.dest(paths.html.staticDest));
 }
 
 exports.htmlTranspile = htmlTranspile;

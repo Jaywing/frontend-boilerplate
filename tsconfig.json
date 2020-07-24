@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./_static/",
+    "outDir": "static",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "esnext",
@@ -10,6 +10,6 @@
     "allowSyntheticDefaultImports": true,
     "removeComments": true
   },
-  "include": ["_src/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }

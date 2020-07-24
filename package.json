@@ -17,35 +17,42 @@
   "homepage": "https://github.com/Jaywing/frontend-boilerplate",
   "main": "gulpfile.js",
   "paths": {
-    "static_dir": "./_static/",
-    "proxy_address": "https://",
+    "staticDir": "./static/",
+    "proxyAddress": "https://",
     "css": {
-      "src": "./_src/scss/**/",
-      "static_dest": "./_static/assets/css/",
-      "proxy_dest": "./Umbraco/assets/css/"
+      "src": "./src/scss/**/",
+      "staticDest": "./static/assets/css/",
+      "proxyDest": "./Umbraco/assets/css/"
     },
     "fonts": {
       "src": [
-        "./_src/webfonts/**/*.+(ttf|otf|woff|woff2|eot|svg)",
+        "./src/webfonts/**/*.+(ttf|otf|woff|woff2|eot|svg)",
         "./node_modules/@fortawesome/fontawesome-free/webfonts/*.+(ttf|otf|woff|woff2|eot|svg)"
       ],
-      "static_dest": "./_static/assets/webfonts/",
-      "proxy_dest": "./Umbraco/assets/webfonts/"
+      "staticDest": "./static/assets/webfonts/",
+      "proxyDest": "./Umbraco/assets/webfonts/"
     },
     "html": {
-      "static_src": "./_src/html/**/",
-      "static_dest": "./_static/",
-      "proxy_watch": "./Umbraco/**/*.cshtml"
+      "staticSrc": "./src/html/**/",
+      "staticDest": "./static/",
+      "proxyWatch": "./Umbraco/**/*.cshtml"
     },
     "images": {
-      "src": "./_src/images/**/*.+(png|jpg|jpeg|gif|svg)",
-      "static_dest": "./_static/assets/images/",
-      "proxy_dest": "./Umbraco/assets/images/"
+      "src": "./src/images/**/*.+(png|jpg|jpeg|gif|svg)",
+      "staticDest": "./static/assets/images/",
+      "proxyDest": "./Umbraco/assets/images/"
     },
     "js": {
-      "src": "./_src/ts/**/",
-      "static_dest": "./_static/assets/",
-      "proxy_dest": "./Umbraco/assets/"
+      "src": "./src/ts/**/",
+      "webpackEntry": {
+        "main": "./src/ts/main.ts"
+      },
+      "webpackOutput": {
+        "path": "static/assets",
+        "publicPath": "/assets/"
+      },
+      "staticDest": "./static/assets/",
+      "proxyDest": "./Umbraco/assets/"
     }
   },
   "prettier": {
@@ -61,42 +68,41 @@
   "scripts": {
     "start": "gulp --maps --max-old-space-size=8192",
     "build": "gulp build --minify --purge",
-    "prettier": "prettier --write \"./_src/**/*.{scss,ts,tsx,js,jsx,json}\""
+    "prettier": "prettier --write \"./src/**/*.{scss,ts,tsx,js,jsx,json}\""
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
-    "browser-sync": "^2.26.7",
+    "autoprefixer": "^9.8.5",
+    "browser-sync": "^2.26.10",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
-    "gulp-eslint": "^6.0.0",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
-    "gulp-nunjucks": "^5.0.0",
+    "gulp-nunjucks": "^5.0.1",
     "gulp-postcss": "^8.0.0",
-    "gulp-purgecss": "^2.2.0",
+    "gulp-purgecss": "^2.3.0",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
     "prettier": "^2.0.2",
-    "purgecss": "^2.1.2",
-    "stylelint-config-prettier": "^8.0.1",
-    "stylelint-config-twbs-bootstrap": "^2.0.1",
+    "purgecss": "^2.3.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-twbs-bootstrap": "^2.0.3",
     "stylelint-prettier": "^1.1.2",
-    "ts-loader": "^7.0.4",
+    "ts-loader": "^8.0.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
-    "typescript": "^3.7.5",
-    "webpack": "^4.41.5",
+    "typescript": "^3.9.7",
+    "webpack": "^4.43.0",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.1",
-    "bootstrap": "4.5",
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "bootstrap": "4.5.0",
     "es6-promise": "^4.2.8",
-    "intersection-observer": "^0.10.0",
+    "intersection-observer": "^0.11.0",
     "vanilla-lazyload": "^17.1.0"
   }
 }

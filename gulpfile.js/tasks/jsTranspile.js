@@ -8,7 +8,7 @@ const webpackStream = require("webpack-stream");
 function jsTranspile() {
   const webpackConfig = {
     mode: flags.minify ? "production" : "development",
-    entry: { main: "./_src/ts/main.ts" },
+    entry: paths.js.entry,
     devtool: flags.maps ? "inline-source-map" : "none",
     module: {
       rules: [
@@ -27,16 +27,16 @@ function jsTranspile() {
       extensions: [".tsx", ".ts", ".js", ".jsx"],
     },
     output: {
-      path: path.resolve(__dirname, "_static/assets"),
+      path: path.resolve(__dirname, paths.js.webpackOutput.path),
       filename: "js/[name].js",
-      publicPath: "/assets/",
+      publicPath: paths.js.webpackOutput.publicPath,
     },
   };
 
   return gulp
     .src(paths.js.src + "*.ts")
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest(flags.proxy ? paths.js.proxy_dest : paths.js.static_dest));
+    .pipe(gulp.dest(flags.proxy ? paths.js.proxyDest : paths.js.staticDest));
 }
 
 exports.jsTranspile = jsTranspile;

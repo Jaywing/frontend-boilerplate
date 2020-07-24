@@ -7,7 +7,7 @@ function cssTranspile() {
   const paths = require("../../package.json").paths;
   const postcss = require("gulp-postcss");
   const purgecss = require("gulp-purgecss");
-  const purgewhitelist = require("../../_src/scss/whitelist.json");
+  const purgewhitelist = require("../../src/scss/whitelist.json");
   const sass = require("gulp-sass");
   const sourcemaps = require("gulp-sourcemaps");
 
@@ -32,8 +32,8 @@ function cssTranspile() {
         purgecss({
           content: [
             flags.proxy
-              ? paths.html.proxy_watch
-              : paths.html.static_src + "*.njk",
+              ? paths.html.proxyWatch
+              : paths.html.staticSrc + "*.njk",
             paths.js.src + "*.ts",
           ],
           whitelist: purgewhitelist,
@@ -41,9 +41,7 @@ function cssTranspile() {
       )
     )
     .pipe(gulpif(flags.maps, sourcemaps.write("maps")))
-    .pipe(
-      gulp.dest(flags.proxy ? paths.css.proxy_dest : paths.css.static_dest)
-    );
+    .pipe(gulp.dest(flags.proxy ? paths.css.proxyDest : paths.css.staticDest));
 }
 
 exports.cssTranspile = cssTranspile;

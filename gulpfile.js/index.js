@@ -40,10 +40,10 @@ const watch = () => {
   const browserSyncOptions = require("../package.json").browserSync;
 
   if (flags.proxy) {
-    browserSyncOptions.proxy = paths.proxy_address;
+    browserSyncOptions.proxy = paths.proxyAddress;
   } else {
     browserSyncOptions.server = {
-      baseDir: paths.static_dir,
+      baseDir: paths.staticDir,
     };
   }
 
@@ -63,10 +63,10 @@ const watch = () => {
   gulp.watch(paths.fonts.src, gulp.series(fontTransfer, browserReload));
 
   if (flags.proxy) {
-    gulp.watch(paths.html.proxy_watch, browserReload);
+    gulp.watch(paths.html.proxyWatch, browserReload);
   } else {
     gulp.watch(
-      paths.html.static_src + "*.njk",
+      paths.html.staticSrc + "*.njk",
       gulp.series(htmlTranspile, browserReload)
     );
   }
