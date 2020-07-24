@@ -34,6 +34,7 @@
     },
     "html": {
       "staticSrc": "./src/html/**/",
+      "staticData": "src/html/data.json",
       "staticDest": "./static/",
       "proxyWatch": "./Umbraco/**/*.cshtml"
     },

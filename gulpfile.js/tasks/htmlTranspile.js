@@ -3,10 +3,11 @@ function htmlTranspile() {
   const paths = require("../../package.json").paths;
   const nunjucks = require("gulp-nunjucks");
   const rename = require("gulp-rename");
+  const data = require("../../" + paths.html.staticData);
 
   return gulp
     .src(paths.html.staticSrc + "!(_)*.njk")
-    .pipe(nunjucks.compile())
+    .pipe(nunjucks.compile(data))
     .pipe(
       rename(function (path) {
         path.extname = ".html";
