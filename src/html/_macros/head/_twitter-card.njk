@@ -1,6 +1,6 @@
 {% macro TwitterCard(data) -%}
 
-  {# REQUIRED: If an og:type, og:title and og:description exist in the markup but twitter:card is absent, then a summary card may be rendered. #}
+  {# REQUIRED: If an og:type, og:title and og:description exist in the markup but twitter:card is absent, then a summary card will be rendered. #}
   {%- if data.twitterCard -%}
     <meta name="twitter:card" content="{{ data.twitterCard }}">
   {% else %}

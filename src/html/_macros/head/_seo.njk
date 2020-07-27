@@ -1,5 +1,9 @@
 {% macro Seo(data) -%}
 
+  {%- if data.seoUrl -%}
+    <link rel="canonical" href="{{ data.seoUrl }}"/>
+  {%- endif -%}
+
   {%- if data.seoTitle -%}
     <title>{{ data.seoTitle }}</title>
   {%- endif -%}
@@ -11,6 +15,7 @@
 {%- endmacro %}
 
 {{ Seo({
+  "seoUrl": "https://",
   "seoTitle": "Page title",
   "seoDescription": "Page description"
 }) }}

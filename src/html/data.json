@@ -28,5 +28,13 @@
         ]
       }
     ]
+  },
+
+  "homepage": {
+    "pageUrl": "https://",
+    "pageTitle": "Home",
+    "pageDescription": "This is the homepage",
+    "pageSocialImage": "https://picsum.photos/id/770/1200/630",
+    "pageSocialImageAlt": "Social Image"
   }
 }

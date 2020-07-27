@@ -3,7 +3,7 @@
 {%- from "_macros/head/_seo.njk" import Seo -%}
 {%- from "_macros/head/_twitter-card.njk" import TwitterCard -%}
 
-{# Import Block Macros #}
+{# Import Body Macros #}
 {%- from "_macros/blocks/_accordion.njk" import Accordion -%}
 {%- from "_macros/blocks/_card-deck.njk" import CardDeck -%}
 {%- from "_macros/blocks/_hero.njk" import Hero -%}
@@ -15,29 +15,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="canonical" href="https://example.com/this-page/"/>
 
     {{ Seo({
-      "seoTitle": "Page title",
-      "seoDescription": "Page description"
+      "seoUrl": page.pageUrl,
+      "seoTitle": page.pageTitle,
+      "seoDescription": page.pageDescription
     }) }}
 
     {{ OpenGraph({
-      "ogTitle": "Page title",
-      "ogDescription": "Page description",
-      "ogUrl": "https://",
-      "ogImageSrc": "https://",
+      "ogTitle": page.pageTitle,
+      "ogDescription": page.pageDescription,
+      "ogUrl": page.pageUrl,
+      "ogImageSrc": page.pageSocialImage,
       "ogImageWidth": "1200",
       "ogImageHeight": "630"
     }) }}
 
     {{ TwitterCard({
-      "twitterCard": "",
+      "twitterCard": "summary",
       "twitterSite": "@username",
-      "twitterTitle": "Page title",
-      "twitterDescription": "Page description",
-      "twitterImage": "https://",
-      "twitterImageAlt": ""
+      "twitterTitle": page.pageTitle,
+      "twitterDescription": page.pageDescription,
+      "twitterImage": page.pageSocialImage,
+      "twitterImageAlt": page.pageSocialImageAlt
     }) }}
 
     {% block styles %}
