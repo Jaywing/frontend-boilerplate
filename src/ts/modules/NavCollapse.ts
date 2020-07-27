@@ -2,7 +2,7 @@ import dataJsModule from "./extendables/dataJsModule";
 import animateIn from "./helpers/animateIn";
 import animateOut from "./helpers/animateOut";
 
-export default class Collapse extends dataJsModule {
+export default class NavCollapse extends dataJsModule {
   options: {
     target: string;
   };
