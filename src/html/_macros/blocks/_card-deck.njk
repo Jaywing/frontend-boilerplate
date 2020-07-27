@@ -6,7 +6,7 @@
 
   <div class="row">
     {% for i in data.cards %}
-      <div class="col-md-3">
+      <div class="col-md-3 mb-1 mb-md-2">
         <div class="card h-100">
           {% if i.img %}
             <img data-src="{{ i.img.src }}" class="card-img-top js-lazy" alt="{{ i.img.alt }}" width="600" height="400">

@@ -1,6 +1,4 @@
 import dataJsModule from "./extendables/dataJsModule";
-import animateOut from "./helpers/animateOut";
-import animateIn from "./helpers/animateIn";
 
 export default class Dropdown extends dataJsModule {
   toggler: HTMLElement;
@@ -38,15 +36,11 @@ export default class Dropdown extends dataJsModule {
 
   private collapse() {
     this.toggler.setAttribute("aria-expanded", "false");
-    animateOut(this.dropdown, "fade-out", 300, () => {
-      this.dropdown.style.display = "";
-    });
+    this.dropdown.style.display = "";
   }
 
   private expand() {
     this.toggler.setAttribute("aria-expanded", "true");
-    animateIn(this.dropdown, "fade-in", 300, () => {
-      this.dropdown.style.display = "block";
-    });
+    this.dropdown.style.display = "block";
   }
 }

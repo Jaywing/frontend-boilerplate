@@ -1,6 +1,4 @@
 import dataJsModule from "./extendables/dataJsModule";
-import slideDown from "./helpers/slideDown";
-import slideUp from "./helpers/slideUp";
 
 export default class Accordion extends dataJsModule {
   items: NodeListOf<HTMLElement>;
@@ -13,29 +11,18 @@ export default class Accordion extends dataJsModule {
         const header: HTMLElement = item.querySelector(".js-accordion-header");
         const body: HTMLElement = item.querySelector(".js-accordion-body");
 
-        let bodyHeight: number;
-
-        if (body.classList.contains("show")) {
-          bodyHeight = body.offsetHeight;
-        } else {
-          body.classList.add("show");
-          bodyHeight = body.offsetHeight;
-          body.classList.remove("show");
-        }
-
         if (header && body) {
           header.addEventListener("click", (e) => {
             e.preventDefault();
 
-            if (!item.classList.contains("js-accordion-item-active")) {
-              this.close();
+            if (!item.classList.contains("is-active")) {
+              this.closeAll();
 
-              item.classList.add("js-accordion-item-active");
+              item.classList.add("is-active");
               header.setAttribute("aria-expanded", "true");
               body.classList.add("show");
-              slideDown(body, bodyHeight);
             } else {
-              this.close();
+              this.closeAll();
             }
           });
         }
@@ -43,12 +30,12 @@ export default class Accordion extends dataJsModule {
     }
   }
 
-  private close() {
+  private closeAll() {
     const allItems = this.el.querySelectorAll(".js-accordion-item");
 
     if (allItems.length) {
       allItems.forEach((item: HTMLElement) => {
-        item.classList.remove("js-accordion-item-active");
+        item.classList.remove("is-active");
 
         const header: HTMLElement = item.querySelector(".js-accordion-header");
         const body: HTMLElement = item.querySelector(".js-accordion-body");
@@ -58,9 +45,7 @@ export default class Accordion extends dataJsModule {
         }
 
         if (body) {
-          slideUp(body, body.offsetHeight, function () {
-            body.classList.remove("show");
-          });
+          body.classList.remove("show");
         }
       });
     }

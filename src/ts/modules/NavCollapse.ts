@@ -1,6 +1,4 @@
 import dataJsModule from "./extendables/dataJsModule";
-import animateIn from "./helpers/animateIn";
-import animateOut from "./helpers/animateOut";
 
 export default class NavCollapse extends dataJsModule {
   options: {
@@ -35,18 +33,14 @@ export default class NavCollapse extends dataJsModule {
   private collapse() {
     this.el.classList.add("collapsed");
     this.el.setAttribute("aria-expanded", "false");
-    animateOut(this.target, "fade-out", 300, () => {
-      this.target.style.display = "";
-    });
+    this.target.style.display = "";
     document.documentElement.classList.remove("navbar-active");
   }
 
   private expand() {
     this.el.classList.remove("collapsed");
     this.el.setAttribute("aria-expanded", "true");
-    animateIn(this.target, "fade-in", 300, () => {
-      this.target.style.display = "block";
-    });
+    this.target.style.display = "block";
     document.documentElement.classList.add("navbar-active");
   }
 }

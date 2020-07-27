@@ -1,6 +1,4 @@
 import dataJsModule from "./extendables/dataJsModule";
-import animateIn from "./helpers/animateIn";
-import animateOut from "./helpers/animateOut";
 import getCookie from "./helpers/getCookie";
 import setCookie from "./helpers/setCookie";
 
@@ -16,9 +14,7 @@ export default class CookieConsent extends dataJsModule {
 
   private show() {
     if (!getCookie("cookies_policy")) {
-      animateIn(this.el, "fade-in", 400, () => {
-        this.el.style.display = "block";
-      });
+      this.el.style.display = "block";
     }
   }
 
@@ -28,9 +24,7 @@ export default class CookieConsent extends dataJsModule {
     if (this.closeButton) {
       this.closeButton.addEventListener("click", (e) => {
         e.preventDefault();
-        animateOut(this.el, "fade-out", 400, () => {
-          this.el.style.display = "";
-        });
+        this.el.style.display = "";
       });
     }
   }
@@ -42,9 +36,7 @@ export default class CookieConsent extends dataJsModule {
       this.acceptButton.addEventListener("click", (e) => {
         e.preventDefault();
         setCookie("cookies_policy", "accepted", 365);
-        animateOut(this.el, "fade-out", 400, () => {
-          this.el.style.display = "";
-        });
+        this.el.style.display = "";
       });
     }
   }

@@ -1,5 +1,6 @@
 .loader {
   background-color: $gray-600;
+  position: relative;
 
   &::before {
     position: absolute;

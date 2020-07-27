@@ -49,14 +49,11 @@
 @import "node_modules/@fortawesome/fontawesome-free/scss/regular";
 @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
 
+// CUSTOM UTILITIES
+@import "utilities/_utilities.scss";
+
 // GENERIC STYLES
 @import "generic/_generic";
 
-// CUSTOM LAYOUT
-@import "layout/_layout.scss";
-
 // CUSTOM BLOCKS
 @import "blocks/_blocks.scss";
-
-// CUSTOM UTILITIES
-@import "utilities/_utilities.scss";

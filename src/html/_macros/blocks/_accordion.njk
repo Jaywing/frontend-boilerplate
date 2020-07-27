@@ -6,7 +6,7 @@
 
   <div class="accordion" id="{{ data.accordionId }}" data-js="Accordion">
     {% for i in data.items %}
-      {% set firstItemActiveClass = " js-accordion-item-active" if loop.index === 1 and data.expandFirstItem %}
+      {% set firstItemActiveClass = " is-active" if loop.index === 1 and data.expandFirstItem %}
       <div class="card js-accordion-item{{ firstItemActiveClass }}">
         {% set ariaExpanded = "true" if loop.index === 1 and data.expandFirstItem else 
           "false" %}
