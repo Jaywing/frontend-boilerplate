@@ -1,18 +1,7 @@
 // Import Node Modules
-import Promise from "es6-promise";
+import "./polyfills";
 import LazyLoad from "vanilla-lazyload";
-
 import dataJsModule from "./modules/extendables/dataJsModule";
-
-// Promise fallback
-if (!window.Promise) {
-  window.Promise = Promise;
-}
-
-// forEach fallback
-if (window.NodeList && !NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
-}
 
 // Run LazyLoad
 const lazyload = new LazyLoad({
