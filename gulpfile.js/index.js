@@ -73,7 +73,10 @@ const watch = () => {
 
   gulp.watch(paths.images.src, gulp.series(imageTransfer, browserReload));
 
-  gulp.watch(paths.js.src + "*.ts", gulp.series(jsTranspile, browserReload));
+  gulp.watch(
+    paths.js.src + "*.+(ts|tsx|js|jsx)",
+    gulp.series(jsTranspile, browserReload)
+  );
 };
 
 // EXPORTED TASKS

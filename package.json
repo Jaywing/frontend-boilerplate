@@ -104,6 +104,8 @@
     "@fortawesome/fontawesome-free": "^5.14.0",
     "bootstrap": "4.5.0",
     "es6-promise": "^4.2.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "vanilla-lazyload": "^17.1.0"
   }
 }
