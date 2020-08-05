@@ -13,13 +13,13 @@ Make sure you have unsintalled any pre-existing Node.js installations before ins
 Once NVM is installed, open your preffered terminal and run the following to install Node.js 12.16.3:
 
 ```
-nvm install 12.16.3
+nvm install 12.x
 ```
 
-Then activate node 12.16.3
+Then activate node 12.x
 
 ```
-nvm use 12.16.3
+nvm use 12.x
 ```
 
 #### Install node modules
