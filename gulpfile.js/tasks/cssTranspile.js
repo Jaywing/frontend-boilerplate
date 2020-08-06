@@ -34,7 +34,7 @@ function cssTranspile() {
             flags.proxy
               ? paths.html.proxyWatch
               : paths.html.staticSrc + "*.njk",
-            paths.js.src + "*.ts",
+            paths.js.src + "*.+(ts|tsx|js|jsx)",
           ],
           whitelist: purgewhitelist,
         })
