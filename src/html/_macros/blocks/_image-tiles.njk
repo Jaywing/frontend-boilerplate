@@ -1,0 +1,124 @@
+{% macro ImageTiles(data) -%}
+
+  {% if data.noOfColumns === 6 %}
+    {% set columnClasses = "col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" %}
+  {% elif data.noOfColumns === 3 %}
+    {% set columnClasses = "col-sm-6 col-md-4 p-0" %}
+  {% elif data.noOfColumns === 2 %}
+    {% set columnClasses = "col-sm-6 p-0" %}
+  {% else  %}
+    {% set columnClasses = "col-sm-6 col-lg-3 p-0" %}
+  {% endif %}
+
+  {% if data.title %}
+    <h2 class="mb-2">{{ data.title }}</h2>
+  {% endif %}
+
+  <div class="row m-0">
+    {% for i in data.cards %}
+      <div class="{{ columnClasses }}">
+        <div class="image-tile">
+          {% if i.img %}
+            <img data-src="{{ i.img.src }}" class="js-lazy" alt="{{ i.img.alt }}" width="600" height="600">
+          {% endif %}
+
+          <div class="image-tile__overlay">
+            <div class="image-tile__body">
+              {% if i.heading %}
+                <h5>{{ i.heading }}</h5>
+              {% endif %}
+
+              {% if i.body %}
+                <p>{{ i.body }}</p>
+              {% endif %}
+
+              {% if i.cta %}
+                <a href="{{ i.cta.link }}" class="btn btn-primary">{{ i.cta.label }}</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+{%- endmacro %}
+
+{{ ImageTiles({
+  "noOfColumns": 3,
+  "title": "Image Tiles",
+  "cards": [
+    {
+      "img": {
+        "src": "https://picsum.photos/id/770/600",
+        "alt": ""
+      },
+      "heading": "Lorem ipsum",
+      "body": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, sapiente.",
+      "cta": {
+        "label": "Find out more",
+        "link": "#"
+      }
+    },
+    {
+      "img": {
+        "src": "https://picsum.photos/id/770/600",
+        "alt": ""
+      },
+      "heading": "Lorem ipsum",
+      "body": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, sapiente.",
+      "cta": {
+        "label": "Find out more",
+        "link": "#"
+      }
+    },
+    {
+      "img": {
+        "src": "https://picsum.photos/id/770/600",
+        "alt": ""
+      },
+      "heading": "Lorem ipsum",
+      "body": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, sapiente.",
+      "cta": {
+        "label": "Find out more",
+        "link": "#"
+      }
+    },
+    {
+      "img": {
+        "src": "https://picsum.photos/id/770/600",
+        "alt": ""
+      },
+      "heading": "Lorem ipsum",
+      "body": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, sapiente.",
+      "cta": {
+        "label": "Find out more",
+        "link": "#"
+      }
+    },
+    {
+      "img": {
+        "src": "https://picsum.photos/id/770/600",
+        "alt": ""
+      },
+      "heading": "Lorem ipsum",
+      "body": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, sapiente.",
+      "cta": {
+        "label": "Find out more",
+        "link": "#"
+      }
+    },
+    {
+      "img": {
+        "src": "https://picsum.photos/id/770/600",
+        "alt": ""
+      },
+      "heading": "Lorem ipsum",
+      "body": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, sapiente.",
+      "cta": {
+        "label": "Find out more",
+        "link": "#"
+      }
+    }
+  ]
+}) }}
