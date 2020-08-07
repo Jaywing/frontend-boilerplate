@@ -24,8 +24,8 @@
 
       <div class="hero__img">
         <picture>
-          <source media="(min-width: 1200px)" data-srcset="{{ data.image.lg }}"/>
-          <source media="(min-width: 768px)" data-srcset="{{ data.image.md }}"/>
+          <source media="{{ setting.media.lg }}" data-srcset="{{ data.image.lg }}"/>
+          <source media="{{ setting.media.md }}" data-srcset="{{ data.image.md }}"/>
           <source data-srcset="{{ data.image.xs }}"/>
           <img data-src="{{ data.image.lg }}" alt="" width="1920" height="700" class="js-lazy"/>
         </picture>

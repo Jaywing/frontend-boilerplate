@@ -7,9 +7,9 @@
   <div class="spread{{ imageRight }}{{ container }}">
     <div class="spread__img">
       <picture>
-        <source media="(min-width: 768px)" data-srcset="https://picsum.photos/id/770/960"/>
-        <source data-srcset="https://picsum.photos/id/770/768/500"/>
-        <img data-src="https://picsum.photos/id/770/960" alt="" width="960" height="960" class="js-lazy"/>
+        <source media="{{ setting.media.md }}" data-srcset="{{ data.image.md }}"/>
+        <source data-srcset="{{ data.image.xs }}"/>
+        <img data-src="{{ data.image.md }}" alt="" width="960" height="960" class="js-lazy"/>
       </picture>
 
       {% if data.img_caption %}
@@ -40,6 +40,10 @@
 {{ Spread({
   "imageRight": false,
   "container": false,
+  "image": {
+    "xs": "https://picsum.photos/id/770/768/500",
+    "md": "https://picsum.photos/id/770/960"
+  },
   "title": "",
   "body_text": "",
   "cta": {
