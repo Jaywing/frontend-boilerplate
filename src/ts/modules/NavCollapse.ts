@@ -33,14 +33,12 @@ export default class NavCollapse extends dataJsModule {
   private collapse() {
     this.el.classList.add("collapsed");
     this.el.setAttribute("aria-expanded", "false");
-    this.target.style.display = "";
-    document.documentElement.classList.remove("navbar-active");
+    this.target.classList.remove("show");
   }
 
   private expand() {
     this.el.classList.remove("collapsed");
     this.el.setAttribute("aria-expanded", "true");
-    this.target.style.display = "block";
-    document.documentElement.classList.add("navbar-active");
+    this.target.classList.add("show");
   }
 }
