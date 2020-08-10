@@ -1,4 +1,4 @@
-{% macro Navbar(data) -%}
+{% macro Navbar(menuItems) -%}
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="/">
@@ -12,7 +12,7 @@
 
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ml-auto">
-          {% for item in data.menuItems %}
+          {% for item in menuItems %}
             {% if item.children.length %}
               <li class="nav-item dropdown" data-js="Dropdown">
                 <a class="nav-link dropdown-toggle js-toggler" href="{{ item.href }}" id="dropdown{{ loop.index }}" role="button" aria-haspopup="true" aria-expanded="false">{{ item.label }}</a>
@@ -40,8 +40,8 @@
   </nav>
 {% endmacro %}
 
-{{ Navbar({
-  "menuItems": [
+{{ Navbar(
+  [
     {
       "label": "Item",
       "href": "#"
@@ -61,4 +61,4 @@
       ]
     }
   ]
-}) }}
+) }}

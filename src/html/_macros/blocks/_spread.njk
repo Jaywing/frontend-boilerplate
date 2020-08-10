@@ -1,4 +1,4 @@
-{% macro Spread(data) -%}
+{% macro Spread(data, media) -%}
 
   {% set imageRight = " spread--img-right" if data.imageRight else "" %}
   {% set container = " container" if data.container else 
@@ -7,7 +7,7 @@
   <div class="spread{{ imageRight }}{{ container }}">
     <div class="spread__img">
       <picture>
-        <source media="{{ setting.media.md }}" data-srcset="{{ data.image.md }}"/>
+        <source media="{{ media.md }}" data-srcset="{{ data.image.md }}"/>
         <source data-srcset="{{ data.image.xs }}"/>
         <img data-src="{{ data.image.md }}" alt="" width="960" height="960" class="js-lazy"/>
       </picture>
@@ -37,18 +37,23 @@
 
 {%- endmacro %}
 
-{{ Spread({
-  "imageRight": false,
-  "container": false,
-  "image": {
-    "xs": "https://picsum.photos/id/770/768/500",
-    "md": "https://picsum.photos/id/770/960"
+{{ Spread(
+  {
+    "imageRight": false,
+    "container": false,
+    "image": {
+      "xs": "https://picsum.photos/id/770/768/500",
+      "md": "https://picsum.photos/id/770/960"
+    },
+    "title": "",
+    "body_text": "",
+    "cta": {
+      "href": "",
+      "label": ""
+    },
+    "img_caption": ""
   },
-  "title": "",
-  "body_text": "",
-  "cta": {
-    "href": "",
-    "label": ""
-  },
-  "img_caption": ""
-}) }}
+  {
+    "md": "(min-width: 768px)"
+  }
+) }}

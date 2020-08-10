@@ -6,8 +6,12 @@
 {# Import Body Macros #}
 {%- from "_macros/blocks/_accordion.njk" import Accordion -%}
 {%- from "_macros/blocks/_card-deck.njk" import CardDeck -%}
+{%- from "_macros/blocks/_cookie-consent.njk" import CookieConsent -%}
+{%- from "_macros/blocks/_footer.njk" import Footer -%}
 {%- from "_macros/blocks/_hero.njk" import Hero -%}
+{%- from "_macros/blocks/_image-tiles.njk" import ImageTiles -%}
 {%- from "_macros/blocks/_navbar.njk" import Navbar -%}
+{%- from "_macros/blocks/_skip-nav.njk" import SkipNav -%}
 {%- from "_macros/blocks/_spread.njk" import Spread -%}
 
 <!DOCTYPE html>
@@ -55,7 +59,7 @@
     {% endblock %}
 
     {% block header %}
-      {{ Navbar(navbar) }}
+      {{ Navbar(navbar.menuItems) }}
     {% endblock %}
 
     <main id="content">
@@ -63,7 +67,7 @@
     </main>
 
     {% block footer %}
-      {% include "_macros/blocks/_footer.njk" %}
+      {{ Footer(socialMediaLinks) }}
     {% endblock %}
 
     {% block scripts %}

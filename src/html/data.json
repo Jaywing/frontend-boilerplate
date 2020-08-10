@@ -1,12 +1,28 @@
 {
-  "settings": {
-    "media": {
-      "sm": "(min-width: 576px)",
-      "md": "(min-width: 768px)",
-      "lg": "(min-width: 992px)",
-      "xl": "(min-width: 1200px)"
-    }
+  "media": {
+    "sm": "(min-width: 576px)",
+    "md": "(min-width: 768px)",
+    "lg": "(min-width: 992px)",
+    "xl": "(min-width: 1200px)"
   },
+
+  "socialMediaLinks": [
+    {
+      "platform": "Instagram",
+      "faClass": "fa-instagram",
+      "href": "https://www.instagram.com/"
+    },
+    {
+      "platform": "Facebook",
+      "faClass": "fa-facebook-f",
+      "href": "https://www.facebook.com/"
+    },
+    {
+      "platform": "Twitter",
+      "faClass": "fa-twitter",
+      "href": "https://twitter.com/"
+    }
+  ],
 
   "navbar": {
     "menuItems": [
@@ -43,7 +59,7 @@
     ]
   },
 
-  "homepage": {
+  "homePage": {
     "pageUrl": "https://",
     "pageTitle": "Home",
     "pageDescription": "This is the homepage",
