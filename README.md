@@ -10,7 +10,7 @@ Make sure you have unsintalled any pre-existing Node.js installations before ins
 **Mac**: Use Homebrew to install NVM
 **Windows**: Download NVM from https://github.com/coreybutler/nvm-windows.
 
-Once NVM is installed, open your preffered terminal and run the following to install Node.js 12.16.3:
+Once NVM is installed, open your preffered terminal and run the following to install Node.js 12.x:
 
 ```
 nvm install 12.x
@@ -22,32 +22,38 @@ Then activate node 12.x
 nvm use 12.x
 ```
 
+#### Install yarn & gulp globally
+
+```
+npm install yarn gulp -g
+```
+
 #### Install node modules
 
 ```
 yarn
 ```
 
-#### Run local server for PROXY and watch for changes
+#### Run local server for static HTML and watch for changes
 
 ```
 yarn start
 ```
 
-#### Run local server for STATIC HTML and watch for changes
+#### Run local proxy server and watch for changes
 
 ```
-yarn start --static
+yarn start --proxy
 ```
 
-#### Build production assets
+#### Build static HTML pages and prouduction assets
 
 ```
 yarn build
 ```
 
-#### Build static HTML pages and proudction assets
+#### Build proxy production assets
 
 ```
-yarn build --static
+yarn build --proxy
 ```
