@@ -13,13 +13,13 @@ Make sure you have unsintalled any pre-existing Node.js installations before ins
 Once NVM is installed, open your preffered terminal and run the following to install Node.js 12.x:
 
 ```
-nvm install 12.x
+nvm install 14.x
 ```
 
-Then activate node 12.x
+Then activate node 14.x
 
 ```
-nvm use 12.x
+nvm use 14.x
 ```
 
 #### Install yarn & gulp globally
