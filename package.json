@@ -10,7 +10,8 @@
     "gulp 4",
     "nunjucks",
     "webpack",
-    "typescript"
+    "typescript",
+    "react"
   ],
   "author": "joe.diton@jaywing.com",
   "license": "ISC",
@@ -26,11 +27,10 @@
     },
     "fonts": {
       "src": [
-        "./src/webfonts/**/*.+(ttf|otf|woff|woff2|eot|svg)",
-        "./node_modules/@fortawesome/fontawesome-free/webfonts/*.+(ttf|otf|woff|woff2|eot|svg)"
+        "./src/fonts/**/*.+(ttf|otf|woff|woff2|eot|svg)"
       ],
-      "staticDest": "./static/assets/webfonts/",
-      "proxyDest": "./Umbraco/assets/webfonts/"
+      "staticDest": "./static/assets/fonts/",
+      "proxyDest": "./Umbraco/assets/fonts/"
     },
     "html": {
       "staticSrc": "./src/html/**/",
@@ -61,7 +61,7 @@
   },
   "browserslist": [
     "> 1%",
-    "IE >= 11"
+    "not dead"
   ],
   "browserSync": {
     "open": false
@@ -91,6 +91,7 @@
     "gulp-util": "^3.0.8",
     "prettier": "^2.0.2",
     "purgecss": "^2.3.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-twbs-bootstrap": "^2.0.3",
     "stylelint-prettier": "^1.1.2",
@@ -102,9 +103,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0",
-    "bootstrap": "4.5.0",
-    "es6-promise": "^4.2.8",
+    "bootstrap": "^5.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "vanilla-lazyload": "^17.1.0"

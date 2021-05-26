@@ -1,5 +1,4 @@
 // Import Node Modules
-import "./polyfills";
 import LazyLoad from "vanilla-lazyload";
 import dataJsModule from "./modules/extendables/dataJsModule";
 

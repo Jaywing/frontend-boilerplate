@@ -4,13 +4,13 @@ table {
   tr {
     &:first-child {
       td {
-        font-weight: bold;
+        font-weight: 700;
       }
     }
   }
 }
 
 .table-overflow {
-  overflow-x: auto;
   width: 100%;
+  overflow-x: auto;
 }

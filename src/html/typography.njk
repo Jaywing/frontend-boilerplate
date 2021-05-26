@@ -1,7 +1,6 @@
 {% extends "_layouts/_master.njk" %}
 
-{% block main -%}
-
+{% block main %}
   <div class="container my-5">
     <h1>H1: Lorem ipsum dolor</h1>
     <h2>H2: Lorem ipsum dolor</h2>
@@ -10,9 +9,8 @@
     <h5>H5: Lorem ipsum dolor</h5>
     <h6>H6: Lorem ipsum dolor</h6>
 
-    <p>Paragraph: Lorem ipsum dolor sit
-      <a href="#">link</a>
-      amet consectetur adipisicing elit. Omnis non minus consequatur, nisi, repudiandae qui illo obcaecati temporibus fuga itaque vel, mollitia tempore officia eaque iure? Labore at, consequatur temporibus voluptas molestias saepe tenetur optio libero cumque. Dolorem aspernatur ad ratione labore dolore doloremque, nobis corrupti quae aperiam temporibus voluptates.</p>
+    <p>Paragraph: Lorem ipsum dolor sit <a href="#">link</a> amet consectetur adipisicing elit. Omnis non minus consequatur, nisi, repudiandae qui illo obcaecati temporibus fuga itaque vel, mollitia tempore officia eaque iure? Labore at, consequatur temporibus voluptas molestias saepe tenetur optio libero cumque. Dolorem aspernatur ad ratione labore dolore doloremque, nobis corrupti quae aperiam temporibus
+    voluptates.</p>
 
     <p class="text-monospace">Monospace: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, ipsa!</p>
 
@@ -31,13 +29,5 @@
       <li>Id eum minus ullam delectus.</li>
       <li>Ipsa provident eveniet pariatur ab!</li>
     </ul>
-
-    <p class="text-primary">Text colour primary</p>
-    <p class="text-secondary">Text colour secondary</p>
-    <p class="text-success">Text colour success</p>
-    <p class="text-danger">Text colour danger</p>
-    <p class="text-warning">Text colour warning</p>
-    <p class="text-info">Text colour info</p>
   </div>
-
-{%- endblock %}
+{% endblock %}

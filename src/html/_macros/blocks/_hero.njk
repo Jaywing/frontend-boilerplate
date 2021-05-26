@@ -1,27 +1,30 @@
 {% macro Hero(data, media) -%}
-
   {% set container = " container" if data.container else 
     "" %}
 
   <div class="hero{{ container }}">
     {% if data.html5Video or data.vimeoId %}
-
       <div class="hero__video">
         <div class="hero__video-container loader">
-          <div class="embed-responsive embed-responsive-16by9" data-js="VideoBackgroundCover">
+          <div class="ratio ratio-16x9" data-js="VideoBackgroundCover">
             {% if data.vimeoId %}
-              <iframe data-src="https://player.vimeo.com/video/{{ data.vimeoId }}?autoplay=1&loop=1&title=0&byline=0&portrait=0" class="embed-responsive-item js-lazy" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="allowfullscreen"></iframe>
+              <iframe
+                data-src="https://player.vimeo.com/video/{{ data.vimeoId }}?autoplay=1&loop=1&title=0&byline=0&portrait=0"
+                class="embed-responsive-item js-lazy"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen="allowfullscreen"></iframe>
             {% elif data.html5Video %}
               <video width="640" height="360" autoplay="autoplay" loop="loop" muted="muted" class="embed-responsive-item js-lazy">
-                <source data-src="{{ data.html5Video }}" type="video/mp4">
-              </video>
+                <source data-src="{{ data.html5Video }}" type="video/mp4"></video>
             {% endif %}
           </div>
         </div>
       </div>
 
     {% elif data.image %}
-
       <div class="hero__img">
         <picture>
           <source media="{{ media.lg }}" data-srcset="{{ data.image.lg }}"/>
@@ -30,7 +33,6 @@
           <img data-src="{{ data.image.lg }}" alt="" width="1920" height="700" class="js-lazy"/>
         </picture>
       </div>
-
     {% endif %}
 
     <div class="hero__overlay">
@@ -53,7 +55,7 @@
       </div>
     </div>
   </div>
-{%- endmacro %}
+{% endmacro %}
 
 {{ Hero(
   {

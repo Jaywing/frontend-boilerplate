@@ -1,13 +1,12 @@
 {% set page = homePage %}
 {% extends "_layouts/_master.njk" %}
 
-{% block main -%}
-
-  <div class="container my-2">
+{% block main %}
+  <div class="container my-3">
     <div data-js="ReactHelloWorld"></div>
   </div>
 
-  <section class="container my-2">
+  <section class="container my-3">
     {{ CardDeck({
       "title": "Blocks",
       "cards": [
@@ -33,13 +32,6 @@
           }
         },
         {
-          "heading": "Image Tiles",
-          "cta": {
-            "label": "See examples",
-            "link": "/blocks/image-tiles.html"
-          }
-        },
-        {
           "heading": "Spread",
           "cta": {
             "label": "See examples",
@@ -49,5 +41,4 @@
       ]
     }) }}
   </section>
-
-{%- endblock %}
+{% endblock main %}

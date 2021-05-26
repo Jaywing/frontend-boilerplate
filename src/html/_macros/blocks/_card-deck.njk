@@ -1,17 +1,16 @@
 {% macro CardDeck(data) -%}
-
   {% if data.noOfColumns === 6 %}
-    {% set columnClasses = "col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-1 mb-sm-2" %}
+    {% set columnClasses = "col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 mb-sm-4" %}
   {% elif data.noOfColumns === 3 %}
-    {% set columnClasses = "col-sm-6 col-md-4 mb-1 mb-sm-2" %}
+    {% set columnClasses = "col-sm-6 col-md-4 mb-3 mb-sm-4" %}
   {% elif data.noOfColumns === 2 %}
-    {% set columnClasses = "col-sm-6 mb-1 mb-sm-2" %}
-  {% else  %}
-    {% set columnClasses = "col-sm-6 col-lg-3 mb-1 mb-sm-2" %}
+    {% set columnClasses = "col-sm-6 mb-3 mb-sm-4" %}
+  {% else %}
+    {% set columnClasses = "col-sm-6 col-lg-3 mb-3 mb-sm-4" %}
   {% endif %}
 
   {% if data.title %}
-    <h2 class="mb-2">{{ data.title }}</h2>
+    <h2 class="mb-4">{{ data.title }}</h2>
   {% endif %}
 
   <div class="row">
@@ -39,7 +38,6 @@
       </div>
     {% endfor %}
   </div>
-
 {%- endmacro %}
 
 {{ CardDeck({

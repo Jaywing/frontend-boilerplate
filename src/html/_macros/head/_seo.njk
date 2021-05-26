@@ -1,18 +1,16 @@
-{% macro Seo(data) -%}
-
-  {%- if data.seoUrl -%}
+{% macro Seo(data) %}
+  {% if data.seoUrl %}
     <link rel="canonical" href="{{ data.seoUrl }}"/>
-  {%- endif -%}
+  {% endif %}
 
-  {%- if data.seoTitle -%}
+  {% if data.seoTitle %}
     <title>{{ data.seoTitle }}</title>
-  {%- endif -%}
+  {% endif %}
 
-  {% if data.seoDescription -%}
+  {% if data.seoDescription %}
     <meta name="description" content="{{ data.seoDescription }}">
-  {%- endif -%}
-
-{%- endmacro %}
+  {% endif %}
+{% endmacro %}
 
 {{ Seo({
   "seoUrl": "https://",

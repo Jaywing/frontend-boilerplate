@@ -2,16 +2,21 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="/">
-        <img src="https://via.placeholder.com/140x40?text=LOGO" alt="Logo" width="140" height="40">
-      </a>
-
-      <button class="navbar-toggler" type="button" data-js="NavCollapse" data-js-options='[{"target": "#mainNav"}]' aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="https://via.placeholder.com/140x40?text=LOGO" alt="Logo" width="140" height="40"></a>
+      <button
+          class="navbar-toggler"
+          type="button"
+          data-js="NavCollapse"
+          data-js-options='[{"target": "#mainNav"}]'
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        <span class="sr-only">Menu</span>
+        <span class="visually-hidden">Menu</span>
       </button>
 
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ms-auto">
           {% for item in menuItems %}
             {% if item.children.length %}
               <li class="nav-item dropdown" data-js="Dropdown">
@@ -31,9 +36,9 @@
           {% endfor %}
         </ul>
 
-        <form class="form-inline mt-1 mt-lg-0 ml-lg-4">
+        <form class="d-flex mt-3 mb-3 mt-lg-0 mb-lg-0 ms-lg-4">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary mt-1 mt-sm-0 ml-sm-1" type="submit">Search</button>
+          <button class="btn btn-primary mt-sm-0 ms-sm-1" type="submit">Search</button>
         </form>
       </div>
     </div>

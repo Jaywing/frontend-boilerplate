@@ -5,8 +5,7 @@
         <div class="col-lg-3">
           <div class="footer__logo">
             <a href="/" title="Home">
-              <img data-src="https://via.placeholder.com/140x40?text=LOGO" alt="Logo" width="140" height="40" class="js-lazy">
-            </a>
+              <img data-src="https://via.placeholder.com/140x40?text=LOGO" alt="Logo" width="140" height="40" class="js-lazy"></a>
           </div>
         </div>
 
@@ -17,35 +16,12 @@
                 <li>
                   <a href="/generic-test/" title="Test">Lorem ipsum</a>
                 </li>
-
                 <li>
                   <a href="/generic-test/" title="Test">Lorem ipsum</a>
                 </li>
-
                 <li>
                   <a href="/generic-test/" title="Test">Lorem ipsum</a>
                 </li>
-
-                <li>
-                  <a href="/generic-test/" title="Test">Lorem ipsum</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-sm-4">
-              <ul class="list-unstyled">
-                <li>
-                  <a href="/generic-test/" title="Test">Lorem ipsum</a>
-                </li>
-
-                <li>
-                  <a href="/generic-test/" title="Test">Lorem ipsum</a>
-                </li>
-
-                <li>
-                  <a href="/generic-test/" title="Test">Lorem ipsum</a>
-                </li>
-
                 <li>
                   <a href="/generic-test/" title="Test">Lorem ipsum</a>
                 </li>
@@ -57,15 +33,29 @@
                 <li>
                   <a href="/generic-test/" title="Test">Lorem ipsum</a>
                 </li>
-
                 <li>
                   <a href="/generic-test/" title="Test">Lorem ipsum</a>
                 </li>
-
                 <li>
                   <a href="/generic-test/" title="Test">Lorem ipsum</a>
                 </li>
+                <li>
+                  <a href="/generic-test/" title="Test">Lorem ipsum</a>
+                </li>
+              </ul>
+            </div>
 
+            <div class="col-sm-4">
+              <ul class="list-unstyled">
+                <li>
+                  <a href="/generic-test/" title="Test">Lorem ipsum</a>
+                </li>
+                <li>
+                  <a href="/generic-test/" title="Test">Lorem ipsum</a>
+                </li>
+                <li>
+                  <a href="/generic-test/" title="Test">Lorem ipsum</a>
+                </li>
                 <li>
                   <a href="/generic-test/" title="Test">Lorem ipsum</a>
                 </li>
@@ -75,7 +65,7 @@
         </div>
 
         {% if socialMediaLinks %}
-          <div class="col-md-4 col-lg-3 ml-auto text-md-right">
+          <div class="col-md-4 col-lg-3 ms-auto text-md-right">
             <h4 class="footer__heading">Follow us</h4>
 
             <ul class="list-unstyled footer__social">
@@ -83,7 +73,7 @@
                 <li>
                   <a href="{{ link.href }}" target="_blank" title="{{ link.platform }}" rel="noopener">
                     <span class="fab {{ link.faClass }}"></span>
-                    <span class="sr-only">{{ link.platform }}</span>
+                    <span class="visually-hidden">{{ link.platform }}</span>
                   </a>
                 </li>
               {% endfor %}

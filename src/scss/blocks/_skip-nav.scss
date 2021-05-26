@@ -1,17 +1,10 @@
 .skip-nav {
-  @extend .sr-only;
+  @include visually-hidden-focusable;
 
-  &:focus-within {
-    position: relative;
-    width: auto;
-    height: auto;
-    margin: 0;
-    clip: auto;
-    padding: 5px;
+  padding: 5px;
 
-    a {
-      padding: 3px;
-      margin-right: 10px;
-    }
+  a {
+    padding: 3px;
+    margin-right: 10px;
   }
 }

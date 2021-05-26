@@ -1,0 +1,48 @@
+{
+  "editor.tabSize": 2,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": false,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "stylelint.enable": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "files.associations": {
+    "*.html": "njk",
+    "*.njk": "nunjucks",
+    "*.cshtml": "razor"
+  },
+  "emmet.includeLanguages": {
+    "njk": "html",
+    "razor": "html",
+    "javascript": "javascriptreact"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "autoimport.filesToScan": "!(**.history**)**/*.{ts,tsx}",
+  "[njk]": {
+    "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vsicons.associations.files": [
+    {
+      "icon": "nunjucks",
+      "extensions": [
+        "njk"
+      ],
+      "format": "svg"
+    }
+  ],
+}

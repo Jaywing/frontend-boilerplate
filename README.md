@@ -57,3 +57,8 @@ yarn build
 ```
 yarn build --proxy
 ```
+
+#### VS Code Extensions
+
+Nunjucks Formatter: https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter
+Prettier: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode

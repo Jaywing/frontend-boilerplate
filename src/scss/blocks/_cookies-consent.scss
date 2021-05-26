@@ -1,42 +1,42 @@
 .cookies-consent {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: ($spacer * 3) $spacer;
   position: fixed;
-  z-index: 10000;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 10000;
   display: none;
   align-items: center;
+  padding: ($spacer * 3) $spacer;
   overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .cookies-consent__dialog {
-  background-color: $white;
+  position: relative;
   width: 600px;
   max-width: 100%;
-  margin: auto;
   padding: $spacer;
+  margin: auto;
+  background-color: $white;
   border-radius: $border-radius-lg;
-  position: relative;
 }
 
 .cookies-consent__close {
   position: absolute;
   top: $spacer;
   right: $spacer;
-  color: $primary;
-  border: solid 3px $secondary;
-  border-radius: 50%;
   width: 35px;
   height: 35px;
-  background-color: transparent;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 20px;
-  text-align: center;
   overflow: hidden;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  color: $primary;
+  text-align: center;
+  background-color: transparent;
+  border: solid 3px $secondary;
+  border-radius: 50%;
 }
 
 .cookies-consent__body {

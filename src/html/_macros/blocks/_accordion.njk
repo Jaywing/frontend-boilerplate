@@ -1,23 +1,27 @@
-{% macro Accordion(data) -%}
-
+{% macro Accordion(data) %}
   {% if data.title %}
-    <h2 class="mb-2">{{ data.title }}</h2>
+    <h2 class="mb-4">{{ data.title }}</h2>
   {% endif %}
 
   <div class="accordion" id="{{ data.accordionId }}" data-js="Accordion">
     {% for i in data.items %}
       {% set firstItemActiveClass = " is-active" if loop.index === 1 and data.expandFirstItem %}
+
       <div class="card js-accordion-item{{ firstItemActiveClass }}">
         {% set ariaExpanded = "true" if loop.index === 1 and data.expandFirstItem else 
           "false" %}
         <div class="card-header" id="heading{{ loop.index }}">
-          <button class="btn btn-link btn-block text-left js-accordion-header" type="button" aria-expanded="{{ ariaExpanded }}" aria-controls="collapse{{ loop.index }}">
+          <button class="btn btn-link d-block w-100 text-start js-accordion-header" type="button" aria-expanded="{{ ariaExpanded }}" aria-controls="collapse{{ loop.index }}">
             {{ i.header }}
           </button>
         </div>
 
         {% set firstItemBodyActiveClass = " show" if loop.index === 1 and data.expandFirstItem %}
-        <div id="collapse{{ loop.index }}" class='js-accordion-body collapse{{ firstItemBodyActiveClass }}' aria-labelledby="heading{{ loop.index }}" data-parent="#{{ data.accordionId }}">
+        <div
+          id="collapse{{ loop.index }}"
+          class='js-accordion-body collapse{{ firstItemBodyActiveClass }}'
+          aria-labelledby="heading{{ loop.index }}"
+          data-parent="#{{ data.accordionId }}">
           <div class="card-body">
             {{ i.body }}
           </div>
@@ -25,8 +29,7 @@
       </div>
     {% endfor %}
   </div>
-
-{%- endmacro %}
+{% endmacro %}
 
 {{ Accordion({
   "title": "Accordion",

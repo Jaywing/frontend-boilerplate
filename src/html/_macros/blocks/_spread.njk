@@ -1,5 +1,4 @@
 {% macro Spread(data, media) -%}
-
   {% set imageRight = " spread--img-right" if data.imageRight else "" %}
   {% set container = " container" if data.container else 
     "" %}
@@ -30,11 +29,9 @@
         {% if data.cta.href and data.cta.label %}
           <a href="{{ data.cta.href }}" class="btn btn-primary">{{ data.cta.label }}</a>
         {% endif %}
-      </p>
+      </div>
     </div>
   </div>
-</div>
-
 {%- endmacro %}
 
 {{ Spread(

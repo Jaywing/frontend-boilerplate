@@ -10,8 +10,8 @@
   position: absolute;
   bottom: $spacer;
   left: $spacer;
-  color: $white;
   margin-bottom: 0;
+  color: $white;
 }
 
 .spread__text {
@@ -36,14 +36,14 @@
   }
 
   .spread__img {
+    display: flex;
     flex: 0 0 50%;
     max-width: 50%;
-    display: flex;
 
     picture {
+      display: flex;
       flex: 0 0 100%;
       max-width: 100%;
-      display: flex;
     }
 
     img {
@@ -56,14 +56,14 @@
 
   .spread__text {
     flex: 0 0 50%;
-    max-width: 50%;
     align-self: center;
+    max-width: 50%;
 
     .container {
       flex: 0 0 (map-get($container-max-widths, md) / 2);
       max-width: (map-get($container-max-widths, md) / 2);
-      margin-left: 0;
       padding-left: $grid-gutter-width;
+      margin-left: 0;
     }
   }
 
@@ -81,10 +81,10 @@
       order: 1;
 
       .container {
-        margin-left: auto;
-        margin-right: 0;
-        padding-left: $grid-gutter-width / 2;
         padding-right: $grid-gutter-width;
+        padding-left: $grid-gutter-width / 2;
+        margin-right: 0;
+        margin-left: auto;
       }
     }
   }
@@ -95,9 +95,9 @@
     .container {
       flex: 0 0 (map-get($container-max-widths, lg) / 2);
       max-width: (map-get($container-max-widths, lg) / 2);
-      padding-left: $grid-gutter-width * 2;
       padding-top: $spacer * 3;
       padding-bottom: $spacer * 3;
+      padding-left: $grid-gutter-width * 2;
     }
   }
 

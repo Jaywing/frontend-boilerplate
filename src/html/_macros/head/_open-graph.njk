@@ -1,30 +1,30 @@
-{% macro OpenGraph(data) -%}
+{% macro OpenGraph(data) %}
 
-  {%- if data.ogTitle -%}
+  {% if data.ogTitle %}
     <meta property="og:title" content="{{ data.ogTitle }}">
-  {%- endif -%}
+  {% endif %}
 
-  {% if data.ogDescription -%}
+  {% if data.ogDescription %}
     <meta property="og:description" content="{{ data.ogDescription }}">
-  {%- endif -%}
+  {% endif %}
 
-  {%- if data.ogUrl -%}
+  {% if data.ogUrl %}
     <meta property="og:url" content="{{ data.ogUrl }}">
-  {%- endif -%}
+  {% endif %}
 
-  {%- if data.ogImageSrc -%}
+  {% if data.ogImageSrc %}
     <meta property="og:image" content="{{ data.ogImageSrc }}">
-  {%- endif -%}
+  {% endif %}
 
-  {%- if data.ogImageSrc and data.ogImageWidth -%}
+  {% if data.ogImageSrc and data.ogImageWidth %}
     <meta property="og:image:width" content="{{ data.ogImageWidth }}">
-  {%- endif -%}
+  {% endif %}
 
-  {%- if data.ogImageSrc and data.ogImageHeight -%}
+  {% if data.ogImageSrc and data.ogImageHeight %}
     <meta property="og:image:height" content="{{ data.ogImageHeight }}">
-  {%- endif -%}
+  {% endif %}
 
-{%- endmacro %}
+{% endmacro %}
 
 {{ OpenGraph({
   "ogTitle": "Page title",

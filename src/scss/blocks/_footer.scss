@@ -1,8 +1,8 @@
 .footer {
-  background: $dark;
-  color: $white;
   padding: ($spacer * 2) 0 $spacer;
   font-size: 0.8rem;
+  color: $white;
+  background: $dark;
 
   a {
     color: $white;
@@ -27,9 +27,9 @@
 }
 
 .footer__heading {
-  color: $white;
-  font-size: ($spacer * 0.9);
   margin-bottom: $spacer;
+  font-size: ($spacer * 0.9);
+  color: $white;
 }
 
 .footer__social {
@@ -45,13 +45,13 @@
   }
 
   a {
+    position: relative;
     display: inline-block;
     width: 26px;
     height: 26px;
+    overflow: hidden;
     font-size: 26px;
     text-align: center;
-    overflow: hidden;
-    position: relative;
 
     .fab {
       position: absolute;
