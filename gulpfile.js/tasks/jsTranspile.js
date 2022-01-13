@@ -8,7 +8,7 @@ const webpackStream = require("webpack-stream");
 function jsTranspile() {
   const webpackConfig = {
     mode: flags.minify ? "production" : "development",
-    entry: paths.js.entry,
+    entry: paths.js.webpackEntry,
     devtool: flags.maps ? "inline-source-map" : "none",
     module: {
       rules: [
