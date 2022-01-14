@@ -1,0 +1,19 @@
+{% macro Seo(data) %}
+  {% if data.seoUrl %}
+    <link rel="canonical" href="{{ data.seoUrl }}"/>
+  {% endif %}
+
+  {% if data.seoTitle %}
+    <title>{{ data.seoTitle }}</title>
+  {% endif %}
+
+  {% if data.seoDescription %}
+    <meta name="description" content="{{ data.seoDescription }}">
+  {% endif %}
+{% endmacro %}
+
+{{ Seo({
+  "seoUrl": "https://",
+  "seoTitle": "Page title",
+  "seoDescription": "Page description"
+}) }}

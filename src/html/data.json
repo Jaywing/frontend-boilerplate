@@ -1,11 +1,4 @@
 {
-  "media": {
-    "sm": "(min-width: 576px)",
-    "md": "(min-width: 768px)",
-    "lg": "(min-width: 992px)",
-    "xl": "(min-width: 1200px)"
-  },
-
   "socialMediaLinks": [
     {
       "platform": "Instagram",
@@ -27,28 +20,12 @@
   "navbar": {
     "menuItems": [
       {
-        "label": "Typography",
-        "href": "/typography.html"
-      },
-      {
-        "label": "Blocks",
+        "label": "Dropdown",
         "href": "#",
         "children": [
           {
-            "label": "Accordion",
-            "href": "/blocks/accordion.html"
-          },
-          {
-            "label": "Card Deck",
-            "href": "/blocks/card-deck.html"
-          },
-          {
-            "label": "Hero",
-            "href": "/blocks/hero.html"
-          },
-          {
-            "label": "Spread",
-            "href": "/blocks/spread.html"
+            "label": "Dropdown Item",
+            "href": "#"
           }
         ]
       }

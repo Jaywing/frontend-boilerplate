@@ -1,0 +1,69 @@
+{% macro Navbar(menuItems) -%}
+  <header id="navbar">
+    <a href="/">
+      <img src="https://via.placeholder.com/140x40?text=LOGO" alt="Logo" width="140" height="40">
+    </a>
+
+    <button
+      id="menu-toggler"
+      type="button"
+      aria-controls="main"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+    </button>
+
+    <div id="menu" style="display: none">
+      <nav>
+        <ul>
+          {% for item in menuItems %}
+            {% if item.children.length %}
+              <li>
+                <a href="{{ item.href }}" id="dropdown{{ loop.index }}" role="button" aria-haspopup="true" aria-expanded="false">{{ item.label }}</a>
+
+                <div aria-labelledby="dropdown{{ loop.index }}">
+                  {% for child in item.children %}
+                    <a href="{{ child.href }}">{{ child.label }}</a>
+                  {% endfor %}
+                </div>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ item.href }}">{{ item.label }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <form>
+        <label for="search">Search</label>
+        <input id="search" type="text" placeholder="Search" aria-label="Search">
+        <button>Search</button>
+      </form>
+    </div>
+  </header>
+{% endmacro %}
+
+{{ Navbar(
+  [
+    {
+      "label": "Item",
+      "href": "#"
+    },
+    {
+      "label": "Parent",
+      "href": "#",
+      "children": [
+        {
+          "label": "Sub item 1",
+          "href": "#"
+        },
+        {
+          "label": "Sub item 2",
+          "href": "#"
+        }
+      ]
+    }
+  ]
+) }}

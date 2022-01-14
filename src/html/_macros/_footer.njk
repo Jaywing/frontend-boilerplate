@@ -1,0 +1,40 @@
+{% macro Footer(socialMediaLinks) %}
+  <footer id="footer">
+    {% if socialMediaLinks %}
+      <h4>Follow us</h4>
+
+      <ul>
+        {% for link in socialMediaLinks %}
+          <li>
+            <a href="{{ link.href }}" target="_blank" title="{{ link.platform }}" rel="noopener">
+              <span class="fab {{ link.faClass }}"></span>
+              <span class="visually-hidden">{{ link.platform }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <p>©2020 Copyright text.</p>
+  </footer>
+{% endmacro %}
+
+{{ Footer(
+  [
+    {
+      "platform": "Instagram",
+      "faClass": "fa-instagram",
+      "href": "https://www.instagram.com/"
+    },
+    {
+      "platform": "Facebook",
+      "faClass": "fa-facebook-f",
+      "href": "https://www.facebook.com/"
+    },
+    {
+      "platform": "Twitter",
+      "faClass": "fa-twitter",
+      "href": "https://twitter.com/"
+    }
+  ]
+) }}
