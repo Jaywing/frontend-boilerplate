@@ -1,5 +1,5 @@
 function fontTransfer() {
-  const flags = require("../config/flags");
+  const flags = require("../../cli-flags.config");
   const gulp = require("gulp");
   const paths = require("../../package.json").paths;
 

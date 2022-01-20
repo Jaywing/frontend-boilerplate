@@ -1,4 +1,4 @@
-const flags = require("../config/flags");
+const flags = require("../../cli-flags.config");
 const gulp = require("gulp");
 const path = require("path");
 const paths = require("../../package.json").paths;
@@ -9,7 +9,7 @@ function jsTranspile() {
   const webpackConfig = {
     mode: flags.minify ? "production" : "development",
     entry: paths.js.webpackEntry,
-    devtool: flags.maps ? "inline-source-map" : "none",
+    devtool: flags.sourcemaps ? "inline-source-map" : "none",
     module: {
       rules: [
         {

@@ -1,7 +1,7 @@
 function htmlTranspile() {
   const paths = require("../../package.json").paths;
   const data = require("../../" + paths.html.staticData);
-  const flags = require("../config/flags");
+  const flags = require("../../cli-flags.config");
   const gulp = require("gulp");
   const gulpif = require("gulp-if");
   const htmlmin = require("gulp-htmlmin");

@@ -1,7 +1,7 @@
 const util = require("gulp-util");
 
 module.exports = {
-  maps: !!util.env.maps,
+  sourcemaps: !!util.env.sourcemaps,
   minify: !!util.env.minify,
   proxy: !!util.env.proxy,
   purge: !!util.env.purge,
