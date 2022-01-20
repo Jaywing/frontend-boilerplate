@@ -7,7 +7,7 @@
 {%- from "_macros/_skip-nav.njk" import SkipNav -%}
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="h-100">
+<html lang="en" dir="ltr" class="h-full">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,7 +41,7 @@
     {% endblock %}
   </head>
 
-  <body class="d-flex flex-column" id="top" style="min-height:100%">
+  <body class="flex flex-col min-h-full" id="top">
     {% block skipNav %}
       {% include "_macros/_skip-nav.njk" %}
     {% endblock %}
