@@ -1,3 +1,4 @@
+require('dotenv').config();
 const flags = require("../cli-flags.config");
 const gulp = require("gulp");
 const paths = require("../package.json").paths;
@@ -40,7 +41,7 @@ const watch = () => {
   const browserSyncOptions = require("../package.json").browserSync;
 
   if (flags.proxy) {
-    browserSyncOptions.proxy = paths.proxyAddress;
+    browserSyncOptions.proxy = process.env.PROXY_URL ? process.env.PROXY_URL : paths.proxyUrl;
   } else {
     browserSyncOptions.server = {
       baseDir: paths.staticDir,
