@@ -18,3 +18,6 @@ static
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+
+# Ignore any Umbraco folders that may be generated into the boilerplate by accident
+Umbraco
