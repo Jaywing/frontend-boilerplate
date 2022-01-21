@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "stylelint-prettier/recommended",
-    "stylelint-config-twbs-bootstrap/scss"
-  ],
+  "extends": ["stylelint-config-prettier"],
   "rules": {
     "prettier/prettier": true
   }
