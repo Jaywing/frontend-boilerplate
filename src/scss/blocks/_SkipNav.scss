@@ -1,0 +1,14 @@
+.SkipNav {
+  @apply block;
+  @apply bg-gray-500;
+  @apply text-white;
+  @apply py-2 #{!important};
+  @apply sr-only;
+  @apply focus-within:not-sr-only;
+
+  &-Link {
+    @apply inline-block;
+    @apply p-1;
+    @apply mr-2;
+  }
+}
