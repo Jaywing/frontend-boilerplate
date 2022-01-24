@@ -1,7 +1,8 @@
 function imageTransfer() {
-  const flags = require("../config/flags");
+  const flags = require("../../cli-flags.config");
   const gulp = require("gulp");
   const imagemin = require("gulp-imagemin");
+  const imageminWebp = require("imagemin-webp");
   const paths = require("../../package.json").paths;
 
   return gulp
@@ -12,7 +13,11 @@ function imageTransfer() {
         imagemin.mozjpeg({ quality: 65, progressive: true }),
         imagemin.optipng({ optimizationLevel: 5 }),
         imagemin.svgo({
-          plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+          plugins: [
+            imageminWebp({ quality: 50 }),
+            { removeViewBox: true },
+            { cleanupIDs: false },
+          ],
         }),
       ])
     )

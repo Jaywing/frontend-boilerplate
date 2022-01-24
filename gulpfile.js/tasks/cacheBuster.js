@@ -1,9 +1,12 @@
 function cacheBuster() {
-  const gulp = require("gulp");
   const paths = require("../../package.json").paths;
+  const gulp = require("gulp");
   const replace = require("gulp-replace");
 
-  // Add ?cbt=1 onto the end of a path to a script of styleheet
+  /*
+      Add ?cbt=1 onto stylesheet or script path
+      EXAMPLE:  <link rel="stylesheet" type="text/css" href="/assets/css/main.css?cbt=1">
+  */
 
   const cbtString = new Date().getTime();
 
