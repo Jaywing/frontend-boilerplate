@@ -1,14 +1,6 @@
 .Dropdown {
-  @apply relative;
-
-  &-Dropdown {
-    @apply hidden;
-    @apply absolute;
-    @apply top-full;
-    @apply left-0;
-
-    .Dropdown.-expanded & {
-      @apply block;
-    }
-  }
+  @apply hidden;
+  @apply absolute;
+  @apply top-full;
+  @apply left-0;
 }
