@@ -1,36 +1,46 @@
 // Import Node Modules
 import LazyLoad from "vanilla-lazyload";
-import dataJsModule from "./modules/extendables/dataJsModule";
+import Navbar from "./modules/Navbar";
 
-// Run LazyLoad
+// LazyLoad
 const lazyload = new LazyLoad({
   elements_selector: ".js-lazy",
 });
 
-// data-js modules
-const dataJsElements = document.querySelectorAll("[data-js]");
+// Navbar
+const elNavbar = document.querySelector("#navbar") as HTMLElement;
 
-for (let i = 0; i < dataJsElements.length; i++) {
-  const el = dataJsElements[i];
+if (elNavbar) {
+  const navbar = new (Navbar as any)(elNavbar);
+  navbar.init();
+}
 
-  const dataJsValue = el.getAttribute("data-js");
-  const dataJsModules: Array<string> = dataJsValue
-    .split(" ")
-    .map(function (item) {
+/* Data JS Modules
+
+Add data-js atrribute to HTML element
+e.g   <div data-js="ModuleName"></div>
+
+It's possible to add multiple modules to a data-js attribute
+e.g   <div data-js="ModuleOne ModuleTwo"></div>
+
+*/
+
+const dataJsElements = document.querySelectorAll(
+  "[data-js]"
+) as NodeListOf<HTMLElement>;
+
+if (dataJsElements.length) {
+  dataJsElements.forEach((element) => {
+    const dataJsValue = element.dataset.js;
+
+    const dataJsModules = dataJsValue.split(" ").map((item) => {
       return item.trim();
+    }) as string[];
+
+    dataJsModules.map((module) => {
+      import(`./modules/${module}`).then((Module) => {
+        new (Module as any).default(element).init();
+      });
     });
-
-  let options = [{}];
-  const dataOptions = el.getAttribute(`data-js-options`);
-
-  if (dataOptions) {
-    options = JSON.parse(dataOptions);
-  }
-
-  for (let name = 0; name < dataJsModules.length; name++) {
-    import(`./modules/${dataJsModules[name]}`).then((Module) => {
-      const module: dataJsModule = new Module.default(el, options[name]);
-      module.init();
-    });
-  }
+  });
 }
