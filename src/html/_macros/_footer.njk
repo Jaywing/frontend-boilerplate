@@ -5,12 +5,14 @@
         <h4>Follow us</h4>
 
         <div class="flex flex-wrap">
-          {% for link in socialMediaLinks %}
-            <a href="{{ link.href }}" target="_blank" title="{{ link.platform }}" rel="noopener">
-              <span class="fab {{ link.faClass }}"></span>
-              <span class="visually-hidden">{{ link.platform }}</span>
-            </a>
-          {% endfor %}
+          <div class="Footer-Social">
+            {% for link in socialMediaLinks %}
+              <a href="{{ link.href }}" target="_blank" title="{{ link.platform }}" rel="noopener">
+                <span class="fab {{ link.faClass }}"></span>
+                <span class="visually-hidden">{{ link.platform }}</span>
+              </a>
+            {% endfor %}
+          </div>
         </div>
       {% endif %}
 

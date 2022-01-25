@@ -1,10 +1,11 @@
 .Footer {
-  background: var(--brand-primary);
-
+  @apply bg-brand-primary;
   @apply mt-auto;
   @apply text-white;
   @apply py-10;
+}
 
+.Footer-Social {
   a {
     @apply mr-2;
   }
