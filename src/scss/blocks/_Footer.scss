@@ -1,0 +1,11 @@
+.Footer {
+  background: var(--brand-primary);
+
+  @apply mt-auto;
+  @apply text-white;
+  @apply py-10;
+
+  a {
+    @apply mr-2;
+  }
+}
