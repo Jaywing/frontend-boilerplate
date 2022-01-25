@@ -1,46 +1,47 @@
-import dataJsModule from "./extendables/dataJsModule";
+/* Example HTML
+  ...
+*/
 
-export default class Dropdown extends dataJsModule {
-  toggler: HTMLElement;
-  dropdown: HTMLElement;
+export default function Dropdown(el: HTMLElement) {
+  const activeClassName = "-expanded";
 
-  init() {
-    this.toggler = this.el.querySelector(".js-toggler");
-    this.dropdown = this.el.querySelector(".js-dropdown");
+  this.el = el;
+  this.isExpanded = false as boolean;
 
-    if (this.toggler && this.dropdown) {
-      this.clickToggler();
-      this.clickWindow();
-    }
-  }
+  this.init = () => {
+    this.elToggler = this.el.querySelector(".js-Toggler") as HTMLButtonElement;
+    if (this.elToggler == null) return;
 
-  private clickToggler() {
-    this.toggler.addEventListener("click", (e) => {
-      e.preventDefault();
+    this.togglerClick();
+  };
 
-      if (this.dropdown.style.display === "block") {
-        this.collapse();
+  this.togglerClick = () => {
+    this.elToggler.addEventListener("click", () => {
+      if (this.isExpanded === true) {
+        this.collapseDropdown();
       } else {
-        this.expand();
+        this.expandDropdown();
       }
     });
-  }
+  };
 
-  private clickWindow() {
-    window.addEventListener("click", (e: any) => {
-      if (!this.el.contains(e.target)) {
-        this.collapse();
-      }
-    });
-  }
+  this.collapseDropdown = () => {
+    this.isExpanded = false;
+    this.elToggler.setAttribute("aria-expanded", this.isExpanded.toString());
+    this.el.classList.remove(activeClassName);
+  };
 
-  private collapse() {
-    this.toggler.setAttribute("aria-expanded", "false");
-    this.dropdown.style.display = "";
-  }
+  this.expandDropdown = () => {
+    this.isExpanded = true;
+    this.elToggler.setAttribute("aria-expanded", this.isExpanded.toString());
+    this.el.classList.add(activeClassName);
+    document.addEventListener("click", (e: any) => this.dropdownBlur(e));
+  };
 
-  private expand() {
-    this.toggler.setAttribute("aria-expanded", "true");
-    this.dropdown.style.display = "block";
-  }
+  this.dropdownBlur = (e: any) => {
+    if (!this.el.contains(e.target)) {
+      this.collapseDropdown();
+      document.removeEventListener("click", () => this.dropdownBlur(e));
+    }
+  };
 }

@@ -1,5 +1,9 @@
-// VARIABLES
-@import "variables";
+@import "cssVariables";
 
-// CUSTOM BLOCKS
+@tailwind base;
+@tailwind components;
+
+@import "accessibility";
 @import "blocks/_blocks";
+
+@tailwind utilities;

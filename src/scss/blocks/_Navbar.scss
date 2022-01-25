@@ -1,0 +1,54 @@
+$activeClassName: "-navbarMenuExpanded";
+
+html.#{$activeClassName} {
+  @apply overflow-hidden;
+}
+
+.Navbar {
+  --header-height: 70px;
+
+  height: var(--header-height);
+  background: var(--brand-primary);
+
+  @apply text-white;
+  @apply py-3;
+  @apply sticky;
+
+  &-Logo {
+    @apply inline-flex;
+    @apply p-0;
+  }
+
+  &-MenuToggler {
+    @apply ml-auto;
+    @apply p-3;
+
+    @screen lg {
+      @apply hidden;
+    }
+  }
+
+  &-Menu {
+    top: var(--header-height);
+    background: var(--brand-primary);
+
+    @apply overflow-y-auto;
+    @apply hidden;
+    @apply fixed;
+    @apply right-0;
+    @apply bottom-0;
+    @apply left-0;
+    @apply ml-auto;
+
+    @screen lg {
+      @apply top-0;
+      @apply block;
+      @apply bg-transparent;
+      @apply relative;
+    }
+
+    html.#{$activeClassName} & {
+      @apply block;
+    }
+  }
+}

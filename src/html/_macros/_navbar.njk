@@ -1,46 +1,44 @@
 {% macro Navbar(menuItems) -%}
-  <header id="navbar">
-    <a href="/">
-      <img src="https://via.placeholder.com/140x40?text=LOGO" alt="Logo" width="140" height="40">
-    </a>
+  <header id="navbar" class="Navbar dark-bg">
+    <div class="container flex items-center">
+      <a href="/" class="Navbar-Logo">
+        <img src="https://via.placeholder.com/140x40?text=LOGO" alt="Logo" width="140" height="40">
+      </a>
 
-    <button
-      id="menu-toggler"
-      type="button"
-      aria-controls="main"
-      aria-expanded="false"
-      aria-label="Toggle navigation">
-      Menu
-    </button>
+      <button
+        id="menu-toggler"
+        class="Navbar-MenuToggler"
+        type="button"
+        aria-controls="menu"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+      </button>
 
-    <div id="menu" style="display: none">
-      <nav>
-        <ul>
-          {% for item in menuItems %}
-            {% if item.children.length %}
-              <li>
-                <a href="{{ item.href }}" id="dropdown{{ loop.index }}" role="button" aria-haspopup="true" aria-expanded="false">{{ item.label }}</a>
+      <div id="menu" class="Navbar-Menu">
+        <div class="container lg:flex">
+          <nav>
+            {% for item in menuItems %}
+              {% if item.children.length %}
+                <div class="Dropdown" data-js="Dropdown">
+                  <div>
+                    <a href="{{ item.href }}">{{ item.label }}</a>
+                    <button id="navDropdown{{ loop.index }}" class="js-Toggler" aria-haspopup="true" aria-expanded="false">Down</button>
+                  </div>
 
-                <div aria-labelledby="dropdown{{ loop.index }}">
-                  {% for child in item.children %}
-                    <a href="{{ child.href }}">{{ child.label }}</a>
-                  {% endfor %}
+                  <div class="Dropdown-Dropdown" aria-labelledby="navDropdown{{ loop.index }}">
+                    {% for child in item.children %}
+                      <a href="{{ child.href }}">{{ child.label }}</a>
+                    {% endfor %}
+                  </div>
                 </div>
-              </li>
-            {% else %}
-              <li>
+              {% else %}
                 <a href="{{ item.href }}">{{ item.label }}</a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </nav>
-
-      <form>
-        <label for="search">Search</label>
-        <input id="search" type="text" placeholder="Search" aria-label="Search">
-        <button>Search</button>
-      </form>
+              {% endif %}
+            {% endfor %}
+          </nav>
+        </div>
+      </div>
     </div>
   </header>
 {% endmacro %}
