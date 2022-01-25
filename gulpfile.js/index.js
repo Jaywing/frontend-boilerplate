@@ -49,33 +49,29 @@ const watch = () => {
     done();
   }
 
-  gulp.watch(
-    paths.css.src + "*.scss",
-    gulp.series(cssTranspile, cacheBuster, browserReload)
-  );
+  const watchComplete = gulp.series(cacheBuster, browserReload);
 
   gulp.watch(
-    paths.fonts.src,
-    gulp.series(fontTransfer, cacheBuster, browserReload)
+    paths.css.src + "*.scss",
+    gulp.series(cssTranspile, watchComplete)
   );
+
+  gulp.watch(paths.fonts.src, gulp.series(fontTransfer, watchComplete));
 
   if (flags.proxy) {
     gulp.watch(paths.html.proxyWatch, cssTranspile, browserReload);
   } else {
     gulp.watch(
       paths.html.staticSrc + "*.njk",
-      gulp.series(htmlTranspile, cssTranspile, browserReload)
+      gulp.series(htmlTranspile, cssTranspile, watchComplete)
     );
   }
 
-  gulp.watch(
-    paths.images.src,
-    gulp.series(imageTransfer, cssTranspile, browserReload)
-  );
+  gulp.watch(paths.images.src, gulp.series(imageTransfer, watchComplete));
 
   gulp.watch(
     paths.js.src + "*.+(ts|tsx|js|jsx)",
-    gulp.series(jsTranspile, cssTranspile, browserReload)
+    gulp.series(jsTranspile, cssTranspile, watchComplete)
   );
 };
 
