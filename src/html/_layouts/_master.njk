@@ -1,10 +1,9 @@
 {# Import Macros #}
-{%- from "_macros/_open-graph.njk" import OpenGraph -%}
-{%- from "_macros/_seo.njk" import Seo -%}
-{%- from "_macros/_twitter-card.njk" import TwitterCard -%}
-{%- from "_macros/_footer.njk" import Footer -%}
-{%- from "_macros/_navbar.njk" import Navbar -%}
-{%- from "_macros/_skip-nav.njk" import SkipNav -%}
+{%- from "_macros/_OpenGraph.njk" import OpenGraph -%}
+{%- from "_macros/_Seo.njk" import Seo -%}
+{%- from "_macros/_TwitterCard.njk" import TwitterCard -%}
+{%- from "_macros/_Footer.njk" import Footer -%}
+{%- from "_macros/_Navbar.njk" import Navbar -%}
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="h-full">
@@ -43,7 +42,7 @@
 
   <body class="flex flex-col min-h-full" id="top">
     {% block skipNav %}
-      {% include "_macros/_skip-nav.njk" %}
+      {% include "_macros/_SkipNav.njk" %}
     {% endblock %}
 
     {% block header %}
