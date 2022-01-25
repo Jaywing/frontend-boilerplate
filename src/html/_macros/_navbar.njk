@@ -20,13 +20,13 @@
           <nav>
             {% for item in menuItems %}
               {% if item.children.length %}
-                <div class="Dropdown" data-js="Dropdown">
+                <div class="relative" data-js="Dropdown">
                   <div>
                     <a href="{{ item.href }}">{{ item.label }}</a>
                     <button id="navDropdown{{ loop.index }}" class="js-Toggler" aria-haspopup="true" aria-expanded="false">Down</button>
                   </div>
 
-                  <div class="Dropdown-Dropdown" aria-labelledby="navDropdown{{ loop.index }}">
+                  <div class="Dropdown js-Dropdown" aria-labelledby="navDropdown{{ loop.index }}">
                     {% for child in item.children %}
                       <a href="{{ child.href }}">{{ child.label }}</a>
                     {% endfor %}
