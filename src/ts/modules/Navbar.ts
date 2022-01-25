@@ -1,10 +1,17 @@
-/* Example HTML
-  ...
+/*  Example HTML
+
+    <header>
+      <button id="menu-toggler" type="button" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+        ...
+      </button>
+
+      <div id="menu">
+        ...
+      </div>
+    </header>
 */
 
 export default function Navbar(el: HTMLElement) {
-  const activeClassName = "-navbarMenuExpanded";
-
   this.el = el;
   this.isMenuExpanded = false as boolean;
 
@@ -12,8 +19,10 @@ export default function Navbar(el: HTMLElement) {
     this.elMenuToggler = this.el.querySelector(
       "#menu-toggler"
     ) as HTMLButtonElement;
-
     if (this.elMenuToggler == null) return;
+
+    this.elMenu = this.el.querySelector("#menu") as HTMLElement;
+    if (this.elMenu == null) return;
 
     this.menuTogglerClick();
   };
@@ -34,13 +43,18 @@ export default function Navbar(el: HTMLElement) {
       "aria-expanded",
       this.isMenuExpanded.toString()
     );
-    document.documentElement.classList.remove(activeClassName);
+    this.elMenu.style.display = "";
+    document.documentElement.style.overflow = "";
   };
 
   this.expandMenu = () => {
     this.isMenuExpanded = true;
-    this.elMenuToggler.setAttribute("aria-expanded", "true");
-    document.documentElement.classList.add(activeClassName);
+    this.elMenuToggler.setAttribute(
+      "aria-expanded",
+      this.isMenuExpanded.toString()
+    );
+    this.elMenu.style.display = "block";
+    document.documentElement.style.overflow = "hidden";
     document.addEventListener("click", (e: any) => this.menuBlur(e));
   };
 

@@ -1,9 +1,3 @@
-$activeClassName: "-navbarMenuExpanded";
-
-html.#{$activeClassName} {
-  @apply overflow-hidden;
-}
-
 .Navbar {
   height: var(--navbar-height);
 
@@ -45,9 +39,5 @@ html.#{$activeClassName} {
     @apply bg-transparent;
     @apply relative;
     @apply overflow-y-visible;
-  }
-
-  html.#{$activeClassName} & {
-    @apply block;
   }
 }
