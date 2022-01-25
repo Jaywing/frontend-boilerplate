@@ -4,22 +4,22 @@
 
 ## Basic Usage
 
-##### Install Node.js
+##### Install NodeJS
 
 Make sure you have unsintalled any pre-existing Node.js installations before installing NVM.
 **Mac**: Use Homebrew to install NVM
 **Windows**: Download NVM from https://github.com/coreybutler/nvm-windows.
 
-Once NVM is installed, open your preffered terminal and run the following to install Node.js 12.x:
+Once NVM is installed, open your preffered terminal and run the following to install NodeJS:
 
 ```
-nvm install 14.x
+nvm install 16.x
 ```
 
-Then activate node 14.x
+Then activate node 16.x
 
 ```
-nvm use 14.x
+nvm use 16.x
 ```
 
 #### Install yarn & gulp globally
@@ -34,7 +34,7 @@ npm install yarn gulp -g
 yarn
 ```
 
-#### Run local server for static HTML and watch for changes
+#### Run local server to build static HTML files and watch for changes
 
 ```
 yarn start
