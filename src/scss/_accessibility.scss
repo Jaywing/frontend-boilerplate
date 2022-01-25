@@ -1,0 +1,13 @@
+a,
+button,
+input,
+select,
+textarea {
+  @apply focus:outline-dashed;
+  @apply focus:outline-2;
+  @apply focus:outline-black;
+
+  .dark-bg & {
+    @apply focus:outline-white;
+  }
+}
