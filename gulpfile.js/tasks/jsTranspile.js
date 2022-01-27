@@ -9,7 +9,7 @@ function jsTranspile() {
   const webpackConfig = {
     mode: flags.minify ? "production" : "development",
     entry: paths.js.webpackEntry,
-    devtool: flags.sourcemaps ? "inline-source-map" : "none",
+    devtool: flags.sourcemaps ? "cheap-module-source-map" : false,
     module: {
       rules: [
         {
