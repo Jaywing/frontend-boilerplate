@@ -15,10 +15,6 @@
 .Navbar-MenuToggler {
   @apply ml-auto;
   @apply p-3;
-
-  @screen lg {
-    @apply hidden;
-  }
 }
 
 .Navbar-Menu {
@@ -32,12 +28,4 @@
   @apply bottom-0;
   @apply left-0;
   @apply ml-auto;
-
-  @screen lg {
-    @apply top-0;
-    @apply block;
-    @apply bg-transparent;
-    @apply relative;
-    @apply overflow-y-visible;
-  }
 }

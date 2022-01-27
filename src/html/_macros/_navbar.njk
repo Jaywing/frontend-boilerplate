@@ -12,11 +12,17 @@
         aria-controls="menu"
         aria-expanded="false"
         aria-label="Toggle navigation">
-        Menu
+        <span class="sr-only">Menu</span>
+
+        <div class="Hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </button>
 
       <div id="menu" class="Navbar-Menu">
-        <div class="container lg:flex">
+        <div class="container">
           <nav>
             {% for item in menuItems %}
               {% if item.children.length %}
