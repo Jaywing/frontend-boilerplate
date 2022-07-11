@@ -2,7 +2,6 @@ require("dotenv").config();
 const flags = require("../cli-flags.config");
 const paths = require("../package.json").paths;
 const gulp = require("gulp");
-const gulpif = require("gulp-if");
 
 // INDIVIDUAL TASKS
 const clean = require("./tasks/clean").clean;
@@ -13,18 +12,32 @@ const htmlTranspile = require("./tasks/htmlTranspile").htmlTranspile;
 const imageTransfer = require("./tasks/imageTransfer").imageTransfer;
 const jsTranspile = require("./tasks/jsTranspile").jsTranspile;
 
-const build = gulp.series(
-  clean,
-  gulpif(!flags.proxy, htmlTranspile),
-  htmlTranspile,
-  gulp.parallel(
-    cssTranspile,
-    fontTransfer,
-    imageTransfer,
-    jsTranspile,
-    cacheBuster
-  )
-);
+let build;
+
+if (flags.proxy) {
+  build = gulp.series(
+    clean,
+    gulp.parallel(
+      cssTranspile,
+      fontTransfer,
+      imageTransfer,
+      jsTranspile,
+      cacheBuster
+    )
+  );
+} else {
+  build = gulp.series(
+    clean,
+    htmlTranspile,
+    gulp.parallel(
+      cssTranspile,
+      fontTransfer,
+      imageTransfer,
+      jsTranspile,
+      cacheBuster
+    )
+  );
+}
 
 const watch = () => {
   build();

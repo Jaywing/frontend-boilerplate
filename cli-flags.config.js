@@ -1,10 +1,10 @@
-const util = require("gulp-util");
+const argv = require("minimist")(process.argv.slice(2));
 
 module.exports = {
-  combinemq: !!util.env.combinemq,
-  minify: !!util.env.minify,
-  proxy: !!util.env.proxy,
-  purge: !!util.env.purge,
-  sourcemaps: !!util.env.sourcemaps,
-  tsErrors: !!util.env.tsErrors,
+  combinemq: !!argv.combinemq,
+  minify: !!argv.minify,
+  proxy: !!argv.proxy,
+  purge: !!argv.purge,
+  sourcemaps: !!argv.sourcemaps,
+  tsErrors: !!argv.tsErrors,
 };
