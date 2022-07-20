@@ -72,7 +72,7 @@ const watch = () => {
   gulp.watch(paths.fonts.src, gulp.series(fontTransfer, watchComplete));
 
   if (flags.proxy) {
-    gulp.watch(paths.html.proxyWatch, cssTranspile, browserReload);
+    gulp.watch(paths.html.proxyWatch, gulp.series(cssTranspile, browserReload));
   } else {
     gulp.watch(
       paths.html.staticSrc + "*.njk",
