@@ -4,61 +4,52 @@
 
 ## Basic Usage
 
-##### Install NodeJS
+##### Install NVM (If you haven't already)
 
 Make sure you have unsintalled any pre-existing Node.js installations before installing NVM.
 **Mac**: Use Homebrew to install NVM
 **Windows**: Download NVM from https://github.com/coreybutler/nvm-windows.
 
-Once NVM is installed, open your preffered terminal and run the following to install NodeJS:
+NVM will detect the required node version for this project from the nvmrc file
+
+#### Install gulp globally
 
 ```
-nvm install 16.x
-```
-
-Then activate node 16.x
-
-```
-nvm use 16.x
-```
-
-#### Install yarn & gulp globally
-
-```
-npm install yarn gulp -g
+pnpm install gulp -g
 ```
 
 #### Install node modules
 
 ```
-yarn
+pnpm install
 ```
 
 #### Run local server to build static HTML files and watch for changes
 
 ```
-yarn start
+npm start
 ```
 
 #### Run local proxy server and watch for changes
 
 ```
-yarn start --proxy
+npm start --proxy
 ```
 
 #### Build static HTML pages and prouduction assets
 
 ```
-yarn build
+npm build
 ```
 
 #### Build proxy production assets
 
 ```
-yarn build --proxy
+npm build --proxy
 ```
 
 #### VS Code Extensions
 
 Nunjucks Formatter: https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter
 Prettier: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+Tailwind Intellisense: https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
