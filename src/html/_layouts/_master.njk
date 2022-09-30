@@ -1,9 +1,5 @@
 {# Import Macros #}
-{%- from "_macros/_OpenGraph.njk" import OpenGraph -%}
 {%- from "_macros/_Seo.njk" import Seo -%}
-{%- from "_macros/_TwitterCard.njk" import TwitterCard -%}
-{%- from "_macros/_Footer.njk" import Footer -%}
-{%- from "_macros/_Navbar.njk" import Navbar -%}
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="h-full">
@@ -17,45 +13,15 @@
       "seoDescription": page.pageDescription
     }) }}
 
-    {{ OpenGraph({
-      "ogTitle": page.pageTitle,
-      "ogDescription": page.pageDescription,
-      "ogUrl": page.pageUrl,
-      "ogImageSrc": page.pageSocialImage,
-      "ogImageWidth": "1200",
-      "ogImageHeight": "630"
-    }) }}
-
-    {{ TwitterCard({
-      "twitterCard": "summary",
-      "twitterSite": "@username",
-      "twitterTitle": page.pageTitle,
-      "twitterDescription": page.pageDescription,
-      "twitterImage": page.pageSocialImage,
-      "twitterImageAlt": page.pageSocialImageAlt
-    }) }}
-
     {% block styles %}
       <link rel="stylesheet" type="text/css" href="/assets/css/main.css?cbt=1">
     {% endblock %}
   </head>
 
   <body class="flex flex-col min-h-full" id="top">
-    {% block skipNav %}
-      {% include "_macros/_SkipNav.njk" %}
-    {% endblock %}
-
-    {% block header %}
-      {{ Navbar(navbar.menuItems) }}
-    {% endblock %}
-
     <main id="content">
       {% block main %}{% endblock %}
     </main>
-
-    {% block footer %}
-      {{ Footer(socialMediaLinks) }}
-    {% endblock %}
 
     {% block scripts %}
       <script src="/assets/js/main.js?cbt=1"></script>

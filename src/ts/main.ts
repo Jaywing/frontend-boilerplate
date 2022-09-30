@@ -1,19 +1,10 @@
 // Import Node Modules
 import LazyLoad from "vanilla-lazyload";
-import Navbar from "./modules/Navbar";
 
 // LazyLoad
 const lazyload = new LazyLoad({
   elements_selector: ".js-lazy",
 });
-
-// Navbar
-const elNavbar = document.querySelector("#navbar") as HTMLElement;
-
-if (elNavbar) {
-  const navbar = new (Navbar as any)(elNavbar);
-  navbar.init();
-}
 
 /* Data JS Modules
 

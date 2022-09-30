@@ -1,10 +1,6 @@
-@import "cssVariables";
-
 @tailwind base;
 @tailwind components;
 
-@import "accessibility";
-@import "interactiveIcons/_interactiveIcons";
 @import "blocks/_blocks";
 
 @tailwind utilities;
